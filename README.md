@@ -1,4 +1,7 @@
-<img src=".docs/orcahand.png" width="500">
+<div style="display: flex; gap: 10px;">
+  <img src=".docs/orcahand.png" alt="ORCA hand" height="300">
+  <img src=".docs/orcahand_combined_extended.png" alt="Combined extended ORCA hand" height="300">
+</div>
 
 # Orcahand Description
 
