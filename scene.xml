@@ -1,6 +1,6 @@
 <mujoco model="orcahand scene">
     
-    <include file="orcahand_right.mjcf"/>
+    <!-- <include file="orcahand_right.mjcf"/> -->
     <!-- <include file="orcahand_left.mjcf"/> -->
   
     <!-- Camera placement -->

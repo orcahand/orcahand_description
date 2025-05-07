@@ -5,9 +5,13 @@ from pathlib import Path
 from tabulate import tabulate
 from termcolor import colored
 
+##################################################################################################
+############################################# Helpers ############################################
+##################################################################################################
+
 def _load_mesh(mesh_file: Path) -> trimesh.Trimesh:
     '''
-    Load a mesh from a file. (Mainly for syntax highlighting :) )
+    Load a mesh from a file. (Mainly for syntax highlighting later on)
 
     Args:
         mesh_file (Path): Path to the STL file.
@@ -19,6 +23,10 @@ def _load_mesh(mesh_file: Path) -> trimesh.Trimesh:
         raise FileNotFoundError(f"{mesh_file} is not a valid file.")
     
     return trimesh.load_mesh(mesh_file, force='mesh')
+
+##################################################################################################
+########################################### List faces ###########################################
+##################################################################################################
 
 def list_nb_faces(directory: Path) -> None:
     '''
@@ -62,6 +70,80 @@ def list_nb_faces(directory: Path) -> None:
     headers = ["Filename", "Face Count", "Filename", "Face Count"]
     print(tabulate(side_by_side, headers=headers, tablefmt="grid"))
 
+##################################################################################################
+########################################## Shift meshes ##########################################
+##################################################################################################
+
+def shift_mesh(stl_file: Path, amount: float = 0.0, axis: str = 'x', verbose: bool = True) -> None:
+    '''
+    Shift a mesh along a specified axis by a given amount.
+
+    Args:
+        stl_file (Path): Path to the STL file to shift.
+        amount (float):  Amount to shift in the specified axis.
+        axis (str):      Axis to shift along ('x', 'y', or 'z'). Default is 'x'.
+        verbose (bool):  If True, print a success message. Default is True.
+    '''
+    stl_file = Path(stl_file)
+    if not stl_file.is_file():
+        raise FileNotFoundError(f"{stl_file} is not a valid file.")
+    
+    if axis not in ['x', 'y', 'z']:
+        raise ValueError(f"Invalid axis '{axis}'. Options are 'x', 'y', or 'z'.")
+    
+    axis2index = {'x': 0, 'y': 1, 'z': 2}
+    idx = axis2index[axis]
+
+    if verbose and amount == 0.0:
+        print(colored(f"Warning: No shift applied to '{stl_file.name}' and no new file exported.", "yellow"))
+        return
+    elif amount < 0.0:
+        shift_text = f"m{abs(int(amount))}"
+    elif amount > 0.0:
+        shift_text = str(int(amount))
+    output_dir = stl_file.parent.parent / f"{stl_file.parent.stem}_shifted_{shift_text}_{axis}"
+    os.makedirs(output_dir, exist_ok=True)
+
+    mesh = _load_mesh(stl_file)
+    mesh.vertices[:, idx] += amount
+
+    mesh.export(output_dir / stl_file.name)
+    if verbose:
+        print(colored(f"Shifted '{stl_file.name}' by {amount} along {axis}-axis and saved it to: {output_dir / stl_file.name}", "green"))
+
+def shift_meshes(mesh_dir: Path, amount: float = 0.0, axis: str = 'x') -> None:
+    '''
+    Shift all STL files in a directory along a specified axis by a given amount.
+
+    Args:
+        mesh_dir (Path): Directory containing the STL files to shift.
+        amount (float):  Amount to shift in the specified axis.
+        axis (str):      Axis to shift along ('x', 'y', or 'z'). Default is 'x'.
+    '''
+    mesh_dir = Path(mesh_dir)
+    if not mesh_dir.is_dir():
+        raise NotADirectoryError(f"{mesh_dir} is not a valid directory.")
+    
+    if axis not in ['x', 'y', 'z']:
+        raise ValueError(f"Invalid axis '{axis}'. Options are 'x', 'y', or 'z'.")
+
+    for stl_file in mesh_dir.rglob("*.stl"):
+        shift_mesh(stl_file, amount, axis, verbose=False)
+
+    if amount == 0.0:
+        print(colored(f"Warning: No shift applied to any STL files in '{mesh_dir}' and no new files exported.", "yellow"))
+        return
+    elif amount < 0.0:
+        shift_text = f"m{abs(int(amount))}"
+    elif amount > 0.0:
+        shift_text = str(int(amount))
+    output_dir = mesh_dir.parent / f"{mesh_dir.stem}_shifted_{shift_text}_{axis}"
+    print(colored(f"Shifted all STL files in '{mesh_dir}' by {amount} along the {axis}-axis into '{output_dir}'", "green"))
+
+##################################################################################################
+######################################### Mirror meshes ##########################################
+##################################################################################################
+
 def mirror_mesh(stl_file: Path, plane: str = 'yz', verbose: bool = True) -> None:
     '''
     Mirror a mesh around a given plane.
@@ -69,7 +151,7 @@ def mirror_mesh(stl_file: Path, plane: str = 'yz', verbose: bool = True) -> None
     Args:
         stl_file (Path): Path to the STL file to mirror.
         plane (str):     Plane to mirror across. Options are 'yz' (default), 'xz' and 'xy'.
-        verbose (bool):  If True, print a success message.
+        verbose (bool):  If True, print a success message. Default is True.
     '''
     stl_file = Path(stl_file)
     if not stl_file.is_file():
@@ -101,9 +183,19 @@ def mirror_meshes(mesh_dir: Path, plane: str = 'yz') -> None:
     mesh_dir = Path(mesh_dir)
     if not mesh_dir.is_dir():
         raise NotADirectoryError(f"{mesh_dir} is not a valid directory.")
+    
+    if plane not in ['yz', 'xz', 'xy']:
+        raise ValueError(f"Invalid plane '{plane}'. Options are 'yz' (default), 'xz', or 'xy'.")
 
     for stl_file in mesh_dir.rglob("*.stl"):
-        mirror_mesh(stl_file, plane)
+        mirror_mesh(stl_file, plane, verbose=False)
+
+    output_dir = mesh_dir.parent / f"{mesh_dir.stem}_mirrored_{plane}"
+    print(colored(f"Mirrored all STL files in '{mesh_dir}' around the {plane} plane into '{output_dir}'", "green"))
+
+##################################################################################################
+######################################### Reduce meshes ##########################################
+##################################################################################################
 
 def reduce_mesh(stl_file: Path, target_faces: int, verbose: bool = True) -> None:
     '''
@@ -112,7 +204,7 @@ def reduce_mesh(stl_file: Path, target_faces: int, verbose: bool = True) -> None
     Args:
         stl_file (Path):    Path to the original STL file.
         target_faces (int): Target number of faces for the mesh.
-        verbose (bool):     If True, print a success message.
+        verbose (bool):     If True, print a success message. Default is True.
     '''
     stl_file = Path(stl_file)
     if not stl_file.is_file():
@@ -148,26 +240,29 @@ def reduce_meshes(mesh_dir: Path, target_faces: int) -> None:
     mesh_dir = Path(mesh_dir)
     if not mesh_dir.is_dir():
         raise NotADirectoryError(f"{mesh_dir} is not a valid directory.")
-
-    print(colored(f"Face counts in '{mesh_dir}' before reduction:", "green"))
-    list_nb_faces(mesh_dir)
     
     for stl_file in mesh_dir.rglob("*.stl"):
         reduce_mesh(stl_file, target_faces, verbose=False)
 
     output_dir = mesh_dir.parent / f"{mesh_dir.stem}_{target_faces}"
-    print(colored(f"\nFace counts in '{output_dir}' after reduction:", "green"))
-    list_nb_faces(output_dir)
+    print(colored(f"Reduced all STL files in '{mesh_dir}' to a maximum of {target_faces} faces into '{output_dir}'", "green"))
 
-# Example usages
+##################################################################################################
+######################################### Example Usages #########################################
+##################################################################################################
+
 if __name__ == "__main__":
     ## List number of faces
     list_nb_faces(Path("meshes") / "right" / "visual")
 
     ## Reduce meshes
-    reduce_meshes(Path("meshes") / "right" / "visual", 100000)
-    reduce_mesh(Path("meshes") / "right" / "visual" / "visual_tower_main.stl", 100000)
+    reduce_mesh(Path("meshes") / "right" / "visual" / "visual_tower_main.stl", target_faces=100000)
+    reduce_meshes(Path("meshes") / "right" / "visual", target_faces=100000)
 
     ## Mirror meshes
+    mirror_mesh(Path("meshes") / "right" / "visual" / "visual_tower_main.stl", plane='yz')
     mirror_meshes(Path("meshes") / "right" / "visual", plane='yz')
-    mirror_mesh(Path("meshes") / "right" / "visual" / "visual_tower_fans.stl", plane='yz')
+
+    ## Shift meshes
+    shift_mesh(Path("meshes") / "right" / "visual" / "visual_tower_hull.stl", amount=-81, axis='x')
+    shift_meshes(Path("meshes") / "right" / "visual", amount=-81, axis='x')
