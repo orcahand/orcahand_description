@@ -156,7 +156,7 @@
   <worldbody>
     <body name="root">
       <!-- Body: left_tower -->
-      <body euler="0.0 0.0 0.0" name="left_tower" pos="0.15 0.0 0.04975">
+      <body euler="0.0 0.0 0.0" name="left_tower" pos="-0.04 0.0 0.04975">
         <inertial diaginertia="0.00150422 0.00125262 0.0007962" euler="-0.00261 -0.00737 -0.04145" mass="0.9" pos="-0.04034 -0.00091 0.01912"/>
         <!-- Main -->
         <geom class="bone" mesh="left_visual_tower_main_mesh"/>
@@ -353,7 +353,7 @@
         </body>
       </body>
       <!-- Body: right_tower -->
-      <body euler="0.0 0.0 0.0" name="right_tower" pos="-0.15 0.0 0.04975">
+      <body euler="0.0 0.0 0.0" name="right_tower" pos="0.04 0.0 0.04975">
         <inertial diaginertia="0.00150422 0.00125262 0.0007962" euler="-0.00261 0.00737 0.04145" mass="0.9" pos="0.04034 -0.00091 0.01912"/>
         <!-- Main -->
         <geom class="bone" mesh="right_visual_tower_main_mesh"/>
