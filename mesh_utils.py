@@ -256,8 +256,8 @@ if __name__ == "__main__":
     list_nb_faces(Path("meshes") / "right" / "visual")
 
     ## Reduce meshes
-    reduce_mesh(Path("meshes") / "right" / "visual" / "visual_tower_main.stl", target_faces=100000)
-    reduce_meshes(Path("meshes") / "right" / "visual", target_faces=100000)
+    reduce_mesh(Path("meshes") / "right" / "visual" / "visual_tower_main.stl", target_faces=15000)
+    reduce_meshes(Path("meshes") / "right" / "visual", target_faces=15000)
 
     ## Mirror meshes
     mirror_mesh(Path("meshes") / "right" / "visual" / "visual_tower_main.stl", plane='yz')

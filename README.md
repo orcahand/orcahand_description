@@ -18,19 +18,20 @@ The URDF description will be added soon - for now, use converters such as [mjcf_
    ```
 3. Simulate the orcahand in mujoco:
    ```bash
-   python3 -m mujoco.viewer --mjcf=scene.xml
+   cd combined
+   python3 -m mujoco.viewer --mjcf=scene_combined.xml
    ```
 
 ## Note on Meshes
 Visual meshes contain the following amount of faces:
-- Main tower & Camera: 15'000
-- Rest of Base: 2'000
+- Main tower, camera & fans: 15'000
+- Rest of base: 2'000
 - Skin: 5'000
 - Rest: 500
 
 Collision meshes contain the following amount of faces:
-- Main tower & Camera: 7500
-- Base: 1000
+- Main tower, camera & fans: 7500
+- Rest of base: 1000
 - Skin: 500
 - Rest: 250
 
