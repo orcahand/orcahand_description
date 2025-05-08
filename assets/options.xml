@@ -1,0 +1,35 @@
+<?xml version="1.0" ?>
+<mujoco model="orcahand_left">
+  
+  <!-- eulerseq "XYZ" corresponds to URDF "rpy" -->
+  <compiler angle="radian" eulerseq="XYZ" meshdir="assets"/>
+  
+  <default>
+    <mesh scale="0.001 0.001 0.001"/>
+    <!-- Visual classes -->
+    <default class="visual_base">
+      <geom conaffinity="0" condim="1" contype="0" group="2" type="mesh"/>
+      <default class="skin">
+        <geom material="white"/>
+      </default>
+      <default class="bone">
+        <geom material="black"/>
+      </default>
+    </default>
+    <!-- Collision class -->
+    <default class="collision">
+      <geom conaffinity="1" condim="3" contype="1" group="1" material="invisible" type="mesh"/>
+    </default>
+    <!-- Joints -->
+    <joint armature="0.001" damping="0.1" frictionloss="0.001" limited="true" margin="0.01" type="hinge"/>
+    <position ctrllimited="true" forcelimited="true" forcerange="-1 1" kp="2.0"/>
+  </default>
+
+  <asset>
+    <!-- Materials -->
+    <material name="white" rgba="1 1 1 1" shininess="0.5" specular="0.1"/>
+    <material name="black" rgba="0.25 0.25 0.25 1" shininess="0.2" specular="0.05"/>
+    <material name="invisible" rgba="1 1 1 0" shininess="0" specular="0"/>
+  </asset>
+
+</mujoco>

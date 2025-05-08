@@ -21,7 +21,6 @@ The URDF description will be added soon - for now, use converters such as [mjcf_
    ```
 3. Simulate the orcahand in mujoco:
    ```bash
-   cd combined
    python3 -m mujoco.viewer --mjcf=scene_combined.xml
    ```
 
@@ -38,9 +37,10 @@ Collision meshes contain the following amount of faces:
 - Skin: 500
 - Rest: 250
 
-You can further reduce or mirror meshes using the `mesh_utils.py` script. With the same script, you can also print their number of faces. Some extra dependencies are required:
+You can further reduce or mirror meshes using the `utils/mesh_utils.py` script. With the same script, you can also print their number of faces. Some extra dependencies are required:
 ```bash
-pip install trimesh fast_simplification tabulate termcolor
+cd utils
+pip install -r utils_requirements.txt
 ```
 
 We can also recommend the VSCode extension `mtsmfm.vscode-stl-viewer` for quickly visualizing STL meshes.

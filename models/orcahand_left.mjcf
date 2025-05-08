@@ -1,108 +1,77 @@
-<mujoco model="orcahand_left_extended">
-  <!-- eulerseq "XYZ" corresponds to URDF "rpy" -->
-  <compiler angle="radian" eulerseq="XYZ" meshdir="../assets/left"/>
-  <default>
-    <mesh scale="0.001 0.001 0.001"/>
-    <!-- Visual classes -->
-    <default class="visual_base">
-      <geom conaffinity="0" condim="1" contype="0" group="2" type="mesh"/>
-      <default class="skin">
-        <geom material="white"/>
-      </default>
-      <default class="bone">
-        <geom material="black"/>
-      </default>
-    </default>
-    <!-- Collision class -->
-    <default class="collision">
-      <geom conaffinity="1" condim="3" contype="1" group="1" material="invisible" type="mesh"/>
-    </default>
-    <!-- Joints -->
-    <joint armature="0.001" damping="0.1" frictionloss="0.001" limited="true" margin="0.01" type="hinge"/>
-    <position ctrllimited="true" forcelimited="true" forcerange="-1 1" kp="2.0"/>
-  </default>
+<?xml version="1.0" ?>
+<mujoco model="orcahand_left">
   <asset>
     <!-- Visual -->
-    <mesh file="visual/left_visual_tower_main.stl" name="left_visual_tower_main_mesh"/>
-    <mesh file="visual/left_visual_tower_hull.stl" name="left_visual_tower_hull_mesh"/>
-    <mesh file="visual/left_visual_tower_text.stl" name="left_visual_tower_text_mesh"/>
-    <mesh file="visual/left_visual_tower_fans.stl" name="left_visual_tower_fans_mesh"/>
-    <mesh file="visual/left_visual_tower_u2d2.stl" name="left_visual_tower_u2d2_mesh"/>
-    <mesh file="visual/left_visual_tower_camera.stl" name="left_visual_tower_camera_mesh"/>
-    <mesh file="visual/left_visual_palm.stl" name="left_visual_palm_mesh"/>
-    <mesh file="visual/left_visual_thumb_mp.stl" name="left_visual_thumb_mp_mesh"/>
-    <mesh file="visual/left_visual_thumb_pp.stl" name="left_visual_thumb_pp_mesh"/>
-    <mesh file="visual/left_visual_thumb_ip.stl" name="left_visual_thumb_ip_mesh"/>
-    <mesh file="visual/left_visual_thumb_dp.stl" name="left_visual_thumb_dp_mesh"/>
-    <mesh file="visual/left_visual_index_mp.stl" name="left_visual_index_mp_mesh"/>
-    <mesh file="visual/left_visual_index_pp.stl" name="left_visual_index_pp_mesh"/>
-    <mesh file="visual/left_visual_index_ip.stl" name="left_visual_index_ip_mesh"/>
-    <mesh file="visual/left_visual_middle_mp.stl" name="left_visual_middle_mp_mesh"/>
-    <mesh file="visual/left_visual_middle_pp.stl" name="left_visual_middle_pp_mesh"/>
-    <mesh file="visual/left_visual_middle_ip.stl" name="left_visual_middle_ip_mesh"/>
-    <mesh file="visual/left_visual_ring_mp.stl" name="left_visual_ring_mp_mesh"/>
-    <mesh file="visual/left_visual_ring_pp.stl" name="left_visual_ring_pp_mesh"/>
-    <mesh file="visual/left_visual_ring_ip.stl" name="left_visual_ring_ip_mesh"/>
-    <mesh file="visual/left_visual_pinky_mp.stl" name="left_visual_pinky_mp_mesh"/>
-    <mesh file="visual/left_visual_pinky_pp.stl" name="left_visual_pinky_pp_mesh"/>
-    <mesh file="visual/left_visual_pinky_ip.stl" name="left_visual_pinky_ip_mesh"/>
-    <mesh file="visual/left_visual_palm_skin.stl" name="left_visual_palm_skin_mesh"/>
-    <mesh file="visual/left_visual_thumb_ip_skin.stl" name="left_visual_thumb_ip_skin_mesh"/>
-    <mesh file="visual/left_visual_thumb_dp_skin.stl" name="left_visual_thumb_dp_skin_mesh"/>
-    <mesh file="visual/left_visual_index_pp_skin.stl" name="left_visual_index_pp_skin_mesh"/>
-    <mesh file="visual/left_visual_index_ip_skin.stl" name="left_visual_index_ip_skin_mesh"/>
-    <mesh file="visual/left_visual_middle_pp_skin.stl" name="left_visual_middle_pp_skin_mesh"/>
-    <mesh file="visual/left_visual_middle_ip_skin.stl" name="left_visual_middle_ip_skin_mesh"/>
-    <mesh file="visual/left_visual_ring_pp_skin.stl" name="left_visual_ring_pp_skin_mesh"/>
-    <mesh file="visual/left_visual_ring_ip_skin.stl" name="left_visual_ring_ip_skin_mesh"/>
-    <mesh file="visual/left_visual_pinky_pp_skin.stl" name="left_visual_pinky_pp_skin_mesh"/>
-    <mesh file="visual/left_visual_pinky_ip_skin.stl" name="left_visual_pinky_ip_skin_mesh"/>
+    <mesh file="left/visual/left_visual_tower_main.stl" name="left_visual_tower_main_mesh"/>
+    <mesh file="left/visual/left_visual_tower_hull.stl" name="left_visual_tower_hull_mesh"/>
+    <mesh file="left/visual/left_visual_tower_text.stl" name="left_visual_tower_text_mesh"/>
+    <mesh file="left/visual/left_visual_palm.stl" name="left_visual_palm_mesh"/>
+    <mesh file="left/visual/left_visual_thumb_mp.stl" name="left_visual_thumb_mp_mesh"/>
+    <mesh file="left/visual/left_visual_thumb_pp.stl" name="left_visual_thumb_pp_mesh"/>
+    <mesh file="left/visual/left_visual_thumb_ip.stl" name="left_visual_thumb_ip_mesh"/>
+    <mesh file="left/visual/left_visual_thumb_dp.stl" name="left_visual_thumb_dp_mesh"/>
+    <mesh file="left/visual/left_visual_index_mp.stl" name="left_visual_index_mp_mesh"/>
+    <mesh file="left/visual/left_visual_index_pp.stl" name="left_visual_index_pp_mesh"/>
+    <mesh file="left/visual/left_visual_index_ip.stl" name="left_visual_index_ip_mesh"/>
+    <mesh file="left/visual/left_visual_middle_mp.stl" name="left_visual_middle_mp_mesh"/>
+    <mesh file="left/visual/left_visual_middle_pp.stl" name="left_visual_middle_pp_mesh"/>
+    <mesh file="left/visual/left_visual_middle_ip.stl" name="left_visual_middle_ip_mesh"/>
+    <mesh file="left/visual/left_visual_ring_mp.stl" name="left_visual_ring_mp_mesh"/>
+    <mesh file="left/visual/left_visual_ring_pp.stl" name="left_visual_ring_pp_mesh"/>
+    <mesh file="left/visual/left_visual_ring_ip.stl" name="left_visual_ring_ip_mesh"/>
+    <mesh file="left/visual/left_visual_pinky_mp.stl" name="left_visual_pinky_mp_mesh"/>
+    <mesh file="left/visual/left_visual_pinky_pp.stl" name="left_visual_pinky_pp_mesh"/>
+    <mesh file="left/visual/left_visual_pinky_ip.stl" name="left_visual_pinky_ip_mesh"/>
+    <mesh file="left/visual/left_visual_palm_skin.stl" name="left_visual_palm_skin_mesh"/>
+    <mesh file="left/visual/left_visual_thumb_ip_skin.stl" name="left_visual_thumb_ip_skin_mesh"/>
+    <mesh file="left/visual/left_visual_thumb_dp_skin.stl" name="left_visual_thumb_dp_skin_mesh"/>
+    <mesh file="left/visual/left_visual_index_pp_skin.stl" name="left_visual_index_pp_skin_mesh"/>
+    <mesh file="left/visual/left_visual_index_ip_skin.stl" name="left_visual_index_ip_skin_mesh"/>
+    <mesh file="left/visual/left_visual_middle_pp_skin.stl" name="left_visual_middle_pp_skin_mesh"/>
+    <mesh file="left/visual/left_visual_middle_ip_skin.stl" name="left_visual_middle_ip_skin_mesh"/>
+    <mesh file="left/visual/left_visual_ring_pp_skin.stl" name="left_visual_ring_pp_skin_mesh"/>
+    <mesh file="left/visual/left_visual_ring_ip_skin.stl" name="left_visual_ring_ip_skin_mesh"/>
+    <mesh file="left/visual/left_visual_pinky_pp_skin.stl" name="left_visual_pinky_pp_skin_mesh"/>
+    <mesh file="left/visual/left_visual_pinky_ip_skin.stl" name="left_visual_pinky_ip_skin_mesh"/>
     <!-- Collision -->
-    <mesh file="collision/left_collision_tower_main.stl" name="left_collision_tower_main_mesh"/>
-    <mesh file="collision/left_collision_tower_hull.stl" name="left_collision_tower_hull_mesh"/>
-    <mesh file="collision/left_collision_tower_text.stl" name="left_collision_tower_text_mesh"/>
-    <mesh file="collision/left_collision_tower_fans.stl" name="left_collision_tower_fans_mesh"/>
-    <mesh file="collision/left_collision_tower_u2d2.stl" name="left_collision_tower_u2d2_mesh"/>
-    <mesh file="collision/left_collision_tower_camera.stl" name="left_collision_tower_camera_mesh"/>
-    <mesh file="collision/left_collision_palm.stl" name="left_collision_palm_mesh"/>
-    <mesh file="collision/left_collision_thumb_mp.stl" name="left_collision_thumb_mp_mesh"/>
-    <mesh file="collision/left_collision_thumb_pp.stl" name="left_collision_thumb_pp_mesh"/>
-    <mesh file="collision/left_collision_thumb_ip.stl" name="left_collision_thumb_ip_mesh"/>
-    <mesh file="collision/left_collision_thumb_dp.stl" name="left_collision_thumb_dp_mesh"/>
-    <mesh file="collision/left_collision_index_mp.stl" name="left_collision_index_mp_mesh"/>
-    <mesh file="collision/left_collision_index_pp.stl" name="left_collision_index_pp_mesh"/>
-    <mesh file="collision/left_collision_index_ip.stl" name="left_collision_index_ip_mesh"/>
-    <mesh file="collision/left_collision_middle_mp.stl" name="left_collision_middle_mp_mesh"/>
-    <mesh file="collision/left_collision_middle_pp.stl" name="left_collision_middle_pp_mesh"/>
-    <mesh file="collision/left_collision_middle_ip.stl" name="left_collision_middle_ip_mesh"/>
-    <mesh file="collision/left_collision_ring_mp.stl" name="left_collision_ring_mp_mesh"/>
-    <mesh file="collision/left_collision_ring_pp.stl" name="left_collision_ring_pp_mesh"/>
-    <mesh file="collision/left_collision_ring_ip.stl" name="left_collision_ring_ip_mesh"/>
-    <mesh file="collision/left_collision_pinky_mp.stl" name="left_collision_pinky_mp_mesh"/>
-    <mesh file="collision/left_collision_pinky_pp.stl" name="left_collision_pinky_pp_mesh"/>
-    <mesh file="collision/left_collision_pinky_ip.stl" name="left_collision_pinky_ip_mesh"/>
-    <mesh file="collision/left_collision_palm_skin.stl" name="left_collision_palm_skin_mesh"/>
-    <mesh file="collision/left_collision_thumb_ip_skin.stl" name="left_collision_thumb_ip_skin_mesh"/>
-    <mesh file="collision/left_collision_thumb_dp_skin.stl" name="left_collision_thumb_dp_skin_mesh"/>
-    <mesh file="collision/left_collision_index_pp_skin.stl" name="left_collision_index_pp_skin_mesh"/>
-    <mesh file="collision/left_collision_index_ip_skin.stl" name="left_collision_index_ip_skin_mesh"/>
-    <mesh file="collision/left_collision_middle_pp_skin.stl" name="left_collision_middle_pp_skin_mesh"/>
-    <mesh file="collision/left_collision_middle_ip_skin.stl" name="left_collision_middle_ip_skin_mesh"/>
-    <mesh file="collision/left_collision_ring_pp_skin.stl" name="left_collision_ring_pp_skin_mesh"/>
-    <mesh file="collision/left_collision_ring_ip_skin.stl" name="left_collision_ring_ip_skin_mesh"/>
-    <mesh file="collision/left_collision_pinky_pp_skin.stl" name="left_collision_pinky_pp_skin_mesh"/>
-    <mesh file="collision/left_collision_pinky_ip_skin.stl" name="left_collision_pinky_ip_skin_mesh"/>
-    <!-- Materials -->
-    <material name="white" rgba="1 1 1 1" shininess="0.5" specular="0.1"/>
-    <material name="black" rgba="0.25 0.25 0.25 1" shininess="0.2" specular="0.05"/>
-    <material name="invisible" rgba="1 1 1 0" shininess="0" specular="0"/>
+    <mesh file="left/collision/left_collision_tower_main.stl" name="left_collision_tower_main_mesh"/>
+    <mesh file="left/collision/left_collision_tower_hull.stl" name="left_collision_tower_hull_mesh"/>
+    <mesh file="left/collision/left_collision_tower_text.stl" name="left_collision_tower_text_mesh"/>
+    <mesh file="left/collision/left_collision_palm.stl" name="left_collision_palm_mesh"/>
+    <mesh file="left/collision/left_collision_thumb_mp.stl" name="left_collision_thumb_mp_mesh"/>
+    <mesh file="left/collision/left_collision_thumb_pp.stl" name="left_collision_thumb_pp_mesh"/>
+    <mesh file="left/collision/left_collision_thumb_ip.stl" name="left_collision_thumb_ip_mesh"/>
+    <mesh file="left/collision/left_collision_thumb_dp.stl" name="left_collision_thumb_dp_mesh"/>
+    <mesh file="left/collision/left_collision_index_mp.stl" name="left_collision_index_mp_mesh"/>
+    <mesh file="left/collision/left_collision_index_pp.stl" name="left_collision_index_pp_mesh"/>
+    <mesh file="left/collision/left_collision_index_ip.stl" name="left_collision_index_ip_mesh"/>
+    <mesh file="left/collision/left_collision_middle_mp.stl" name="left_collision_middle_mp_mesh"/>
+    <mesh file="left/collision/left_collision_middle_pp.stl" name="left_collision_middle_pp_mesh"/>
+    <mesh file="left/collision/left_collision_middle_ip.stl" name="left_collision_middle_ip_mesh"/>
+    <mesh file="left/collision/left_collision_ring_mp.stl" name="left_collision_ring_mp_mesh"/>
+    <mesh file="left/collision/left_collision_ring_pp.stl" name="left_collision_ring_pp_mesh"/>
+    <mesh file="left/collision/left_collision_ring_ip.stl" name="left_collision_ring_ip_mesh"/>
+    <mesh file="left/collision/left_collision_pinky_mp.stl" name="left_collision_pinky_mp_mesh"/>
+    <mesh file="left/collision/left_collision_pinky_pp.stl" name="left_collision_pinky_pp_mesh"/>
+    <mesh file="left/collision/left_collision_pinky_ip.stl" name="left_collision_pinky_ip_mesh"/>
+    <mesh file="left/collision/left_collision_palm_skin.stl" name="left_collision_palm_skin_mesh"/>
+    <mesh file="left/collision/left_collision_thumb_ip_skin.stl" name="left_collision_thumb_ip_skin_mesh"/>
+    <mesh file="left/collision/left_collision_thumb_dp_skin.stl" name="left_collision_thumb_dp_skin_mesh"/>
+    <mesh file="left/collision/left_collision_index_pp_skin.stl" name="left_collision_index_pp_skin_mesh"/>
+    <mesh file="left/collision/left_collision_index_ip_skin.stl" name="left_collision_index_ip_skin_mesh"/>
+    <mesh file="left/collision/left_collision_middle_pp_skin.stl" name="left_collision_middle_pp_skin_mesh"/>
+    <mesh file="left/collision/left_collision_middle_ip_skin.stl" name="left_collision_middle_ip_skin_mesh"/>
+    <mesh file="left/collision/left_collision_ring_pp_skin.stl" name="left_collision_ring_pp_skin_mesh"/>
+    <mesh file="left/collision/left_collision_ring_ip_skin.stl" name="left_collision_ring_ip_skin_mesh"/>
+    <mesh file="left/collision/left_collision_pinky_pp_skin.stl" name="left_collision_pinky_pp_skin_mesh"/>
+    <mesh file="left/collision/left_collision_pinky_ip_skin.stl" name="left_collision_pinky_ip_skin_mesh"/>
   </asset>
   <worldbody>
     <!-- ======== -->
     <!-- | BASE | -->
     <!-- ======== -->
     <!-- Body: left_tower -->
-    <body euler="0.0 0.0 0.0" name="left_tower" pos="0.04 0.0 0.04975">
+    <body euler="0.0 0.0 0.0" name="left_tower" pos="-0.04 0.0 0.04575">
       <inertial diaginertia="0.00150422 0.00125262 0.0007962" euler="-0.00261 -0.00737 -0.04145" mass="0.9" pos="-0.04034 -0.00091 0.01912"/>
       <!-- Main -->
       <geom class="bone" mesh="left_visual_tower_main_mesh"/>
@@ -113,15 +82,6 @@
       <!-- Text -->
       <geom class="skin" mesh="left_visual_tower_text_mesh"/>
       <geom class="collision" mesh="left_collision_tower_text_mesh"/>
-      <!-- Fans -->
-      <geom class="bone" mesh="left_visual_tower_fans_mesh"/>
-      <geom class="collision" mesh="left_collision_tower_fans_mesh"/>
-      <!-- U2D2 Board -->
-      <geom class="bone" mesh="left_visual_tower_u2d2_mesh"/>
-      <geom class="collision" mesh="left_collision_tower_u2d2_mesh"/>
-      <!-- Camera Mount -->
-      <geom class="bone" mesh="left_visual_tower_camera_mesh"/>
-      <geom class="collision" mesh="left_collision_tower_camera_mesh"/>
       <!-- Body: left_palm -->
       <body euler="0.0 0.0 0.0" name="left_palm" pos="-0.03863 0.00144 0.14359">
         <inertial diaginertia="1.612e-05 1.151e-05 6.72e-06" euler="1.67519 -0.0475 -1.55556" mass="0.0257" pos="-0.00193 -0.00052 -0.00664"/>
@@ -310,28 +270,28 @@
   </worldbody>
   <actuator>
     <!-- Base -->
-    <position ctrlrange="-0.8972 0.6736" joint="left_wrist" name="wrist_actuator"/>
+    <position ctrlrange="-0.8972 0.6736" joint="left_wrist" name="left_wrist_actuator"/>
     <!-- Thumb -->
-    <position ctrlrange="-0.87266 0.87266" joint="left_thumb_mcp" name="thumb_mcp_actuator"/>
-    <position ctrlrange="-1.08211 0.0" joint="left_thumb_abd" name="thumb_abd_actuator"/>
-    <position ctrlrange="-0.7944 1.23" joint="left_thumb_pip" name="thumb_pip_actuator"/>
-    <position ctrlrange="-0.85384 1.45" joint="left_thumb_dip" name="thumb_dip_actuator"/>
+    <position ctrlrange="-0.87266 0.87266" joint="left_thumb_mcp" name="left_thumb_mcp_actuator"/>
+    <position ctrlrange="-1.08211 0.0" joint="left_thumb_abd" name="left_thumb_abd_actuator"/>
+    <position ctrlrange="-0.7944 1.23" joint="left_thumb_pip" name="left_thumb_pip_actuator"/>
+    <position ctrlrange="-0.85384 1.45" joint="left_thumb_dip" name="left_thumb_dip_actuator"/>
     <!-- Index -->
-    <position ctrlrange="-1.04577 0.24577" joint="left_index_abd" name="index_abd_actuator"/>
-    <position ctrlrange="-0.34907 1.65806" joint="left_index_mcp" name="index_mcp_actuator"/>
-    <position ctrlrange="-0.34907 1.88496" joint="left_index_pip" name="index_pip_actuator"/>
+    <position ctrlrange="-1.04577 0.24577" joint="left_index_abd" name="left_index_abd_actuator"/>
+    <position ctrlrange="-0.34907 1.65806" joint="left_index_mcp" name="left_index_mcp_actuator"/>
+    <position ctrlrange="-0.34907 1.88496" joint="left_index_pip" name="left_index_pip_actuator"/>
     <!-- Middle -->
-    <position ctrlrange="-0.64577 0.64577" joint="left_middle_abd" name="middle_abd_actuator"/>
-    <position ctrlrange="-0.34907 1.58825" joint="left_middle_mcp" name="middle_mcp_actuator"/>
-    <position ctrlrange="-0.34907 1.8675" joint="left_middle_pip" name="middle_pip_actuator"/>
+    <position ctrlrange="-0.64577 0.64577" joint="left_middle_abd" name="left_middle_abd_actuator"/>
+    <position ctrlrange="-0.34907 1.58825" joint="left_middle_mcp" name="left_middle_mcp_actuator"/>
+    <position ctrlrange="-0.34907 1.8675" joint="left_middle_pip" name="left_middle_pip_actuator"/>
     <!-- Ring -->
-    <position ctrlrange="-0.47577 0.80577" joint="left_ring_abd" name="ring_abd_actuator"/>
-    <position ctrlrange="-0.34907 1.58825" joint="left_ring_mcp" name="ring_mcp_actuator"/>
-    <position ctrlrange="-0.34907 1.8675" joint="left_ring_pip" name="ring_pip_actuator"/>
+    <position ctrlrange="-0.47577 0.80577" joint="left_ring_abd" name="left_ring_abd_actuator"/>
+    <position ctrlrange="-0.34907 1.58825" joint="left_ring_mcp" name="left_ring_mcp_actuator"/>
+    <position ctrlrange="-0.34907 1.8675" joint="left_ring_pip" name="left_ring_pip_actuator"/>
     <!-- Pinky -->
-    <position ctrlrange="-0.12244 1.1691" joint="left_pinky_abd" name="pinky_abd_actuator"/>
-    <position ctrlrange="-0.34907 1.71042" joint="left_pinky_mcp" name="pinky_mcp_actuator"/>
-    <position ctrlrange="-0.34907 1.88496" joint="left_pinky_pip" name="pinky_pip_actuator"/>
+    <position ctrlrange="-0.12244 1.1691" joint="left_pinky_abd" name="left_pinky_abd_actuator"/>
+    <position ctrlrange="-0.34907 1.71042" joint="left_pinky_mcp" name="left_pinky_mcp_actuator"/>
+    <position ctrlrange="-0.34907 1.88496" joint="left_pinky_pip" name="left_pinky_pip_actuator"/>
   </actuator>
   <contact>
     <!-- Base -->
