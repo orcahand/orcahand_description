@@ -5,9 +5,7 @@
 
 # Orcahand Description
 
-This repository contains the description files for the Orcahand model. Currently, only the MJCF description is available. The 'extended' version contains additional bodies (incl. inertial properties) such as the camera mount, the U2D2 board and fans.
-
-The URDF description will be added soon - for now, use converters such as [mjcf_urdf_simple_converter](https://github.com/Yasu31/mjcf_urdf_simple_converter) or [mjcf2urdf](https://github.com/iory/mjcf2urdf) to convert the MJCF description to URDF.
+This repository contains the description files for the Orcahand model (Both URDF and MJCF). The 'extended' version contains additional bodies (incl. inertial properties) such as the camera mount, the U2D2 board and fans.
 
 ## Example Usage
 1. Clone the repository:
