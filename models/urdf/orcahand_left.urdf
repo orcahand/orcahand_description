@@ -315,6 +315,18 @@
       <child link="left_thumb_dp"/>
       <origin xyz="-0.0 -0.0 -0.0" rpy="0.0 0.0 0.0"/>
    </joint>
+   <link name="left_thumb_fingertip">
+      <inertial>
+                  <origin xyz="0.003 0.0 0.025" rpy="0.0 0.0 0.0"/>
+         <mass value="0.0"/>
+         <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0" ixz="0" iyz="0"/>
+      </inertial>
+   </link>
+   <joint type="fixed" name="thumb_dp2left_thumb_fingertip_fixed_offset">
+      <parent link="left_thumb_dp"/>
+      <child link="left_thumb_fingertip"/>
+               <origin xyz="0.003 0.0 0.025" rpy="0.0 0.0 0.0"/>
+   </joint>
    <link name="left_index_mp">
       <inertial>
          <origin xyz="-0.01155 0.0 -4e-05" rpy="-2.6535897934554242e-06 1.5707926535897934 3.141592653589793"/>
@@ -462,6 +474,18 @@
       <parent link="left_index_pip_jointbody"/>
       <child link="left_index_ip"/>
       <origin xyz="-0.0 -0.0 -0.0" rpy="0.0 0.0 0.0"/>
+   </joint>
+   <link name="left_index_fingertip">
+      <inertial>
+         <origin xyz="0.009 0.0 0.035" rpy="0.0 0.0 0.0"/>
+         <mass value="0.0"/>
+         <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0" ixz="0" iyz="0"/>
+      </inertial>
+   </link>
+   <joint type="fixed" name="left_index_ip2left_index_fingertip_fixed_offset">
+      <parent link="left_index_ip"/>
+      <child link="left_index_fingertip"/>
+      <origin xyz="0.009 0.0 0.035" rpy="0.0 0.0 0.0"/>
    </joint>
    <link name="left_middle_mp">
       <inertial>
@@ -611,6 +635,18 @@
       <child link="left_middle_ip"/>
       <origin xyz="-0.0 -0.0 -0.0" rpy="0.0 0.0 0.0"/>
    </joint>
+   <link name="left_middle_fingertip">
+      <inertial>
+         <origin xyz="0.009 0.0 0.035" rpy="0.0 0.0 0.0"/>
+         <mass value="0.0"/>
+         <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0" ixz="0" iyz="0"/>
+      </inertial>
+   </link>
+   <joint type="fixed" name="left_middle_ip2left_index_fingertip_fixed_offset">
+      <parent link="left_middle_ip"/>
+      <child link="left_middle_fingertip"/>
+      <origin xyz="0.009 0.0 0.035" rpy="0.0 0.0 0.0"/>
+   </joint>
    <link name="left_ring_mp">
       <inertial>
          <origin xyz="-0.01155 0.0 -4e-05" rpy="-2.6535897934554242e-06 1.5707926535897934 3.141592653589793"/>
@@ -759,6 +795,18 @@
       <child link="left_ring_ip"/>
       <origin xyz="-0.0 -0.0 -0.0" rpy="0.0 0.0 0.0"/>
    </joint>
+   <link name="left_ring_fingertip">
+      <inertial>
+         <origin xyz="0.009 0.0 0.035" rpy="0.0 0.0 0.0"/>
+         <mass value="0.0"/>
+         <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0" ixz="0" iyz="0"/>
+      </inertial>
+   </link>
+   <joint type="fixed" name="left_ring_ip2left_index_fingertip_fixed_offset">
+      <parent link="left_ring_ip"/>
+      <child link="left_ring_fingertip"/>
+      <origin xyz="0.009 0.0 0.035" rpy="0.0 0.0 0.0"/>
+   </joint>
    <link name="left_pinky_mp">
       <inertial>
          <origin xyz="-0.01155 0.0 -4e-05" rpy="-2.6535897934554242e-06 1.5707926535897934 3.141592653589793"/>
@@ -906,6 +954,18 @@
       <parent link="left_pinky_pip_jointbody"/>
       <child link="left_pinky_ip"/>
       <origin xyz="-0.0 -0.0 -0.0" rpy="0.0 0.0 0.0"/>
+   </joint>
+   <link name="left_pinky_fingertip">
+      <inertial>
+         <origin xyz="0.009 0.0 0.035" rpy="0.0 0.0 0.0"/>
+         <mass value="0.0"/>
+         <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0" ixz="0" iyz="0"/>
+      </inertial>
+   </link>
+   <joint type="fixed" name="left_pinky_ip2left_index_fingertip_fixed_offset">
+      <parent link="left_pinky_ip"/>
+      <child link="left_pinky_fingertip"/>
+      <origin xyz="0.009 0.0 0.035" rpy="0.0 0.0 0.0"/>
    </joint>
    <material name="white">
       <color rgba="1 1 1 1"/>
