@@ -161,8 +161,8 @@
       <parent link="right_tower"/>
       <child link="right_wrist_jointbody"/>
       <origin xyz="0.04063 0.0 0.10486999999999999" rpy="0.0 0.0 0.0"/>
-      <axis xyz="1.0 0.0 0.0"/>
-      <limit lower="-0.6736" upper="0.8972" effort="100" velocity="100"/>
+      <axis xyz="-1.0 0.0 0.0"/>
+   <limit lower="-1.047198" upper="0.523599" effort="100" velocity="100"/>
    </joint>
    <joint type="fixed" name="right_wrist_offset">
       <parent link="right_wrist_jointbody"/>
@@ -202,7 +202,7 @@
       <child link="right_thumb_mcp_jointbody"/>
       <origin xyz="-0.02821 0.01777 -0.01321" rpy="0.5385700000000002 -0.05594999999999972 -1.27047"/>
       <axis xyz="0.0 0.0 -1.0"/>
-      <limit lower="-0.87266" upper="0.87266" effort="100" velocity="100"/>
+      <limit lower="-0.610865" upper="1.134464" effort="100" velocity="100"/>
    </joint>
    <joint type="fixed" name="right_thumb_mcp_offset">
       <parent link="right_thumb_mcp_jointbody"/>
@@ -242,7 +242,7 @@
       <child link="right_thumb_abd_jointbody"/>
       <origin xyz="6.938893903907228e-18 0.0 0.0" rpy="-1.22173 0.0 0.0"/>
       <axis xyz="0.0 0.34202085907197166 0.9396923602752502"/>
-      <limit lower="-1.08211" upper="0.0" effort="100" velocity="100"/>
+      <limit lower="-0.349066" upper="0.733038" effort="100" velocity="100"/>
    </joint>
    <joint type="fixed" name="right_thumb_abd_offset">
       <parent link="right_thumb_abd_jointbody"/>
@@ -296,7 +296,7 @@
       <child link="right_thumb_pip_jointbody"/>
       <origin xyz="0.0 0.0 0.0" rpy="-2.6535897934554242e-06 1.5707926535897934 3.141592653589793"/>
       <axis xyz="0.0 -1.0 0.0"/>
-      <limit lower="-0.7944" upper="1.23" effort="100" velocity="100"/>
+      <limit lower="-0.209440" upper="1.884956" effort="100" velocity="100"/>
    </joint>
    <joint type="fixed" name="right_thumb_pip_offset">
       <parent link="right_thumb_pip_jointbody"/>
@@ -350,7 +350,7 @@
       <child link="right_thumb_dip_jointbody"/>
       <origin xyz="0.0005 0.0 0.033" rpy="0.0 0.0 0.0"/>
       <axis xyz="0.0 -1.0 0.0"/>
-      <limit lower="-0.85384" upper="1.45" effort="100" velocity="100"/>
+      <limit lower="-0.349066" upper="1.954769" effort="100" velocity="100"/>
    </joint>
    <joint type="fixed" name="right_thumb_dip_offset">
       <parent link="right_thumb_dip_jointbody"/>
@@ -402,7 +402,7 @@
       <child link="right_index_abd_jointbody"/>
       <origin xyz="-0.024088797002689358 0.0018999642829399502 0.025164928786148736" rpy="1.6066999999999996 1.13552 -0.05339000000000049"/>
       <axis xyz="0.0 0.0 -1.0"/>
-      <limit lower="-1.04577" upper="0.24577" effort="100" velocity="100"/>
+      <limit lower="-0.645772" upper="0.645772" effort="100" velocity="100"/>
    </joint>
    <joint type="fixed" name="right_index_abd_offset">
       <parent link="right_index_abd_jointbody"/>
@@ -456,7 +456,7 @@
       <child link="right_index_mcp_jointbody"/>
       <origin xyz="0.0 0.0 0.0" rpy="3.141592653589793 -1.5707926535897931 3.141592653589793"/>
       <axis xyz="0.0 -1.0 0.0"/>
-      <limit lower="-0.34907" upper="1.65806" effort="100" velocity="100"/>
+      <limit lower="-0.349066" upper="1.658063" effort="100" velocity="100"/>
    </joint>
    <joint type="fixed" name="right_index_mcp_offset">
       <parent link="right_index_mcp_jointbody"/>
@@ -510,7 +510,7 @@
       <child link="right_index_pip_jointbody"/>
       <origin xyz="0.0005 0.0 0.038" rpy="0.0 0.0 0.0"/>
       <axis xyz="0.0 -1.0 0.0"/>
-      <limit lower="-0.34907" upper="1.88496" effort="100" velocity="100"/>
+      <limit lower="-0.349066" upper="1.884956" effort="100" velocity="100"/>
    </joint>
    <joint type="fixed" name="right_index_pip_offset">
       <parent link="right_index_pip_jointbody"/>
@@ -562,7 +562,7 @@
       <child link="right_middle_abd_jointbody"/>
       <origin xyz="-7.346410206776621e-08 0.0 0.030000000000134926" rpy="-1.5707926536208807 1.5707926535897934 3.141592653558706"/>
       <axis xyz="0.0 0.0 -1.0"/>
-      <limit lower="-0.64577" upper="0.64577" effort="100" velocity="100"/>
+      <limit lower="-0.645772" upper="0.645772" effort="100" velocity="100"/>
    </joint>
    <joint type="fixed" name="right_middle_abd_offset">
       <parent link="right_middle_abd_jointbody"/>
@@ -616,7 +616,7 @@
       <child link="right_middle_mcp_jointbody"/>
       <origin xyz="0.0 0.0 0.0" rpy="3.141592653589793 -1.5707926535897931 3.141592653589793"/>
       <axis xyz="0.0 -1.0 0.0"/>
-      <limit lower="-0.34907" upper="1.58825" effort="100" velocity="100"/>
+      <limit lower="-0.349066" upper="1.588250" effort="100" velocity="100"/>
    </joint>
    <joint type="fixed" name="right_middle_mcp_offset">
       <parent link="right_middle_mcp_jointbody"/>
@@ -670,7 +670,7 @@
       <child link="right_middle_pip_jointbody"/>
       <origin xyz="0.0005 0.0 0.046" rpy="0.0 0.0 0.0"/>
       <axis xyz="0.0 -1.0 0.0"/>
-      <limit lower="-0.34907" upper="1.8675" effort="100" velocity="100"/>
+      <limit lower="-0.349066" upper="1.884956" effort="100" velocity="100"/>
    </joint>
    <joint type="fixed" name="right_middle_pip_offset">
       <parent link="right_middle_pip_jointbody"/>
@@ -722,7 +722,7 @@
       <child link="right_ring_abd_jointbody"/>
       <origin xyz="0.021521022061295733 0.0015382095479525787 0.020824784431525818" rpy="-1.5359699999999998 1.30836 -3.05441"/>
       <axis xyz="0.0 0.0 -1.0"/>
-      <limit lower="-0.47577" upper="0.80577" effort="100" velocity="100"/>
+      <limit lower="-0.541052" upper="0.645772" effort="100" velocity="100"/>
    </joint>
    <joint type="fixed" name="right_ring_abd_offset">
       <parent link="right_ring_abd_jointbody"/>
@@ -776,7 +776,7 @@
       <child link="right_ring_mcp_jointbody"/>
       <origin xyz="0.0 0.0 0.0" rpy="3.141592653589793 -1.5707926535897931 3.141592653589793"/>
       <axis xyz="0.0 -1.0 0.0"/>
-      <limit lower="-0.34907" upper="1.58825" effort="100" velocity="100"/>
+      <limit lower="-0.349066" upper="1.588250" effort="100" velocity="100"/>
    </joint>
    <joint type="fixed" name="right_ring_mcp_offset">
       <parent link="right_ring_mcp_jointbody"/>
@@ -830,7 +830,7 @@
       <child link="right_ring_pip_jointbody"/>
       <origin xyz="0.0005 0.0 0.046" rpy="0.0 0.0 0.0"/>
       <axis xyz="0.0 -1.0 0.0"/>
-      <limit lower="-0.34907" upper="1.8675" effort="100" velocity="100"/>
+      <limit lower="-0.349066" upper="1.884956" effort="100" velocity="100"/>
    </joint>
    <joint type="fixed" name="right_ring_pip_offset">
       <parent link="right_ring_pip_jointbody"/>
@@ -882,7 +882,7 @@
       <child link="right_pinky_abd_jointbody"/>
       <origin xyz="0.04258452932438962 0.004988143142003794 0.007243722937596895" rpy="-1.49694 0.8614899999999999 -2.8837299999999995"/>
       <axis xyz="0.0 0.0 -1.0"/>
-      <limit lower="-0.12244" upper="1.1691" effort="100" velocity="100"/>
+      <limit lower="-0.645772" upper="0.645772" effort="100" velocity="100"/>
    </joint>
    <joint type="fixed" name="right_pinky_abd_offset">
       <parent link="right_pinky_abd_jointbody"/>
@@ -936,7 +936,7 @@
       <child link="right_pinky_mcp_jointbody"/>
       <origin xyz="0.0 0.0 0.0" rpy="3.141592653589793 -1.5707926535897931 3.141592653589793"/>
       <axis xyz="0.0 -1.0 0.0"/>
-      <limit lower="-0.34907" upper="1.71042" effort="100" velocity="100"/>
+      <limit lower="-0.349066" upper="1.727876"  effort="100" velocity="100"/>
    </joint>
    <joint type="fixed" name="right_pinky_mcp_offset">
       <parent link="right_pinky_mcp_jointbody"/>
@@ -990,7 +990,7 @@
       <child link="right_pinky_pip_jointbody"/>
       <origin xyz="0.0005 0.0 0.033" rpy="0.0 0.0 0.0"/>
       <axis xyz="0.0 -1.0 0.0"/>
-      <limit lower="-0.34907" upper="1.88496" effort="100" velocity="100"/>
+      <limit lower="-0.349066" upper="1.884956" effort="100" velocity="100"/>
    </joint>
    <joint type="fixed" name="right_pinky_pip_offset">
       <parent link="right_pinky_pip_jointbody"/>
