@@ -1,323 +1,201 @@
-<?xml version="1.0" ?>
 <mujoco model="orcahand_right">
-  <asset>
-    <!-- Visual -->
-    <mesh file="mjcf/right/visual/right_visual_tower_main.stl" name="right_visual_tower_main_mesh"/>
-    <mesh file="mjcf/right/visual/right_visual_tower_hull.stl" name="right_visual_tower_hull_mesh"/>
-    <mesh file="mjcf/right/visual/right_visual_tower_text.stl" name="right_visual_tower_text_mesh"/>
-    <mesh file="mjcf/right/visual/right_visual_palm.stl" name="right_visual_palm_mesh"/>
-    <mesh file="mjcf/right/visual/right_visual_thumb_mp.stl" name="right_visual_thumb_mp_mesh"/>
-    <mesh file="mjcf/right/visual/right_visual_thumb_pp.stl" name="right_visual_thumb_pp_mesh"/>
-    <mesh file="mjcf/right/visual/right_visual_thumb_ip.stl" name="right_visual_thumb_ip_mesh"/>
-    <mesh file="mjcf/right/visual/right_visual_thumb_dp.stl" name="right_visual_thumb_dp_mesh"/>
-    <mesh file="mjcf/right/visual/right_visual_index_mp.stl" name="right_visual_index_mp_mesh"/>
-    <mesh file="mjcf/right/visual/right_visual_index_pp.stl" name="right_visual_index_pp_mesh"/>
-    <mesh file="mjcf/right/visual/right_visual_index_ip.stl" name="right_visual_index_ip_mesh"/>
-    <mesh file="mjcf/right/visual/right_visual_middle_mp.stl" name="right_visual_middle_mp_mesh"/>
-    <mesh file="mjcf/right/visual/right_visual_middle_pp.stl" name="right_visual_middle_pp_mesh"/>
-    <mesh file="mjcf/right/visual/right_visual_middle_ip.stl" name="right_visual_middle_ip_mesh"/>
-    <mesh file="mjcf/right/visual/right_visual_ring_mp.stl" name="right_visual_ring_mp_mesh"/>
-    <mesh file="mjcf/right/visual/right_visual_ring_pp.stl" name="right_visual_ring_pp_mesh"/>
-    <mesh file="mjcf/right/visual/right_visual_ring_ip.stl" name="right_visual_ring_ip_mesh"/>
-    <mesh file="mjcf/right/visual/right_visual_pinky_mp.stl" name="right_visual_pinky_mp_mesh"/>
-    <mesh file="mjcf/right/visual/right_visual_pinky_pp.stl" name="right_visual_pinky_pp_mesh"/>
-    <mesh file="mjcf/right/visual/right_visual_pinky_ip.stl" name="right_visual_pinky_ip_mesh"/>
-    <mesh file="mjcf/right/visual/right_visual_palm_skin.stl" name="right_visual_palm_skin_mesh"/>
-    <mesh file="mjcf/right/visual/right_visual_thumb_ip_skin.stl" name="right_visual_thumb_ip_skin_mesh"/>
-    <mesh file="mjcf/right/visual/right_visual_thumb_dp_skin.stl" name="right_visual_thumb_dp_skin_mesh"/>
-    <mesh file="mjcf/right/visual/right_visual_index_pp_skin.stl" name="right_visual_index_pp_skin_mesh"/>
-    <mesh file="mjcf/right/visual/right_visual_index_ip_skin.stl" name="right_visual_index_ip_skin_mesh"/>
-    <mesh file="mjcf/right/visual/right_visual_middle_pp_skin.stl" name="right_visual_middle_pp_skin_mesh"/>
-    <mesh file="mjcf/right/visual/right_visual_middle_ip_skin.stl" name="right_visual_middle_ip_skin_mesh"/>
-    <mesh file="mjcf/right/visual/right_visual_ring_pp_skin.stl" name="right_visual_ring_pp_skin_mesh"/>
-    <mesh file="mjcf/right/visual/right_visual_ring_ip_skin.stl" name="right_visual_ring_ip_skin_mesh"/>
-    <mesh file="mjcf/right/visual/right_visual_pinky_pp_skin.stl" name="right_visual_pinky_pp_skin_mesh"/>
-    <mesh file="mjcf/right/visual/right_visual_pinky_ip_skin.stl" name="right_visual_pinky_ip_skin_mesh"/>
-    <!-- Collision -->
-    <mesh file="mjcf/right/collision/right_collision_tower_main.stl" name="right_collision_tower_main_mesh"/>
-    <mesh file="mjcf/right/collision/right_collision_tower_hull.stl" name="right_collision_tower_hull_mesh"/>
-    <mesh file="mjcf/right/collision/right_collision_tower_text.stl" name="right_collision_tower_text_mesh"/>
-    <mesh file="mjcf/right/collision/right_collision_palm.stl" name="right_collision_palm_mesh"/>
-    <mesh file="mjcf/right/collision/right_collision_thumb_mp.stl" name="right_collision_thumb_mp_mesh"/>
-    <mesh file="mjcf/right/collision/right_collision_thumb_pp.stl" name="right_collision_thumb_pp_mesh"/>
-    <mesh file="mjcf/right/collision/right_collision_thumb_ip.stl" name="right_collision_thumb_ip_mesh"/>
-    <mesh file="mjcf/right/collision/right_collision_thumb_dp.stl" name="right_collision_thumb_dp_mesh"/>
-    <mesh file="mjcf/right/collision/right_collision_index_mp.stl" name="right_collision_index_mp_mesh"/>
-    <mesh file="mjcf/right/collision/right_collision_index_pp.stl" name="right_collision_index_pp_mesh"/>
-    <mesh file="mjcf/right/collision/right_collision_index_ip.stl" name="right_collision_index_ip_mesh"/>
-    <mesh file="mjcf/right/collision/right_collision_middle_mp.stl" name="right_collision_middle_mp_mesh"/>
-    <mesh file="mjcf/right/collision/right_collision_middle_pp.stl" name="right_collision_middle_pp_mesh"/>
-    <mesh file="mjcf/right/collision/right_collision_middle_ip.stl" name="right_collision_middle_ip_mesh"/>
-    <mesh file="mjcf/right/collision/right_collision_ring_mp.stl" name="right_collision_ring_mp_mesh"/>
-    <mesh file="mjcf/right/collision/right_collision_ring_pp.stl" name="right_collision_ring_pp_mesh"/>
-    <mesh file="mjcf/right/collision/right_collision_ring_ip.stl" name="right_collision_ring_ip_mesh"/>
-    <mesh file="mjcf/right/collision/right_collision_pinky_mp.stl" name="right_collision_pinky_mp_mesh"/>
-    <mesh file="mjcf/right/collision/right_collision_pinky_pp.stl" name="right_collision_pinky_pp_mesh"/>
-    <mesh file="mjcf/right/collision/right_collision_pinky_ip.stl" name="right_collision_pinky_ip_mesh"/>
-    <mesh file="mjcf/right/collision/right_collision_palm_skin.stl" name="right_collision_palm_skin_mesh"/>
-    <mesh file="mjcf/right/collision/right_collision_thumb_ip_skin.stl" name="right_collision_thumb_ip_skin_mesh"/>
-    <mesh file="mjcf/right/collision/right_collision_thumb_dp_skin.stl" name="right_collision_thumb_dp_skin_mesh"/>
-    <mesh file="mjcf/right/collision/right_collision_index_pp_skin.stl" name="right_collision_index_pp_skin_mesh"/>
-    <mesh file="mjcf/right/collision/right_collision_index_ip_skin.stl" name="right_collision_index_ip_skin_mesh"/>
-    <mesh file="mjcf/right/collision/right_collision_middle_pp_skin.stl" name="right_collision_middle_pp_skin_mesh"/>
-    <mesh file="mjcf/right/collision/right_collision_middle_ip_skin.stl" name="right_collision_middle_ip_skin_mesh"/>
-    <mesh file="mjcf/right/collision/right_collision_ring_pp_skin.stl" name="right_collision_ring_pp_skin_mesh"/>
-    <mesh file="mjcf/right/collision/right_collision_ring_ip_skin.stl" name="right_collision_ring_ip_skin_mesh"/>
-    <mesh file="mjcf/right/collision/right_collision_pinky_pp_skin.stl" name="right_collision_pinky_pp_skin_mesh"/>
-    <mesh file="mjcf/right/collision/right_collision_pinky_ip_skin.stl" name="right_collision_pinky_ip_skin_mesh"/>
-  </asset>
-  <worldbody>
-    <!-- ======== -->
-    <!-- | BASE | -->
-    <!-- ======== -->
-    <!-- Body: right_tower -->
-    <body euler="0.0 0.0 0.0" name="right_tower" pos="0.04 0.0 0.04575">
-      <inertial diaginertia="0.00150422 0.00125262 0.0007962" euler="-0.00261 0.00737 0.04145" mass="0.9" pos="0.04034 -0.00091 0.01912"/>
-      <!-- Main -->
-      <geom class="bone" mesh="right_visual_tower_main_mesh"/>
-      <geom class="collision" mesh="right_collision_tower_main_mesh"/>
-      <!-- Hull -->
-      <geom class="bone" mesh="right_visual_tower_hull_mesh"/>
-      <geom class="collision" mesh="right_collision_tower_hull_mesh"/>
-      <!-- Text -->
-      <geom class="skin" mesh="right_visual_tower_text_mesh"/>
-      <geom class="collision" mesh="right_collision_tower_text_mesh"/>
-      <!-- Body: right_palm -->
-      <body euler="0.0 0.0 0.0" name="right_palm" pos="0.03863 0.00144 0.14359">
-        <inertial diaginertia="1.612e-05 1.151e-05 6.72e-06" euler="1.67519 0.0475 1.55556" mass="0.0257" pos="0.00193 -0.00052 -0.00664"/>
-        <joint axis="1.0 0.0 0.0" name="right_wrist" pos="0.002 -0.00144 -0.03872" range="-0.6736 0.8972" ref="-0.15"/>
-        <!-- Bone -->
-        <geom class="bone" mesh="right_visual_palm_mesh"/>
-        <geom class="collision" mesh="right_collision_palm_mesh"/>
-        <!-- Skin -->
-        <geom class="skin" mesh="right_visual_palm_skin_mesh"/>
-        <geom class="collision" mesh="right_collision_palm_skin_mesh"/>
-        <!-- ========= -->
-        <!-- | THUMB | -->
-        <!-- ========= -->
-        <!-- Body: right_thump_mp -->
-        <body euler="0.53857 -0.05595 -1.27047" name="right_thumb_mp" pos="-0.02821 0.01777 -0.01321">
-          <inertial diaginertia="8.4e-07 6.6e-07 2.7e-07" euler="0.0 0.01625 0.0" mass="0.00586" pos="0.00247 0.0 0.004"/>
-          <joint axis="0.0 0.0 -1.0" name="right_thumb_mcp" pos="0.0 0.0 0.0" range="-0.87266 0.87266" ref="0.0"/>
-          <!-- Bone -->
-          <geom class="bone" mesh="right_visual_thumb_mp_mesh"/>
-          <geom class="collision" mesh="right_collision_thumb_mp_mesh"/>
-          <!-- Body: right_thumb_pp -->
-          <body euler="-1.22173 0.0 0.0" name="right_thumb_pp" pos="-0.03 0.0 0.0">
-            <inertial diaginertia="7.5e-07 7.1e-07 3e-07" euler="1.5708 0.77392 1.5708" mass="0.00655" pos="0.01848 1e-05 2e-05"/>
-            <joint axis="0.0 0.34202 0.93969" name="right_thumb_abd" pos="0.03 0.0 0.0" range="-1.08211 0.0" ref="-0.73304"/>
-            <!-- Bone -->
-            <geom class="bone" mesh="right_visual_thumb_pp_mesh"/>
-            <geom class="collision" mesh="right_collision_thumb_pp_mesh"/>
-            <!-- Body: right_thumb_ip -->
-            <body euler="3.14159 1.5708 0.0" name="right_thumb_ip" pos="0.0 0.0 0.0">
-              <inertial diaginertia="1.7e-06 1.64e-06 5.9e-07" euler="0.00037 0.03263 0.00034" mass="0.01402" pos="0.00135 2e-05 0.01383"/>
-              <joint axis="0.0 -1.0 0.0" name="right_thumb_pip" pos="0.0 0.0 0.0" range="-0.7944 1.23" ref="-0.58496"/>
-              <!-- Bone -->
-              <geom class="bone" mesh="right_visual_thumb_ip_mesh"/>
-              <geom class="collision" mesh="right_collision_thumb_ip_mesh"/>
-              <!-- Skin -->
-              <geom class="skin" mesh="right_visual_thumb_ip_skin_mesh"/>
-              <geom class="collision" mesh="right_collision_thumb_ip_skin_mesh"/>
-              <!-- Body: right_thumb_dp -->
-              <body euler="0.0 0.0 0.0" name="right_thumb_dp" pos="0.0005 0.0 0.033">
-                <inertial diaginertia="1.4e-06 1.37e-06 4.4e-07" euler="0.00075 0.08211 0.00013" mass="0.0132" pos="0.00233 1e-05 0.01133"/>
-                <joint axis="0.0 -1.0 0.0" name="right_thumb_dip" pos="0.0 0.0 0.0" range="-0.85384 1.45" ref="-0.50477"/>
-                <!-- Bone -->
-                <geom class="bone" mesh="right_visual_thumb_dp_mesh"/>
-                <geom class="collision" mesh="right_collision_thumb_dp_mesh"/>
-                <!-- Skin -->
-                <geom class="skin" mesh="right_visual_thumb_dp_skin_mesh" euler="0.0 0.52 0.0" pos="-0.009 0 -0.011"/>
-                <geom class="collision" mesh="right_collision_thumb_dp_skin_mesh" euler="0.0 0.52 0.0" pos="-0.009 0 -0.011"/>
-              </body>
-            </body>
-          </body>
-        </body>
-        <!-- ========= -->
-        <!-- | INDEX | -->
-        <!-- ========= -->
-        <!-- Body: right_index_mp -->
-        <body euler="1.6067 1.13552 -0.05339" name="right_index_mp" pos="-0.03251 0.00235 0.0433">
-          <inertial diaginertia="3.4e-07 3.1e-07 2e-07" euler="3.14159 -1.5708 0.0" mass="0.00498" pos="0.01155 0.0 -4e-05"/>
-          <joint axis="0.0 0.0 -1.0" name="right_index_abd" pos="0.02 0.0 0.0" range="-1.04577 0.24577" ref="-0.4"/>
-          <!-- Bone -->
-          <geom class="bone" mesh="right_visual_index_mp_mesh"/>
-          <geom class="collision" mesh="right_collision_index_mp_mesh"/>
-          <!-- Body: right_index_pp -->
-          <body euler="0.0 -1.5708 0.0" name="right_index_pp" pos="0.0 0.0 0.0">
-            <inertial diaginertia="2.39e-06 2.31e-06 7.1e-07" euler="0.00034 0.02055 0.00038" mass="0.0165" pos="0.00135 2e-05 0.01637"/>
-            <joint axis="0.0 -1.0 0.0" name="right_index_mcp" pos="0.0 0.0 0.0" range="-0.34907 1.65806"/>
-            <!-- Bone -->
-            <geom class="bone" mesh="right_visual_index_pp_mesh"/>
-            <geom class="collision" mesh="right_collision_index_pp_mesh"/>
-            <!-- Skin -->
-            <geom class="skin" mesh="right_visual_index_pp_skin_mesh"/>
-            <geom class="collision" mesh="right_collision_index_pp_skin_mesh"/>
-            <!-- Body: right_index_ip -->
-            <body euler="0.0 0.0 0.0" name="right_index_ip" pos="0.0005 0.0 0.038">
-              <inertial diaginertia="2.08e-06 2.06e-06 5.4e-07" euler="-0.00042 -0.18549 0.0044" mass="0.01521" pos="0.00071 1e-05 0.01929"/>
-              <joint axis="0.0 -1.0 0.0" name="right_index_pip" pos="0.0 0.0 0.0" range="-0.34907 1.88496"/>
-              <!-- Bone -->
-              <geom class="bone" mesh="right_visual_index_ip_mesh"/>
-              <geom class="collision" mesh="right_collision_index_ip_mesh"/>
-              <!-- Skin -->
-              <geom class="skin" mesh="right_visual_index_ip_skin_mesh"/>
-              <geom class="collision" mesh="right_collision_index_ip_skin_mesh"/>
-            </body>
-          </body>
-        </body>
-        <!-- ========== -->
-        <!-- | MIDDLE | -->
-        <!-- ========== -->
-        <!-- Body: right_middle_mp -->
-        <body euler="1.5708 1.5708 0.0" name="right_middle_mp" pos="0.0 0.0 0.05">
-          <inertial diaginertia="3.4e-07 3.1e-07 2e-07" euler="3.14159 -1.5708 0.0" mass="0.00498" pos="0.01155 0.0 -4e-05"/>
-          <joint axis="0.0 0.0 -1.0" name="right_middle_abd" pos="0.02 0.0 0.0" range="-0.64577 0.64577"/>
-          <!-- Bone -->
-          <geom class="bone" mesh="right_visual_middle_mp_mesh"/>
-          <geom class="collision" mesh="right_collision_middle_mp_mesh"/>
-          <!-- Body: right_middle_pp -->
-          <body euler="0.0 -1.5708 0.0" name="right_middle_pp" pos="0.0 0.0 0.0">
-            <inertial diaginertia="3.78e-06 3.69e-06 8.9e-07" euler="-3e-05 0.01386 0.0006" mass="0.02006" pos="0.00144 2e-05 0.02021"/>
-            <joint axis="0.0 -1.0 0.0" name="right_middle_mcp" pos="0.0 0.0 0.0" range="-0.34907 1.58825"/>
-            <!-- Bone -->
-            <geom class="bone" mesh="right_visual_middle_pp_mesh"/>
-            <geom class="collision" mesh="right_collision_middle_pp_mesh"/>
-            <!-- Skin -->
-            <geom class="skin" mesh="right_visual_middle_pp_skin_mesh"/>
-            <geom class="collision" mesh="right_collision_middle_pp_skin_mesh"/>
-            <!-- Body: right_middle_ip -->
-            <body euler="0.0 0.0 0.0" name="right_middle_ip" pos="0.0005 0.0 0.046">
-              <inertial diaginertia="2.08e-06 2.06e-06 5.4e-07" euler="-0.00042 -0.18549 0.0044" mass="0.01521" pos="0.00071 1e-05 0.01929"/>
-              <joint axis="0.0 -1.0 0.0" name="right_middle_pip" pos="0.0 0.0 0.0" range="-0.34907 1.8675"/>
-              <!-- Bone -->
-              <geom class="bone" mesh="right_visual_middle_ip_mesh"/>
-              <geom class="collision" mesh="right_collision_middle_ip_mesh"/>
-              <!-- Skin -->
-              <geom class="skin" mesh="right_visual_middle_ip_skin_mesh"/>
-              <geom class="collision" mesh="right_collision_middle_ip_skin_mesh"/>
-            </body>
-          </body>
-        </body>
-        <!-- ======== -->
-        <!-- | RING | -->
-        <!-- ======== -->
-        <!-- Body: right_ring_mp -->
-        <body euler="-1.53597 1.30836 -3.05441" name="right_ring_mp" pos="0.02669 0.00199 0.04014">
-          <inertial diaginertia="3.4e-07 3.1e-07 2e-07" euler="3.14159 -1.5708 0.0" mass="0.00498" pos="0.01155 0.0 -4e-05"/>
-          <joint axis="0.0 0.0 -1.0" name="right_ring_abd" pos="0.02 0.0 0.0" range="-0.47577 0.80577" ref="0.17"/>
-          <!-- Bone -->
-          <geom class="bone" mesh="right_visual_ring_mp_mesh"/>
-          <geom class="collision" mesh="right_collision_ring_mp_mesh"/>
-          <!-- Body: right_ring_pp -->
-          <body euler="0.0 -1.5708 0.0" name="right_ring_pp" pos="0.0 0.0 0.0">
-            <inertial diaginertia="3.78e-06 3.69e-06 8.9e-07" euler="-3e-05 0.01386 0.0006" mass="0.02006" pos="0.00144 2e-05 0.02021"/>
-            <joint axis="0.0 -1.0 0.0" name="right_ring_mcp" pos="0.0 0.0 0.0" range="-0.34907 1.58825"/>
-            <!-- Bone -->
-            <geom class="bone" mesh="right_visual_ring_pp_mesh"/>
-            <geom class="collision" mesh="right_collision_ring_pp_mesh"/>
-            <!-- Skin -->
-            <geom class="skin" mesh="right_visual_ring_pp_skin_mesh"/>
-            <geom class="collision" mesh="right_collision_ring_pp_skin_mesh"/>
-            <!-- Body: right_ring_ip -->
-            <body euler="0.0 0.0 0.0" name="right_ring_ip" pos="0.0005 0.0 0.046">
-              <inertial diaginertia="2.08e-06 2.06e-06 5.4e-07" euler="-0.00042 -0.18549 0.0044" mass="0.01521" pos="0.00071 1e-05 0.01929"/>
-              <joint axis="0.0 -1.0 0.0" name="right_ring_pip" pos="0.0 0.0 0.0" range="-0.34907 1.8675"/>
-              <!-- Bone -->
-              <geom class="bone" mesh="right_visual_ring_ip_mesh"/>
-              <geom class="collision" mesh="right_collision_ring_ip_mesh"/>
-              <!-- Skin -->
-              <geom class="skin" mesh="right_visual_ring_ip_skin_mesh"/>
-              <geom class="collision" mesh="right_collision_ring_ip_skin_mesh"/>
-            </body>
-          </body>
-        </body>
-        <!-- ========= -->
-        <!-- | PINKY | -->
-        <!-- ========= -->
-        <!-- Body: right_pinky_mp -->
-        <body euler="-1.49694 0.86149 -2.88373" name="right_pinky_mp" pos="0.05518 0.00831 0.02242">
-          <inertial diaginertia="3.4e-07 3.1e-07 2e-07" euler="3.14159 -1.5708 0.0" mass="0.00498" pos="0.01155 0.0 -4e-05"/>
-          <joint axis="0.0 0.0 -1.0" name="right_pinky_abd" pos="0.02 0.0 0.0" range="-0.12244 1.1691" ref="0.52333"/>
-          <!-- Bone -->
-          <geom class="bone" mesh="right_visual_pinky_mp_mesh"/>
-          <geom class="collision" mesh="right_collision_pinky_mp_mesh"/>
-          <!-- Body: right_pinky_pp -->
-          <body euler="0.0 -1.5708 0.0" name="right_pinky_pp" pos="0.0 0.0 0.0">
-            <inertial diaginertia="1.7e-06 1.64e-06 5.9e-07" euler="0.00037 0.03263 0.00034" mass="0.01402" pos="0.00135 2e-05 0.01383"/>
-            <joint axis="0.0 -1.0 0.0" name="right_pinky_mcp" pos="0.0 0.0 0.0" range="-0.34907 1.71042"/>
-            <!-- Bone -->
-            <geom class="bone" mesh="right_visual_pinky_pp_mesh"/>
-            <geom class="collision" mesh="right_collision_pinky_pp_mesh"/>
-            <!-- Skin -->
-            <geom class="skin" mesh="right_visual_pinky_pp_skin_mesh"/>
-            <geom class="collision" mesh="right_collision_pinky_pp_skin_mesh"/>
-            <!-- Body: right_pinky_ip -->
-            <body euler="0.0 0.0 0.0" name="right_pinky_ip" pos="0.0005 0.0 0.033">
-              <inertial diaginertia="2.08e-06 2.06e-06 5.4e-07" euler="-0.00042 -0.18549 0.0044" mass="0.01521" pos="0.00071 1e-05 0.01929"/>
-              <joint axis="0.0 -1.0 0.0" name="right_pinky_pip" pos="0.0 0.0 0.0" range="-0.34907 1.88496"/>
-              <!-- Bone -->
-              <geom class="bone" mesh="right_visual_pinky_ip_mesh"/>
-              <geom class="collision" mesh="right_collision_pinky_ip_mesh"/>
-              <!-- Skin -->
-              <geom class="skin" mesh="right_visual_pinky_ip_skin_mesh"/>
-              <geom class="collision" mesh="right_collision_pinky_ip_skin_mesh"/>
-            </body>
-          </body>
-        </body>
-      </body>
-    </body>
-  </worldbody>
-  <actuator>
-    <!-- Base -->
-    <position ctrlrange="-0.6736 0.8972" joint="right_wrist" name="right_wrist_actuator"/>
-    <!-- Thumb -->
-    <position ctrlrange="-0.87266 0.87266" joint="right_thumb_mcp" name="right_thumb_mcp_actuator"/>
-    <position ctrlrange="-1.08211 0.0" joint="right_thumb_abd" name="right_thumb_abd_actuator"/>
-    <position ctrlrange="-0.7944 1.23" joint="right_thumb_pip" name="right_thumb_pip_actuator"/>
-    <position ctrlrange="-0.85384 1.45" joint="right_thumb_dip" name="right_thumb_dip_actuator"/>
-    <!-- Index -->
-    <position ctrlrange="-1.04577 0.24577" joint="right_index_abd" name="right_index_abd_actuator"/>
-    <position ctrlrange="-0.34907 1.65806" joint="right_index_mcp" name="right_index_mcp_actuator"/>
-    <position ctrlrange="-0.34907 1.88496" joint="right_index_pip" name="right_index_pip_actuator"/>
-    <!-- Middle -->
-    <position ctrlrange="-0.64577 0.64577" joint="right_middle_abd" name="right_middle_abd_actuator"/>
-    <position ctrlrange="-0.34907 1.58825" joint="right_middle_mcp" name="right_middle_mcp_actuator"/>
-    <position ctrlrange="-0.34907 1.8675" joint="right_middle_pip" name="right_middle_pip_actuator"/>
-    <!-- Ring -->
-    <position ctrlrange="-0.47577 0.80577" joint="right_ring_abd" name="right_ring_abd_actuator"/>
-    <position ctrlrange="-0.34907 1.58825" joint="right_ring_mcp" name="right_ring_mcp_actuator"/>
-    <position ctrlrange="-0.34907 1.8675" joint="right_ring_pip" name="right_ring_pip_actuator"/>
-    <!-- Pinky -->
-    <position ctrlrange="-0.12244 1.1691" joint="right_pinky_abd" name="right_pinky_abd_actuator"/>
-    <position ctrlrange="-0.34907 1.71042" joint="right_pinky_mcp" name="right_pinky_mcp_actuator"/>
-    <position ctrlrange="-0.34907 1.88496" joint="right_pinky_pip" name="right_pinky_pip_actuator"/>
-  </actuator>
-  <contact>
-    <!-- Base -->
-    <exclude body1="right_tower" body2="right_palm"/>
-    <!-- Thumb -->
-    <exclude body1="right_palm" body2="right_thumb_mp"/>
-    <exclude body1="right_thumb_mp" body2="right_thumb_pp"/>
-    <exclude body1="right_thumb_pp" body2="right_thumb_ip"/>
-    <exclude body1="right_thumb_ip" body2="right_thumb_dp"/>
-    <!-- Index -->
-    <exclude body1="right_palm" body2="right_index_mp"/>
-    <exclude body1="right_index_mp" body2="right_index_pp"/>
-    <exclude body1="right_index_pp" body2="right_index_ip"/>
-    <!-- Middle -->
-    <exclude body1="right_palm" body2="right_middle_mp"/>
-    <exclude body1="right_middle_mp" body2="right_middle_pp"/>
-    <exclude body1="right_middle_pp" body2="right_middle_ip"/>
-    <!-- Ring -->
-    <exclude body1="right_palm" body2="right_ring_mp"/>
-    <exclude body1="right_ring_mp" body2="right_ring_pp"/>
-    <exclude body1="right_ring_pp" body2="right_ring_ip"/>
-    <!-- Pinky -->
-    <exclude body1="right_palm" body2="right_pinky_mp"/>
-    <exclude body1="right_pinky_mp" body2="right_pinky_pp"/>
-    <exclude body1="right_pinky_pp" body2="right_pinky_ip"/>
-    <!-- For stability -->
-    <exclude body1="right_palm" body2="right_thumb_pp"/>
-  </contact>
+	<compiler angle="radian" eulerseq="XYZ" meshdir="assets"/>
+	<default>
+		<geom rgba="1 1 1 1" type="mesh" friction="1 0.005 0.001" condim="3" margin="0.0005" contype="1" conaffinity="1"/>
+		<joint type="hinge" limited="true" damping="0.1" armature="0.001" margin="0.01" frictionloss="0.001"/>
+		<position ctrllimited="true" forcelimited="true" forcerange="-1 1" kp="2.0"/>
+		<mesh scale="0.001 0.001 0.001"/>
+	</default>
+	<asset>
+		<mesh name="I-R-Assembly" file="mjcf/right/"/>
+		<mesh name="P-Assembly" file="mjcf/right/"/>
+		<mesh name="R-T-AP" file="mjcf/right/"/>
+		<mesh name="M-PP" file="mjcf/right/"/>
+		<mesh name="I-PP" file="mjcf/right/"/>
+		<mesh name="P-AP" file="mjcf/right/"/>
+		<mesh name="ForeArmStructure-Model" file="mjcf/right/"/>
+		<mesh name="P-FingerTipAssembly" file="mjcf/right/"/>
+		<mesh name="T-DP" file="mjcf/right/"/>
+		<mesh name="TopTower-Model" file="mjcf/right/"/>
+		<mesh name="I-FingerTipAssembly" file="mjcf/right/"/>
+		<mesh name="I-AP-R" file="mjcf/right/"/>
+		<mesh name="T-TP-R" file="mjcf/right/"/>
+		<mesh name="R-Carpals" file="mjcf/right/"/>
+		<mesh name="T-PP" file="mjcf/right/"/>
+		<mesh name="M-AP" file="mjcf/right/"/>
+		<mesh name="M-FingerTipAssembly" file="mjcf/right/"/>
+		<mesh name="T-R-Assembly" file="mjcf/right/"/>
+		<mesh name="P-PP" file="mjcf/right/"/>
+		<mesh name="M-Assembly" file="mjcf/right/"/>
+	</asset>
+	<worldbody>
+		<body name="root" quat="1.0 0.0 0.0 0.0">
+			<body name="ForeArmStructure-Model_e18f2368" pos="0.0 0.0 0.0" quat="1.0 0.0 0.0 0.0">
+				<body name="TopTower-Model_4a80d30e" pos="-0.010000000000000018 0.05230000000000584 -2.0816681711721685e-17" quat="-0.4999999999999985 0.4999999999999986 -0.5 -0.49999999999999994">
+					<body name="R-Carpals_8d1f1041" pos="0.026854423629547958 0.004999999999999963 0.08162467321150377" quat="-0.6743797181539021 0.2126311259967925 -0.21263112599679307 0.6743797181539041">
+						<body name="T-TP-R_1c2b802d" pos="-0.021213412275949937 0.01433246945435063 -0.02172481544690429" quat="0.6591193783565908 0.35951060036119065 -0.07247312029417424 -0.656552678874735">
+							<body name="R-T-AP_a9723101" pos="-0.03599999999972846 1.3877787807814457e-17 -7.632783294297951e-17" quat="0.819152044288991 -0.5735764363510464 -2.220446049250313e-16 -1.5543122344752192e-15">
+								<body name="T-PP_68395e98" pos="5.0310089562172146e-17 1.016397654912951e-17 2.90568310557838e-17" quat="1.2212453270876722e-15 0.7071067811865461 -1.3877787807814457e-15 -0.7071067811865444">
+									<body name="T-DP_b7429e50" pos="0.0010000000000000711 5.204170427930421e-18 0.03200000000000028" quat="1.0000000000000029 0.0 -2.7755575615628914e-17 -1.915134717478395e-15">
+										<joint name="t-pip" pos="-2.6951590953616836e-16 1.4511389580442956e-16 -4.4964986238156687e-17" axis="4.718447854656915e-16 -0.9999999999999946 3.164135620181696e-15" range="-0.2617993877991494 1.8675022996339325" ref="0.0"/>
+										<geom mesh="T-DP" rgba="1 1 1 1"/>
+									</body>
+									<joint name="t-mcp" pos="-1.969071627370024e-16 3.15114617423654e-17 2.696802036606928e-17" axis="3.1363800445660672e-15 1.0000000000000027 -2.942091015256665e-15" range="-1.7453292519943295 0.4363323129985824" ref="-0.0"/>
+									<geom mesh="T-PP" rgba="1 1 1 1"/>
+								</body>
+								<joint name="t-abd" pos="0.028 -2.6020852139652106e-17 9.540979117872439e-17" axis="-1.4988010832439613e-15 0.3420201433256641 0.9396926207859044" range="-0.3141592653589793 0.9599310885968813" ref="0.0"/>
+								<geom mesh="R-T-AP" rgba="1 1 1 1"/>
+							</body>
+							<joint name="t-cmc" pos="4.228388472693467e-18 4.911435841359335e-17 0.003850000000000067" axis="-7.771561172376096e-16 5.412337245047638e-16 -0.9999999999999931" range="-0.7853981633974483 0.5759586531581288" ref="0.0"/>
+							<geom mesh="T-TP-R" rgba="1 1 1 1"/>
+						</body>
+						<body name="I-AP-R_d95d02d1" pos="-0.025575481691250117 0.0006809253025602396 0.03835732632869239" quat="0.519646788331587 0.5667240334680995 0.4317303415794619 -0.4715930421730138">
+							<body name="I-PP_bacbd481" pos="-0.0004009681508766414 -1.7564075194265172e-17 2.893681388255187e-15" quat="0.7071067811865461 1.8457457784393227e-15 -0.7071067811865465 -2.0539125955565396e-15">
+								<body name="I-FingerTipAssembly_ec49c16c" pos="0.0015000000000000208 8.673617379884035e-18 0.0370000000000001" quat="1.0000000000000022 1.6653345369377348e-16 4.163336342344337e-17 3.3861802251067274e-15">
+									<joint name="i-pip" pos="-6.384780199281326e-17 -1.6933625513663662e-18 -9.316585525567554e-17" axis="-3.608224830031759e-15 -0.999999999999996 2.7755575615628914e-16" range="-0.2617993877991494 1.8675022996339325" ref="0.0"/>
+									<geom mesh="I-FingerTipAssembly" rgba="1 1 1 1"/>
+								</body>
+								<joint name="i-mcp" pos="-8.461858417315034e-17 1.4799510442361432e-17 -1.3855749603332276e-17" axis="5.828670879282072e-15 -1.0000000000000036 1.1102230246251565e-16" range="-0.4363323129985824 1.7453292519943295" ref="0.0"/>
+								<geom mesh="I-PP" rgba="1 1 1 1"/>
+							</body>
+							<joint name="i-abd" pos="0.01875000000000003 1.734723475976807e-18 0.000999999999999964" axis="-8.326672684688674e-17 3.3306690738754696e-16 0.9999999999999991" range="-0.4363323129985824 0.5235987755982988" ref="0.0"/>
+							<geom mesh="I-AP-R" rgba="1 1 1 1"/>
+						</body>
+						<body name="M-AP_e04a96f2" pos="-0.0007567300518294843 -0.0011463260089169605 0.04825182678794436" quat="-0.5006540699144025 -0.5006540699144022 -0.4993450733492283 0.4993450733492286">
+							<body name="M-PP_08efa608" pos="-0.000616967942905312 -1.83772268236293e-17 4.372533151525415e-15" quat="-0.7071067811865464 -2.220446049250313e-15 0.7071067811865461 2.220446049250313e-15">
+								<body name="M-FingerTipAssembly_34afb748" pos="0.0020000000000000096 -3.469446951953614e-18 0.040000000000000244" quat="1.0000000000000024 2.7755575615628914e-16 1.3877787807814457e-16 3.2751579226442118e-15">
+									<joint name="m-pip" pos="-5.004759988748243e-17 -1.4318233198945493e-17 -1.6821919643190915e-16" axis="-3.2751579226442118e-15 -0.9999999999999977 4.440892098500626e-16" range="-0.2617993877991494 1.8675022996339325" ref="0.0"/>
+									<geom mesh="M-FingerTipAssembly" rgba="1 1 1 1"/>
+								</body>
+								<joint name="m-mcp" pos="-7.162795302343035e-17 -1.2189131211851784e-17 -1.7580316556723272e-17" axis="6.050715484207103e-15 -1.0000000000000058 -1.1102230246251565e-16" range="-0.4363323129985824 1.7453292519943295" ref="0.0"/>
+								<geom mesh="M-PP" rgba="1 1 1 1"/>
+							</body>
+							<joint name="m-abd" pos="0.019249999999999982 -1.214306433183765e-17 0.0010000000000000213" axis="1.1102230246251565e-15 -2.220446049250313e-16 0.9999999999999971" range="-0.47123889803846897 0.47123889803846897" ref="0.0"/>
+							<geom mesh="M-AP" rgba="1 1 1 1"/>
+						</body>
+						<body name="M-AP_6ec59111" pos="0.02300540741341827 -0.0001014498859375039 0.04085073553625944" quat="-0.4851713041498216 -0.43849204432323763 -0.554729417883375 0.514401405159008">
+							<body name="M-PP_8660a1eb" pos="-0.0006169679429055062 2.986976985197565e-17 4.528129715804241e-15" quat="-0.7071067811865464 -2.095545958979983e-15 0.7071067811865462 1.9984014443252818e-15">
+								<body name="M-FingerTipAssembly_424a8e75" pos="0.0019999999999999263 -6.938893903907228e-18 0.040000000000000216" quat="1.0000000000000024 1.1102230246251565e-16 5.551115123125783e-17 3.1086244689504383e-15">
+									<joint name="r-pip" pos="-4.078794186312799e-17 1.9049422236114406e-17 -1.0521305495457033e-16" axis="-2.942091015256665e-15 -0.999999999999996 2.220446049250313e-16" range="-0.2617993877991494 1.8675022996339325" ref="0.0"/>
+									<geom mesh="M-FingerTipAssembly" rgba="1 1 1 1"/>
+								</body>
+								<joint name="r-mcp" pos="1.7894285379910634e-17 1.0522308765464415e-17 -1.0523467387009805e-17" axis="5.9396931817445875e-15 -1.0000000000000042 1.1102230246251565e-16" range="-0.4363323129985824 1.7453292519943295" ref="0.0"/>
+								<geom mesh="M-PP" rgba="1 1 1 1"/>
+							</body>
+							<joint name="r-abd" pos="0.019249999999999923 1.734723475976807e-18 0.0009999999999999961" axis="8.881784197001252e-16 -5.551115123125783e-17 0.9999999999999994" range="-0.47123889803846897 0.47123889803846897" ref="0.0"/>
+							<geom mesh="M-AP" rgba="1 1 1 1"/>
+						</body>
+						<body name="P-AP_f5e42b61" pos="0.04666877715017955 0.00500098395792942 0.029101417458615046" quat="-0.45731846125607556 -0.3401988014151619 -0.6138690651598068 0.5461587418964287">
+							<body name="P-PP_1d411b9b" pos="-7.082327310992269e-17 -3.180486315799148e-17 -1.3551337061247461e-17" quat="-0.7071067811865464 -1.9984014443252818e-15 0.707106781186546 2.1094237467877974e-15">
+								<body name="P-FingerTipAssembly_cd219176" pos="0.0009999999999999005 3.122502256758253e-17 0.030999999999999826" quat="1.0000000000000022 5.551115123125783e-17 1.3877787807814457e-17 3.1086244689504383e-15">
+									<joint name="p-pip" pos="5.593042944930372e-17 9.962165250943912e-18 -1.5546348698018324e-16" axis="-2.609024107869118e-15 -0.9999999999999968 3.885780586188048e-16" range="-0.2617993877991494 1.8675022996339325" ref="0.0"/>
+									<geom mesh="P-FingerTipAssembly" rgba="1 1 1 1"/>
+								</body>
+								<joint name="p-mcp" pos="-4.1531875769068695e-17 9.105164359140306e-18 3.8292038109168244e-17" axis="6.439293542825908e-15 -1.0000000000000049 6.661338147750939e-16" range="-0.4363323129985824 1.7453292519943295" ref="0.0"/>
+								<geom mesh="P-PP" rgba="1 1 1 1"/>
+							</body>
+							<joint name="p-abd" pos="0.017749999999999967 2.42861286636753e-17 0.0010000000000000217" axis="9.71445146547012e-16 1.6653345369377348e-16 0.9999999999999984" range="-0.5235987755982988 0.5235987755982988" ref="0.0"/>
+							<geom mesh="P-AP" rgba="1 1 1 1"/>
+						</body>
+						<joint name="wrist" pos="0.004999999999999997 0.0018770780631086805 -0.049500000670552255" axis="-0.9999999999999963 -1.1270242357758872e-16 5.94450127715256e-17" range="-1.1344640137963142 0.6108652381980153" ref="0.6108652857237573"/>
+						<geom mesh="R-Carpals" rgba="1 1 1 1"/>
+					</body>
+					<geom mesh="TopTower-Model" rgba="1 1 1 1"/>
+				</body>
+				<geom mesh="ForeArmStructure-Model" rgba="1 1 1 1"/>
+			</body>
+		</body>
+	</worldbody>
+	<actuator>
+		<position name="wrist_actuator" joint="wrist" ctrlrange="-1.1344640137963142 0.6108652381980153"/>
+		<position name="p-abd_actuator" joint="p-abd" ctrlrange="-0.5235987755982988 0.5235987755982988"/>
+		<position name="p-mcp_actuator" joint="p-mcp" ctrlrange="-0.4363323129985824 1.7453292519943295"/>
+		<position name="p-pip_actuator" joint="p-pip" ctrlrange="-0.2617993877991494 1.8675022996339325"/>
+		<position name="r-abd_actuator" joint="r-abd" ctrlrange="-0.47123889803846897 0.47123889803846897"/>
+		<position name="r-mcp_actuator" joint="r-mcp" ctrlrange="-0.4363323129985824 1.7453292519943295"/>
+		<position name="r-pip_actuator" joint="r-pip" ctrlrange="-0.2617993877991494 1.8675022996339325"/>
+		<position name="m-abd_actuator" joint="m-abd" ctrlrange="-0.47123889803846897 0.47123889803846897"/>
+		<position name="m-mcp_actuator" joint="m-mcp" ctrlrange="-0.4363323129985824 1.7453292519943295"/>
+		<position name="m-pip_actuator" joint="m-pip" ctrlrange="-0.2617993877991494 1.8675022996339325"/>
+		<position name="i-abd_actuator" joint="i-abd" ctrlrange="-0.4363323129985824 0.5235987755982988"/>
+		<position name="i-mcp_actuator" joint="i-mcp" ctrlrange="-0.4363323129985824 1.7453292519943295"/>
+		<position name="i-pip_actuator" joint="i-pip" ctrlrange="-0.2617993877991494 1.8675022996339325"/>
+		<position name="t-cmc_actuator" joint="t-cmc" ctrlrange="-0.7853981633974483 0.5759586531581288"/>
+		<position name="t-abd_actuator" joint="t-abd" ctrlrange="-0.3141592653589793 0.9599310885968813"/>
+		<position name="t-mcp_actuator" joint="t-mcp" ctrlrange="-1.7453292519943295 0.4363323129985824"/>
+		<position name="t-pip_actuator" joint="t-pip" ctrlrange="-0.2617993877991494 1.8675022996339325"/>
+	</actuator>
+	<contact>
+		<exclude body1="ForeArmStructure-Model_e18f2368" body2="TopTower-Model_4a80d30e"/>
+		<exclude body1="ForeArmStructure-Model_e18f2368" body2="R-Carpals_8d1f1041"/>
+		<exclude body1="TopTower-Model_4a80d30e" body2="R-Carpals_8d1f1041"/>
+		<exclude body1="ForeArmStructure-Model_e18f2368" body2="P-AP_f5e42b61"/>
+		<exclude body1="TopTower-Model_4a80d30e" body2="P-AP_f5e42b61"/>
+		<exclude body1="R-Carpals_8d1f1041" body2="P-AP_f5e42b61"/>
+		<exclude body1="ForeArmStructure-Model_e18f2368" body2="P-PP_1d411b9b"/>
+		<exclude body1="TopTower-Model_4a80d30e" body2="P-PP_1d411b9b"/>
+		<exclude body1="R-Carpals_8d1f1041" body2="P-PP_1d411b9b"/>
+		<exclude body1="P-AP_f5e42b61" body2="P-PP_1d411b9b"/>
+		<exclude body1="ForeArmStructure-Model_e18f2368" body2="P-FingerTipAssembly_cd219176"/>
+		<exclude body1="TopTower-Model_4a80d30e" body2="P-FingerTipAssembly_cd219176"/>
+		<exclude body1="R-Carpals_8d1f1041" body2="P-FingerTipAssembly_cd219176"/>
+		<exclude body1="P-AP_f5e42b61" body2="P-FingerTipAssembly_cd219176"/>
+		<exclude body1="P-PP_1d411b9b" body2="P-FingerTipAssembly_cd219176"/>
+		<exclude body1="ForeArmStructure-Model_e18f2368" body2="M-AP_6ec59111"/>
+		<exclude body1="TopTower-Model_4a80d30e" body2="M-AP_6ec59111"/>
+		<exclude body1="R-Carpals_8d1f1041" body2="M-AP_6ec59111"/>
+		<exclude body1="ForeArmStructure-Model_e18f2368" body2="M-PP_8660a1eb"/>
+		<exclude body1="TopTower-Model_4a80d30e" body2="M-PP_8660a1eb"/>
+		<exclude body1="R-Carpals_8d1f1041" body2="M-PP_8660a1eb"/>
+		<exclude body1="M-AP_6ec59111" body2="M-PP_8660a1eb"/>
+		<exclude body1="ForeArmStructure-Model_e18f2368" body2="M-FingerTipAssembly_424a8e75"/>
+		<exclude body1="TopTower-Model_4a80d30e" body2="M-FingerTipAssembly_424a8e75"/>
+		<exclude body1="R-Carpals_8d1f1041" body2="M-FingerTipAssembly_424a8e75"/>
+		<exclude body1="M-AP_6ec59111" body2="M-FingerTipAssembly_424a8e75"/>
+		<exclude body1="M-PP_8660a1eb" body2="M-FingerTipAssembly_424a8e75"/>
+		<exclude body1="ForeArmStructure-Model_e18f2368" body2="M-AP_e04a96f2"/>
+		<exclude body1="TopTower-Model_4a80d30e" body2="M-AP_e04a96f2"/>
+		<exclude body1="R-Carpals_8d1f1041" body2="M-AP_e04a96f2"/>
+		<exclude body1="ForeArmStructure-Model_e18f2368" body2="M-PP_08efa608"/>
+		<exclude body1="TopTower-Model_4a80d30e" body2="M-PP_08efa608"/>
+		<exclude body1="R-Carpals_8d1f1041" body2="M-PP_08efa608"/>
+		<exclude body1="M-AP_e04a96f2" body2="M-PP_08efa608"/>
+		<exclude body1="ForeArmStructure-Model_e18f2368" body2="M-FingerTipAssembly_34afb748"/>
+		<exclude body1="TopTower-Model_4a80d30e" body2="M-FingerTipAssembly_34afb748"/>
+		<exclude body1="R-Carpals_8d1f1041" body2="M-FingerTipAssembly_34afb748"/>
+		<exclude body1="M-AP_e04a96f2" body2="M-FingerTipAssembly_34afb748"/>
+		<exclude body1="M-PP_08efa608" body2="M-FingerTipAssembly_34afb748"/>
+		<exclude body1="ForeArmStructure-Model_e18f2368" body2="I-AP-R_d95d02d1"/>
+		<exclude body1="TopTower-Model_4a80d30e" body2="I-AP-R_d95d02d1"/>
+		<exclude body1="R-Carpals_8d1f1041" body2="I-AP-R_d95d02d1"/>
+		<exclude body1="ForeArmStructure-Model_e18f2368" body2="I-PP_bacbd481"/>
+		<exclude body1="TopTower-Model_4a80d30e" body2="I-PP_bacbd481"/>
+		<exclude body1="R-Carpals_8d1f1041" body2="I-PP_bacbd481"/>
+		<exclude body1="I-AP-R_d95d02d1" body2="I-PP_bacbd481"/>
+		<exclude body1="ForeArmStructure-Model_e18f2368" body2="I-FingerTipAssembly_ec49c16c"/>
+		<exclude body1="TopTower-Model_4a80d30e" body2="I-FingerTipAssembly_ec49c16c"/>
+		<exclude body1="R-Carpals_8d1f1041" body2="I-FingerTipAssembly_ec49c16c"/>
+		<exclude body1="I-AP-R_d95d02d1" body2="I-FingerTipAssembly_ec49c16c"/>
+		<exclude body1="I-PP_bacbd481" body2="I-FingerTipAssembly_ec49c16c"/>
+		<exclude body1="ForeArmStructure-Model_e18f2368" body2="T-TP-R_1c2b802d"/>
+		<exclude body1="TopTower-Model_4a80d30e" body2="T-TP-R_1c2b802d"/>
+		<exclude body1="R-Carpals_8d1f1041" body2="T-TP-R_1c2b802d"/>
+		<exclude body1="ForeArmStructure-Model_e18f2368" body2="R-T-AP_a9723101"/>
+		<exclude body1="TopTower-Model_4a80d30e" body2="R-T-AP_a9723101"/>
+		<exclude body1="R-Carpals_8d1f1041" body2="R-T-AP_a9723101"/>
+		<exclude body1="T-TP-R_1c2b802d" body2="R-T-AP_a9723101"/>
+		<exclude body1="ForeArmStructure-Model_e18f2368" body2="T-PP_68395e98"/>
+		<exclude body1="TopTower-Model_4a80d30e" body2="T-PP_68395e98"/>
+		<exclude body1="R-Carpals_8d1f1041" body2="T-PP_68395e98"/>
+		<exclude body1="T-TP-R_1c2b802d" body2="T-PP_68395e98"/>
+		<exclude body1="R-T-AP_a9723101" body2="T-PP_68395e98"/>
+		<exclude body1="ForeArmStructure-Model_e18f2368" body2="T-DP_b7429e50"/>
+		<exclude body1="TopTower-Model_4a80d30e" body2="T-DP_b7429e50"/>
+		<exclude body1="R-Carpals_8d1f1041" body2="T-DP_b7429e50"/>
+		<exclude body1="T-TP-R_1c2b802d" body2="T-DP_b7429e50"/>
+		<exclude body1="R-T-AP_a9723101" body2="T-DP_b7429e50"/>
+		<exclude body1="T-PP_68395e98" body2="T-DP_b7429e50"/>
+	</contact>
+	<equality>
+	</equality>
 </mujoco>
