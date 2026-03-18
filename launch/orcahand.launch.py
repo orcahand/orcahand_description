@@ -15,19 +15,18 @@ from launch_ros.substitutions import FindPackageShare
 def generate_launch_description():
     # Example usages:
     # - ros2 launch orcahand_description orcahand.launch.py
-    # - ros2 launch orcahand_description orcahand.launch.py urdf_file:=orcahand_left.urdf
+    # - ros2 launch orcahand_description orcahand.launch.py urdf_file:=v1/models/urdf/orcahand_left.urdf
 
-    # Launch argument for URDF filename
+    # Launch argument for a URDF path relative to the package root.
     urdf_file_arg = DeclareLaunchArgument(
         'urdf_file',
-        default_value='orcahand_right.urdf',
-        description='URDF file to load from the orcahand_description/urdf directory'
+        default_value='v2/models/urdf/orcahand_right.urdf',
+        description='URDF file to load from the orcahand_description package'
     )
 
     # Construct the full path to the URDF/XACRO file using the argument
     orcahand_description_path = PathJoinSubstitution([
         FindPackageShare('orcahand_description'),
-        'urdf',
         LaunchConfiguration('urdf_file')
     ])
 
