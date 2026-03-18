@@ -1,5 +1,4 @@
 <mujoco model="orcahand_left">
-	<compiler angle="radian" eulerseq="XYZ" meshdir="assets"/>
 	<default>
 		<geom rgba="1 1 1 1" type="mesh" friction="1 0.005 0.001" condim="3" margin="0.0005" contype="1" conaffinity="1"/>
 		<joint type="hinge" limited="true" damping="0.1" armature="0.001" margin="0.01" frictionloss="0.001"/>
@@ -7,26 +6,26 @@
 		<mesh scale="0.001 0.001 0.001"/>
 	</default>
 	<asset>
-		<mesh name="L-Carpals" file="mjcf/left/"/>
-		<mesh name="P-Assembly" file="mjcf/left/"/>
-		<mesh name="L-T-AP" file="mjcf/left/"/>
-		<mesh name="M-PP" file="mjcf/left/"/>
-		<mesh name="I-L-Assembly" file="mjcf/left/"/>
-		<mesh name="I-PP" file="mjcf/left/"/>
-		<mesh name="P-AP" file="mjcf/left/"/>
-		<mesh name="I-AP-L" file="mjcf/left/"/>
-		<mesh name="T-TP-L" file="mjcf/left/"/>
-		<mesh name="ForeArmStructure-Model" file="mjcf/left/"/>
-		<mesh name="P-FingerTipAssembly" file="mjcf/left/"/>
-		<mesh name="T-DP" file="mjcf/left/"/>
-		<mesh name="TopTower-Model" file="mjcf/left/"/>
-		<mesh name="I-FingerTipAssembly" file="mjcf/left/"/>
-		<mesh name="T-PP" file="mjcf/left/"/>
-		<mesh name="M-AP" file="mjcf/left/"/>
-		<mesh name="M-FingerTipAssembly" file="mjcf/left/"/>
-		<mesh name="P-PP" file="mjcf/left/"/>
-		<mesh name="T-L-Assembly" file="mjcf/left/"/>
-		<mesh name="M-Assembly" file="mjcf/left/"/>
+		<mesh name="L-Carpals" file="mjcf/left/L-Carpals.stl"/>
+		<mesh name="P-Assembly" file="mjcf/left/P-Assembly.stl"/>
+		<mesh name="L-T-AP" file="mjcf/left/L-T-AP.stl"/>
+		<mesh name="M-PP" file="mjcf/left/M-PP.stl"/>
+		<mesh name="I-L-Assembly" file="mjcf/left/I-L-Assembly.stl"/>
+		<mesh name="I-PP" file="mjcf/left/I-PP.stl"/>
+		<mesh name="P-AP" file="mjcf/left/P-AP.stl"/>
+		<mesh name="I-AP-L" file="mjcf/left/I-AP-L.stl"/>
+		<mesh name="T-TP-L" file="mjcf/left/T-TP-L.stl"/>
+		<mesh name="ForeArmStructure-Model" file="mjcf/left/ForeArmStructure-Model.stl"/>
+		<mesh name="P-FingerTipAssembly" file="mjcf/left/P-FingerTipAssembly.stl"/>
+		<mesh name="T-DP" file="mjcf/left/T-DP.stl"/>
+		<mesh name="TopTower-Model" file="mjcf/left/TopTower-Model.stl"/>
+		<mesh name="I-FingerTipAssembly" file="mjcf/left/I-FingerTipAssembly.stl"/>
+		<mesh name="T-PP" file="mjcf/left/T-PP.stl"/>
+		<mesh name="M-AP" file="mjcf/left/M-AP.stl"/>
+		<mesh name="M-FingerTipAssembly" file="mjcf/left/M-FingerTipAssembly.stl"/>
+		<mesh name="P-PP" file="mjcf/left/P-PP.stl"/>
+		<mesh name="T-L-Assembly" file="mjcf/left/T-L-Assembly.stl"/>
+		<mesh name="M-Assembly" file="mjcf/left/M-Assembly.stl"/>
 	</asset>
 	<worldbody>
 		<body name="root" quat="1.0 0.0 0.0 0.0">
