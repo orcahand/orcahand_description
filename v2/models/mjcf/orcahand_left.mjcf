@@ -6,26 +6,26 @@
 		<mesh scale="0.001 0.001 0.001"/>
 	</default>
 	<asset>
-		<mesh name="left_L-Carpals" file="mjcf/left/L-Carpals.stl"/>
-		<mesh name="left_P-Assembly" file="mjcf/left/P-Assembly.stl"/>
-		<mesh name="left_L-T-AP" file="mjcf/left/L-T-AP.stl"/>
-		<mesh name="left_M-PP" file="mjcf/left/M-PP.stl"/>
-		<mesh name="left_I-L-Assembly" file="mjcf/left/I-L-Assembly.stl"/>
-		<mesh name="left_I-PP" file="mjcf/left/I-PP.stl"/>
-		<mesh name="left_P-AP" file="mjcf/left/P-AP.stl"/>
-		<mesh name="left_I-AP-L" file="mjcf/left/I-AP-L.stl"/>
-		<mesh name="left_T-TP-L" file="mjcf/left/T-TP-L.stl"/>
-		<mesh name="left_ForeArmStructure-Model" file="mjcf/left/ForeArmStructure-Model.stl"/>
-		<mesh name="left_P-FingerTipAssembly" file="mjcf/left/P-FingerTipAssembly.stl"/>
-		<mesh name="left_T-DP" file="mjcf/left/T-DP.stl"/>
-		<mesh name="left_TopTower-Model" file="mjcf/left/TopTower-Model.stl"/>
-		<mesh name="left_I-FingerTipAssembly" file="mjcf/left/I-FingerTipAssembly.stl"/>
-		<mesh name="left_T-PP" file="mjcf/left/T-PP.stl"/>
-		<mesh name="left_M-AP" file="mjcf/left/M-AP.stl"/>
-		<mesh name="left_M-FingerTipAssembly" file="mjcf/left/M-FingerTipAssembly.stl"/>
-		<mesh name="left_P-PP" file="mjcf/left/P-PP.stl"/>
-		<mesh name="left_T-L-Assembly" file="mjcf/left/T-L-Assembly.stl"/>
-		<mesh name="left_M-Assembly" file="mjcf/left/M-Assembly.stl"/>
+		<mesh name="left_L-Carpals" file="assets/mjcf/left/L-Carpals.stl"/>
+		<mesh name="left_P-Assembly" file="assets/mjcf/left/P-Assembly.stl"/>
+		<mesh name="left_L-T-AP" file="assets/mjcf/left/L-T-AP.stl"/>
+		<mesh name="left_M-PP" file="assets/mjcf/left/M-PP.stl"/>
+		<mesh name="left_I-L-Assembly" file="assets/mjcf/left/I-L-Assembly.stl"/>
+		<mesh name="left_I-PP" file="assets/mjcf/left/I-PP.stl"/>
+		<mesh name="left_P-AP" file="assets/mjcf/left/P-AP.stl"/>
+		<mesh name="left_I-AP-L" file="assets/mjcf/left/I-AP-L.stl"/>
+		<mesh name="left_T-TP-L" file="assets/mjcf/left/T-TP-L.stl"/>
+		<mesh name="left_ForeArmStructure-Model" file="assets/mjcf/left/ForeArmStructure-Model.stl"/>
+		<mesh name="left_P-FingerTipAssembly" file="assets/mjcf/left/P-FingerTipAssembly.stl"/>
+		<mesh name="left_T-DP" file="assets/mjcf/left/T-DP.stl"/>
+		<mesh name="left_TopTower-Model" file="assets/mjcf/left/TopTower-Model.stl"/>
+		<mesh name="left_I-FingerTipAssembly" file="assets/mjcf/left/I-FingerTipAssembly.stl"/>
+		<mesh name="left_T-PP" file="assets/mjcf/left/T-PP.stl"/>
+		<mesh name="left_M-AP" file="assets/mjcf/left/M-AP.stl"/>
+		<mesh name="left_M-FingerTipAssembly" file="assets/mjcf/left/M-FingerTipAssembly.stl"/>
+		<mesh name="left_P-PP" file="assets/mjcf/left/P-PP.stl"/>
+		<mesh name="left_T-L-Assembly" file="assets/mjcf/left/T-L-Assembly.stl"/>
+		<mesh name="left_M-Assembly" file="assets/mjcf/left/M-Assembly.stl"/>
 	</asset>
 	<worldbody>
 		<body name="left_root" pos="-0.15 0 0.058" quat="0.7071068 0.7071068 0 0">
