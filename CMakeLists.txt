@@ -15,16 +15,12 @@ if(NOT DEFINED ENV{ROS_VERSION} OR "$ENV{ROS_VERSION}" STREQUAL "1")
     ${catkin_INCLUDE_DIRS}
   )
 
-  install(DIRECTORY urdf/
-    DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/urdf
+  install(DIRECTORY assets/ v1/ v2/
+    DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
   )
 
-  install(DIRECTORY meshes/
-    DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/meshes
-  )
-
-  install(DIRECTORY launch/
-    DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/launch
+  install(DIRECTORY launch/ rviz/
+    DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
   )
 
 else()
@@ -34,16 +30,12 @@ else()
   find_package(urdf REQUIRED)
   find_package(xacro REQUIRED)
 
-  install(DIRECTORY urdf/
-    DESTINATION share/${PROJECT_NAME}/urdf
+  install(DIRECTORY assets/ v1/ v2/
+    DESTINATION share/${PROJECT_NAME}
   )
 
-  install(DIRECTORY meshes/
-    DESTINATION share/${PROJECT_NAME}/meshes
-  )
-
-  install(DIRECTORY launch/
-    DESTINATION share/${PROJECT_NAME}/launch
+  install(DIRECTORY launch/ rviz/
+    DESTINATION share/${PROJECT_NAME}
   )
 
   ament_package()
