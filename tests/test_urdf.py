@@ -3,22 +3,19 @@ import pytest
 from urdf_parser_py.urdf import URDF
 
 ROOT_DIR = os.path.dirname(os.path.dirname(__file__))
-URDF_DIR = os.path.join(ROOT_DIR, "models", "urdf")
 
 def get_urdf_files(directory):
     """
-    Get all URDF files from the given directory, excluding 'package.xml'.
+    Get all URDF files from the repository.
     """
-    print(f"Searching for URDF files in: {directory}")  # Debugging
     urdf_files = []
     for root, _, files in os.walk(directory):
         for file in files:
             if file.endswith(".urdf"):
                 urdf_files.append(os.path.join(root, file))
-    print(f"Found URDF files: {urdf_files}")  # Debugging
-    return urdf_files
+    return sorted(urdf_files)
 
-URDF_FILES = get_urdf_files(URDF_DIR)
+URDF_FILES = get_urdf_files(ROOT_DIR)
 
 @pytest.mark.parametrize("urdf_file", URDF_FILES)
 def test_urdf_parsing(urdf_file):

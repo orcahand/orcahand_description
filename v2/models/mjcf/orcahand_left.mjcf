@@ -1,0 +1,200 @@
+<mujoco model="orcahand_left">
+	<default>
+		<geom rgba="1 1 1 1" type="mesh" friction="1 0.005 0.001" condim="3" margin="0.0005" contype="1" conaffinity="1"/>
+		<joint type="hinge" limited="true" damping="0.1" armature="0.001" margin="0.01" frictionloss="0.001"/>
+		<position ctrllimited="true" forcelimited="true" forcerange="-1 1" kp="2.0"/>
+		<mesh scale="0.001 0.001 0.001"/>
+	</default>
+	<asset>
+		<mesh name="left_L-Carpals" file="assets/mjcf/left/L-Carpals.stl"/>
+		<mesh name="left_P-Assembly" file="assets/mjcf/left/P-Assembly.stl"/>
+		<mesh name="left_L-T-AP" file="assets/mjcf/left/L-T-AP.stl"/>
+		<mesh name="left_M-PP" file="assets/mjcf/left/M-PP.stl"/>
+		<mesh name="left_I-L-Assembly" file="assets/mjcf/left/I-L-Assembly.stl"/>
+		<mesh name="left_I-PP" file="assets/mjcf/left/I-PP.stl"/>
+		<mesh name="left_P-AP" file="assets/mjcf/left/P-AP.stl"/>
+		<mesh name="left_I-AP-L" file="assets/mjcf/left/I-AP-L.stl"/>
+		<mesh name="left_T-TP-L" file="assets/mjcf/left/T-TP-L.stl"/>
+		<mesh name="left_ForeArmStructure-Model" file="assets/mjcf/left/ForeArmStructure-Model.stl"/>
+		<mesh name="left_P-FingerTipAssembly" file="assets/mjcf/left/P-FingerTipAssembly.stl"/>
+		<mesh name="left_T-DP" file="assets/mjcf/left/T-DP.stl"/>
+		<mesh name="left_TopTower-Model" file="assets/mjcf/left/TopTower-Model.stl"/>
+		<mesh name="left_I-FingerTipAssembly" file="assets/mjcf/left/I-FingerTipAssembly.stl"/>
+		<mesh name="left_T-PP" file="assets/mjcf/left/T-PP.stl"/>
+		<mesh name="left_M-AP" file="assets/mjcf/left/M-AP.stl"/>
+		<mesh name="left_M-FingerTipAssembly" file="assets/mjcf/left/M-FingerTipAssembly.stl"/>
+		<mesh name="left_P-PP" file="assets/mjcf/left/P-PP.stl"/>
+		<mesh name="left_T-L-Assembly" file="assets/mjcf/left/T-L-Assembly.stl"/>
+		<mesh name="left_M-Assembly" file="assets/mjcf/left/M-Assembly.stl"/>
+	</asset>
+	<worldbody>
+		<body name="left_root" pos="-0.15 0 0.058" quat="0.7071068 0.7071068 0 0">
+			<body name="left_ForeArmStructure-Model_e18f2368" pos="0.0 0.0 0.0" quat="1.0 0.0 0.0 0.0">
+				<body name="left_TopTower-Model_4a80d30e" pos="-0.010000000000000018 0.05230000000000584 -2.0816681711721685e-17" quat="-0.4999999999999985 0.4999999999999986 -0.5 -0.49999999999999994">
+					<body name="left_L-Carpals_719fff8c" pos="-0.0018770780631086439 0.005000000000000008 0.0895000006705525" quat="-0.7071067811865476 -1.7172886266853953e-17 -7.605135346749523e-17 0.7071067811865495">
+						<body name="left_T-TP-L_92b8100b" pos="0.031213412275949873 0.01433246945435058 -0.02172481544690435" quat="0.656374345900825 -0.07257037461795694 0.3594909813403495 -0.6592969688281836">
+							<body name="left_L-T-AP_58680c44" pos="-0.035999999999999976 1.0408340855860843e-17 -1.2533377113932431e-16" quat="0.8191520442889911 0.5735764363510457 -6.661338147750939e-16 1.609823385706477e-15">
+								<body name="left_T-PP_ef067304" pos="3.6356335937636955e-17 -7.738818763564917e-18 -1.3080846264541988e-17" quat="1.4432899320127035e-15 -0.7071067811865464 -9.159339953157541e-16 0.707106781186545">
+									<body name="left_T-DP_307db3cc" pos="0.0009999999999999853 -2.2551405187698492e-17 0.03200000000000017" quat="1.0000000000000027 0.0 2.7755575615628914e-17 1.942890293094024e-15">
+										<joint name="left_t-pip" pos="6.724022184779712e-17 -4.880775102973274e-17 1.5021079906053094e-16" axis="-8.604228440844963e-16 -0.9999999999999971 -4.440892098500626e-16" range="-0.2617993877991494 1.8675022996339325" ref="0.0"/>
+										<geom mesh="left_T-DP" rgba="1 1 1 1"/>
+									</body>
+									<joint name="left_t-mcp" pos="-3.7171156597089945e-17 -5.821788984262281e-17 6.75998716698855e-17" axis="-3.1086244689504383e-15 1.0000000000000049 2.7755575615628914e-16" range="-1.7453292519943295 0.4363323129985824" ref="-0.0"/>
+									<geom mesh="left_T-PP" rgba="1 1 1 1"/>
+								</body>
+								<joint name="left_t-abd" pos="0.028000000000000018 -2.7755575615628914e-17 2.7321894746634712e-17" axis="1.27675647831893e-15 0.3420201433256675 -0.9396926207859057" range="-0.3141592653589793 0.9599310885968813" ref="0.0"/>
+								<geom mesh="left_L-T-AP" rgba="1 1 1 1"/>
+							</body>
+							<joint name="left_t-cmc" pos="1.5016200088924236e-17 5.139118297581291e-17 0.0038500000000000643" axis="2.435551760271437e-15 -3.885780586188048e-16 -0.9999999999999951" range="-0.5759586531581288 0.7853981633974483" ref="-0.0"/>
+							<geom mesh="left_T-TP-L" rgba="1 1 1 1"/>
+						</body>
+						<body name="left_I-AP-L_57ce92f7" pos="0.03557227633914042 0.0006806400972512766 0.03835792095624094" quat="-0.47163838811428216 -0.4317797959371625 -0.5666863557305154 0.5196056320963941">
+							<body name="left_I-PP_3df4f91d" pos="-0.0004009681508766555 -7.792703114739563e-18 2.9526348813840864e-15" quat="-0.7071067811865466 -2.3314683517128287e-15 0.7071067811865461 2.0539125955565396e-15">
+								<body name="left_I-FingerTipAssembly_ed91b18a" pos="0.0014999999999999937 5.637851296924623e-18 0.03700000000000012" quat="1.0000000000000022 1.5959455978986625e-16 -1.3877787807814457e-17 3.3306690738754696e-15">
+									<joint name="left_i-pip" pos="4.938281810987171e-18 -1.7671634284259278e-17 -5.964481871782928e-17" axis="-3.552713678800501e-15 -0.9999999999999964 2.706168622523819e-16" range="-0.2617993877991494 1.8675022996339325" ref="0.0"/>
+									<geom mesh="left_I-FingerTipAssembly" rgba="1 1 1 1"/>
+								</body>
+								<joint name="left_i-mcp" pos="-3.9536780632609477e-19 -8.231990831039655e-18 1.396150100408705e-16" axis="5.995204332975845e-15 -1.0000000000000038 2.0816681711721685e-17" range="-0.4363323129985824 1.7453292519943295" ref="0.0"/>
+								<geom mesh="left_I-PP" rgba="1 1 1 1"/>
+							</body>
+							<joint name="left_i-abd" pos="0.018750000000000086 -1.8214596497756474e-17 0.000999999999999993" axis="-0.03128510081059521 0.16814409541512249 -0.9852658553123104" range="-0.5235987755982988 0.4363323129985824" ref="-0.0"/>
+							<geom mesh="left_I-AP-L" rgba="1 1 1 1"/>
+						</body>
+						<body name="left_M-AP_e04a96f2" pos="0.010758073950624194 -0.0011463260089169375 0.0482518232227061" quat="-0.49932759692114675 -0.4993275969211465 -0.50067150004065 0.5006715000406502">
+							<body name="left_M-PP_08efa608" pos="-0.0006169679429056389 -5.936006894358137e-18 4.45032465740125e-15" quat="-0.7071067811865465 -1.942890293094024e-15 0.7071067811865461 2.1094237467877974e-15">
+								<body name="left_M-FingerTipAssembly_34afb748" pos="0.002000000000000013 -3.2526065174565133e-18 0.040000000000000056" quat="1.0000000000000024 1.1655173354219173e-16 4.7813315806610746e-17 3.1086244689504383e-15">
+									<joint name="left_m-pip" pos="-1.474514954580278e-17 -2.2103714476980423e-17 -1.665934659025852e-16" axis="-3.2751579226442118e-15 -0.9999999999999984 7.968885967768458e-17" range="-0.2617993877991494 1.8675022996339325" ref="0.0"/>
+									<geom mesh="left_M-FingerTipAssembly" rgba="1 1 1 1"/>
+								</body>
+								<joint name="left_m-mcp" pos="-3.0357660829593107e-18 -1.7841522994185985e-17 -1.3882633405336455e-16" axis="5.773159728050814e-15 -1.000000000000006 -1.476683358925257e-16" range="-0.4363323129985824 1.7453292519943295" ref="0.0"/>
+								<geom mesh="left_M-PP" rgba="1 1 1 1"/>
+							</body>
+							<joint name="left_m-abd" pos="0.019249999999999934 -2.6020852139652106e-17 0.0009999999999999913" axis="-6.106226635438361e-16 1.6653345369377348e-16 -0.9999999999999963" range="-0.47123889803846897 0.47123889803846897" ref="-0.0"/>
+							<geom mesh="left_M-AP" rgba="1 1 1 1"/>
+						</body>
+						<body name="left_M-AP_6ec59111" pos="-0.013004413961368904 -0.00010153680172964337 0.04085088188107136" quat="-0.5143887032276867 -0.554717937998398 -0.4385065669551668 0.4851847709808502">
+							<body name="left_M-PP_8660a1eb" pos="-0.0006169679429056013 1.8973538018496328e-19 4.444768121267262e-15" quat="-0.7071067811865466 -1.9984014443252818e-15 0.7071067811865461 2.0539125955565396e-15">
+								<body name="left_M-FingerTipAssembly_424a8e75" pos="0.002000000000000003 -2.0274580625478933e-17 0.040000000000000105" quat="1.0000000000000022 1.1102230246251565e-16 4.85722573273506e-17 3.2751579226442118e-15">
+									<joint name="left_r-pip" pos="3.0277404230089883e-19 3.103847689461043e-17 -4.554030083181501e-18" axis="-3.4416913763379853e-15 -0.9999999999999967 1.5265566588595902e-16" range="-0.2617993877991494 1.8675022996339325" ref="0.0"/>
+									<geom mesh="left_M-FingerTipAssembly" rgba="1 1 1 1"/>
+								</body>
+								<joint name="left_r-mcp" pos="7.77890138008401e-19 5.960928375611919e-19 -1.4035114566359072e-16" axis="6.050715484207103e-15 -1.0000000000000036 -5.551115123125783e-17" range="-0.4363323129985824 1.7453292519943295" ref="0.0"/>
+								<geom mesh="left_M-PP" rgba="1 1 1 1"/>
+							</body>
+							<joint name="left_r-abd" pos="0.019249999999999958 -6.938893903907228e-18 0.0009999999999999905" axis="-0.025208135220825684 -0.17180872948058878 -0.9848077530122064" range="-0.47123889803846897 0.47123889803846897" ref="-0.0"/>
+							<geom mesh="left_M-AP" rgba="1 1 1 1"/>
+						</body>
+						<body name="left_P-AP_f5e42b61" pos="-0.036667924695998784 0.0050008241469496235 0.02910175144072915" quat="-0.5461467691399455 -0.613860158565644 -0.34021487235312026 0.45733275950178043">
+							<body name="left_P-PP_1d411b9b" pos="3.833251243929697e-17 2.2445923627098072e-17 -3.593641296366732e-18" quat="-0.7071067811865466 -1.7763568394002505e-15 0.7071067811865459 1.7763568394002505e-15">
+								<body name="left_P-FingerTipAssembly_cd219176" pos="0.000999999999999991 -7.806255641895632e-18 0.03100000000000007" quat="1.0000000000000022 6.938893903907228e-17 0.0 2.942091015256665e-15">
+									<joint name="left_p-pip" pos="5.74536201685304e-18 -2.544098244259518e-17 -2.2826085315357464e-16" axis="-3.164135620181696e-15 -0.9999999999999976 1.1102230246251565e-16" range="-0.2617993877991494 1.8675022996339325" ref="0.0"/>
+									<geom mesh="left_P-FingerTipAssembly" rgba="1 1 1 1"/>
+								</body>
+								<joint name="left_p-mcp" pos="-1.2505891133485139e-18 -2.0021543922218088e-17 -5.1761470187350585e-17" axis="5.495603971894525e-15 -1.0000000000000044 2.7755575615628914e-17" range="-0.4363323129985824 1.7453292519943295" ref="0.0"/>
+								<geom mesh="left_P-PP" rgba="1 1 1 1"/>
+							</body>
+							<joint name="left_p-abd" pos="0.01774999999999991 6.201636426617085e-17 0.0009999999999999866" axis="-0.13297994090837154 -0.34829476172536833 -0.927904679517606" range="-0.5235987755982988 0.5235987755982988" ref="-0.0"/>
+							<geom mesh="left_P-AP" rgba="1 1 1 1"/>
+						</body>
+						<joint name="left_wrist" pos="0.004999999999999994 0.001877078063108656 -0.04950000067055224" axis="-0.9999999999999971 1.767581259681953e-16 -1.318389841742366e-16" range="-1.1344640137963142 0.6108652381980153" ref="0.0"/>
+						<geom mesh="left_L-Carpals" rgba="1 1 1 1"/>
+					</body>
+					<geom mesh="left_TopTower-Model" rgba="1 1 1 1"/>
+				</body>
+				<geom mesh="left_ForeArmStructure-Model" rgba="1 1 1 1"/>
+			</body>
+		</body>
+	</worldbody>
+	<actuator>
+		<position name="left_wrist_actuator" joint="left_wrist" ctrlrange="-1.1344640137963142 0.6108652381980153"/>
+		<position name="left_p-abd_actuator" joint="left_p-abd" ctrlrange="-0.5235987755982988 0.5235987755982988"/>
+		<position name="left_p-mcp_actuator" joint="left_p-mcp" ctrlrange="-0.4363323129985824 1.7453292519943295"/>
+		<position name="left_p-pip_actuator" joint="left_p-pip" ctrlrange="-0.2617993877991494 1.8675022996339325"/>
+		<position name="left_r-abd_actuator" joint="left_r-abd" ctrlrange="-0.47123889803846897 0.47123889803846897"/>
+		<position name="left_r-mcp_actuator" joint="left_r-mcp" ctrlrange="-0.4363323129985824 1.7453292519943295"/>
+		<position name="left_r-pip_actuator" joint="left_r-pip" ctrlrange="-0.2617993877991494 1.8675022996339325"/>
+		<position name="left_m-abd_actuator" joint="left_m-abd" ctrlrange="-0.47123889803846897 0.47123889803846897"/>
+		<position name="left_m-mcp_actuator" joint="left_m-mcp" ctrlrange="-0.4363323129985824 1.7453292519943295"/>
+		<position name="left_m-pip_actuator" joint="left_m-pip" ctrlrange="-0.2617993877991494 1.8675022996339325"/>
+		<position name="left_i-abd_actuator" joint="left_i-abd" ctrlrange="-0.5235987755982988 0.4363323129985824"/>
+		<position name="left_i-mcp_actuator" joint="left_i-mcp" ctrlrange="-0.4363323129985824 1.7453292519943295"/>
+		<position name="left_i-pip_actuator" joint="left_i-pip" ctrlrange="-0.2617993877991494 1.8675022996339325"/>
+		<position name="left_t-cmc_actuator" joint="left_t-cmc" ctrlrange="-0.5759586531581288 0.7853981633974483"/>
+		<position name="left_t-abd_actuator" joint="left_t-abd" ctrlrange="-0.3141592653589793 0.9599310885968813"/>
+		<position name="left_t-mcp_actuator" joint="left_t-mcp" ctrlrange="-1.7453292519943295 0.4363323129985824"/>
+		<position name="left_t-pip_actuator" joint="left_t-pip" ctrlrange="-0.2617993877991494 1.8675022996339325"/>
+	</actuator>
+	<contact>
+		<exclude body1="left_ForeArmStructure-Model_e18f2368" body2="left_TopTower-Model_4a80d30e"/>
+		<exclude body1="left_ForeArmStructure-Model_e18f2368" body2="left_L-Carpals_719fff8c"/>
+		<exclude body1="left_TopTower-Model_4a80d30e" body2="left_L-Carpals_719fff8c"/>
+		<exclude body1="left_ForeArmStructure-Model_e18f2368" body2="left_P-AP_f5e42b61"/>
+		<exclude body1="left_TopTower-Model_4a80d30e" body2="left_P-AP_f5e42b61"/>
+		<exclude body1="left_L-Carpals_719fff8c" body2="left_P-AP_f5e42b61"/>
+		<exclude body1="left_ForeArmStructure-Model_e18f2368" body2="left_P-PP_1d411b9b"/>
+		<exclude body1="left_TopTower-Model_4a80d30e" body2="left_P-PP_1d411b9b"/>
+		<exclude body1="left_L-Carpals_719fff8c" body2="left_P-PP_1d411b9b"/>
+		<exclude body1="left_P-AP_f5e42b61" body2="left_P-PP_1d411b9b"/>
+		<exclude body1="left_ForeArmStructure-Model_e18f2368" body2="left_P-FingerTipAssembly_cd219176"/>
+		<exclude body1="left_TopTower-Model_4a80d30e" body2="left_P-FingerTipAssembly_cd219176"/>
+		<exclude body1="left_L-Carpals_719fff8c" body2="left_P-FingerTipAssembly_cd219176"/>
+		<exclude body1="left_P-AP_f5e42b61" body2="left_P-FingerTipAssembly_cd219176"/>
+		<exclude body1="left_P-PP_1d411b9b" body2="left_P-FingerTipAssembly_cd219176"/>
+		<exclude body1="left_ForeArmStructure-Model_e18f2368" body2="left_M-AP_6ec59111"/>
+		<exclude body1="left_TopTower-Model_4a80d30e" body2="left_M-AP_6ec59111"/>
+		<exclude body1="left_L-Carpals_719fff8c" body2="left_M-AP_6ec59111"/>
+		<exclude body1="left_ForeArmStructure-Model_e18f2368" body2="left_M-PP_8660a1eb"/>
+		<exclude body1="left_TopTower-Model_4a80d30e" body2="left_M-PP_8660a1eb"/>
+		<exclude body1="left_L-Carpals_719fff8c" body2="left_M-PP_8660a1eb"/>
+		<exclude body1="left_M-AP_6ec59111" body2="left_M-PP_8660a1eb"/>
+		<exclude body1="left_ForeArmStructure-Model_e18f2368" body2="left_M-FingerTipAssembly_424a8e75"/>
+		<exclude body1="left_TopTower-Model_4a80d30e" body2="left_M-FingerTipAssembly_424a8e75"/>
+		<exclude body1="left_L-Carpals_719fff8c" body2="left_M-FingerTipAssembly_424a8e75"/>
+		<exclude body1="left_M-AP_6ec59111" body2="left_M-FingerTipAssembly_424a8e75"/>
+		<exclude body1="left_M-PP_8660a1eb" body2="left_M-FingerTipAssembly_424a8e75"/>
+		<exclude body1="left_ForeArmStructure-Model_e18f2368" body2="left_M-AP_e04a96f2"/>
+		<exclude body1="left_TopTower-Model_4a80d30e" body2="left_M-AP_e04a96f2"/>
+		<exclude body1="left_L-Carpals_719fff8c" body2="left_M-AP_e04a96f2"/>
+		<exclude body1="left_ForeArmStructure-Model_e18f2368" body2="left_M-PP_08efa608"/>
+		<exclude body1="left_TopTower-Model_4a80d30e" body2="left_M-PP_08efa608"/>
+		<exclude body1="left_L-Carpals_719fff8c" body2="left_M-PP_08efa608"/>
+		<exclude body1="left_M-AP_e04a96f2" body2="left_M-PP_08efa608"/>
+		<exclude body1="left_ForeArmStructure-Model_e18f2368" body2="left_M-FingerTipAssembly_34afb748"/>
+		<exclude body1="left_TopTower-Model_4a80d30e" body2="left_M-FingerTipAssembly_34afb748"/>
+		<exclude body1="left_L-Carpals_719fff8c" body2="left_M-FingerTipAssembly_34afb748"/>
+		<exclude body1="left_M-AP_e04a96f2" body2="left_M-FingerTipAssembly_34afb748"/>
+		<exclude body1="left_M-PP_08efa608" body2="left_M-FingerTipAssembly_34afb748"/>
+		<exclude body1="left_ForeArmStructure-Model_e18f2368" body2="left_I-AP-L_57ce92f7"/>
+		<exclude body1="left_TopTower-Model_4a80d30e" body2="left_I-AP-L_57ce92f7"/>
+		<exclude body1="left_L-Carpals_719fff8c" body2="left_I-AP-L_57ce92f7"/>
+		<exclude body1="left_ForeArmStructure-Model_e18f2368" body2="left_I-PP_3df4f91d"/>
+		<exclude body1="left_TopTower-Model_4a80d30e" body2="left_I-PP_3df4f91d"/>
+		<exclude body1="left_L-Carpals_719fff8c" body2="left_I-PP_3df4f91d"/>
+		<exclude body1="left_I-AP-L_57ce92f7" body2="left_I-PP_3df4f91d"/>
+		<exclude body1="left_ForeArmStructure-Model_e18f2368" body2="left_I-FingerTipAssembly_ed91b18a"/>
+		<exclude body1="left_TopTower-Model_4a80d30e" body2="left_I-FingerTipAssembly_ed91b18a"/>
+		<exclude body1="left_L-Carpals_719fff8c" body2="left_I-FingerTipAssembly_ed91b18a"/>
+		<exclude body1="left_I-AP-L_57ce92f7" body2="left_I-FingerTipAssembly_ed91b18a"/>
+		<exclude body1="left_I-PP_3df4f91d" body2="left_I-FingerTipAssembly_ed91b18a"/>
+		<exclude body1="left_ForeArmStructure-Model_e18f2368" body2="left_T-TP-L_92b8100b"/>
+		<exclude body1="left_TopTower-Model_4a80d30e" body2="left_T-TP-L_92b8100b"/>
+		<exclude body1="left_L-Carpals_719fff8c" body2="left_T-TP-L_92b8100b"/>
+		<exclude body1="left_ForeArmStructure-Model_e18f2368" body2="left_L-T-AP_58680c44"/>
+		<exclude body1="left_TopTower-Model_4a80d30e" body2="left_L-T-AP_58680c44"/>
+		<exclude body1="left_L-Carpals_719fff8c" body2="left_L-T-AP_58680c44"/>
+		<exclude body1="left_T-TP-L_92b8100b" body2="left_L-T-AP_58680c44"/>
+		<exclude body1="left_ForeArmStructure-Model_e18f2368" body2="left_T-PP_ef067304"/>
+		<exclude body1="left_TopTower-Model_4a80d30e" body2="left_T-PP_ef067304"/>
+		<exclude body1="left_L-Carpals_719fff8c" body2="left_T-PP_ef067304"/>
+		<exclude body1="left_T-TP-L_92b8100b" body2="left_T-PP_ef067304"/>
+		<exclude body1="left_L-T-AP_58680c44" body2="left_T-PP_ef067304"/>
+		<exclude body1="left_ForeArmStructure-Model_e18f2368" body2="left_T-DP_307db3cc"/>
+		<exclude body1="left_TopTower-Model_4a80d30e" body2="left_T-DP_307db3cc"/>
+		<exclude body1="left_L-Carpals_719fff8c" body2="left_T-DP_307db3cc"/>
+		<exclude body1="left_T-TP-L_92b8100b" body2="left_T-DP_307db3cc"/>
+		<exclude body1="left_L-T-AP_58680c44" body2="left_T-DP_307db3cc"/>
+		<exclude body1="left_T-PP_ef067304" body2="left_T-DP_307db3cc"/>
+	</contact>
+	<equality>
+	</equality>
+</mujoco>

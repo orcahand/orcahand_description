@@ -5,7 +5,13 @@
 
 # Orcahand Description
 
-This repository contains the description files for the Orcahand model (Both URDF and MJCF). The 'extended' version contains additional bodies (incl. inertial properties) such as the camera mount, the U2D2 board and fans.
+This repository contains the description files for the Orcahand model (both URDF and MJCF).
+
+Versioned model layouts live under:
+- `v1/`: legacy hand description files, including the `extended` variants
+- `v2/`: updated hand description files from the newer Fusion360 export
+
+The `extended` version contains additional bodies (incl. inertial properties) such as the camera mount, the U2D2 board and fans.
 
 ## Example Usage
 1. Clone the repository:
@@ -13,13 +19,14 @@ This repository contains the description files for the Orcahand model (Both URDF
    git clone git@github.com:orcahand/orcahand_description.git
    cd orcahand_description
    ```
-2. Install the required dependencies:
+2. Install the required visualization dependencies:
    ```bash
    pip install mujoco
    ```
-3. Simulate the orcahand in mujoco:
+3. Simulate any version using MuJoCo:
    ```bash
-   python3 -m mujoco.viewer --mjcf=scene_combined.xml
+   python -m mujoco.viewer --mjcf=v1/scene_combined.xml
+   python -m mujoco.viewer --mjcf=v2/scene_combined.xml
    ```
 
 ## Note on Meshes
