@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<mujoco model="ORCA hand combined extended scene">
+  
+  <include file="assets/mjcf/scene.xml"/>
+
+  <include file="assets/mjcf/options.xml"/>
+  
+  <include file="models/mjcf/orcahand_left_extended.mjcf"/>
+  <include file="models/mjcf/orcahand_right_extended.mjcf"/>
+  
+</mujoco>

@@ -1,0 +1,434 @@
+<?xml version="1.0" ?>
+<robot name="orcahand_right">
+	<material name="white">
+		<color rgba="1 1 1 1"/>
+	</material>
+	
+	<!-- ForeArmStructure-Model_e18f2368 -->
+	<link name="ForeArmStructure-Model_e18f2368">
+		<inertial>
+			<origin xyz="0 0 0" rpy="0.0 0.0 0.0"/>
+			<mass value="7.422534035794272"/>
+			<inertia ixx="128.42914594201977" iyy="109.76325397225321" izz="132.90351561760636" ixy="-2.0853774551088136" ixz="2.8418689623777025e-14" iyz="-2.1822987861241932e-17"/>
+		</inertial>
+		<visual>
+			<origin xyz="0 0 0" rpy="0.0 0.0 0.0"/>
+			<geometry>
+				<mesh filename="package://orcahand_description/v2/assets/urdf/right/ForeArmStructure-Model.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+			<material name="white"/>
+		</visual>
+	</link>
+	
+	<!-- TopTower-Model_4a80d30e -->
+	<link name="TopTower-Model_4a80d30e">
+		<inertial>
+			<origin xyz="0 0 0" rpy="0.0 0.0 0.0"/>
+			<mass value="0.18565193224536478"/>
+			<inertia ixx="1.6432354975876824" iyy="1.4993224894188755" izz="2.1002749772647653" ixy="2.5087818046813483e-07" ixz="5.216609212516232e-07" iyz="-0.005687830635588598"/>
+		</inertial>
+		<visual>
+			<origin xyz="0 0 0" rpy="0.0 0.0 0.0"/>
+			<geometry>
+				<mesh filename="package://orcahand_description/v2/assets/urdf/right/TopTower-Model.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+			<material name="white"/>
+		</visual>
+	</link>
+	<joint type="fixed" name="TopTower-Model_4a80d30e_to_ForeArmStructure-Model_e18f2368">
+		<parent link="ForeArmStructure-Model_e18f2368"/>
+		<child link="TopTower-Model_4a80d30e"/>
+		<origin xyz="-0.010000000000000018 0.05230000000000584 -2.0816681711721685e-17" rpy="-1.5707963267948966 1.570796326794894 0.0"/>
+	</joint>
+	
+	<!-- R-Carpals_8d1f1041 -->
+	<link name="R-Carpals_8d1f1041">
+		<inertial>
+			<origin xyz="-0.004999999999999997 -0.0018770780631086805 0.049500000670552255" rpy="0.0 0.0 0.0"/>
+			<mass value="0.13538810897856451"/>
+			<inertia ixx="1.1815355975484934" iyy="1.7077682380287584" izz="0.696738119045637" ixy="-0.04387354285899538" ixz="0.26372541744555844" iyz="0.07278914848580292"/>
+		</inertial>
+		<visual>
+			<origin xyz="-0.004999999999999997 -0.0018770780631086805 0.049500000670552255" rpy="0.0 0.0 0.0"/>
+			<geometry>
+				<mesh filename="package://orcahand_description/v2/assets/urdf/right/R-Carpals.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+			<material name="white"/>
+		</visual>
+	</link>
+	<joint type="revolute" name="R-Carpals_8d1f1041_to_TopTower-Model_4a80d30e">
+		<parent link="TopTower-Model_4a80d30e"/>
+		<child link="R-Carpals_8d1f1041"/>
+		<origin xyz="5.551115123125783e-17 2.3418766925686896e-17 0.04000000000000006" rpy="-0.610865285723758 0.0 -1.5707963267948992"/>
+		<axis xyz="-0.9999999999999963 -1.1270242357758872e-16 5.94450127715256e-17"/>
+		<limit lower="-1.1344640137963142" upper="0.6108652381980153" effort="100" velocity="100"/>
+	</joint>
+	
+	<!-- P-AP_f5e42b61 -->
+	<link name="P-AP_f5e42b61">
+		<inertial>
+			<origin xyz="-0.017749999999999967 -2.42861286636753e-17 -0.0010000000000000217" rpy="0.0 0.0 0.0"/>
+			<mass value="0.004135862855401387"/>
+			<inertia ixx="0.0019072059344222938" iyy="0.007397892696666377" izz="0.007749174809447162" ixy="-3.927540432834953e-07" ixz="-0.0004629059391075894" iyz="-6.205170016363249e-08"/>
+		</inertial>
+		<visual>
+			<origin xyz="-0.017749999999999967 -2.42861286636753e-17 -0.0010000000000000217" rpy="0.0 0.0 0.0"/>
+			<geometry>
+				<mesh filename="package://orcahand_description/v2/assets/urdf/right/P-AP.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+			<material name="white"/>
+		</visual>
+	</link>
+	<joint type="revolute" name="P-AP_f5e42b61_to_R-Carpals_8d1f1041">
+		<parent link="R-Carpals_8d1f1041"/>
+		<child link="P-AP_f5e42b61"/>
+		<origin xyz="0.035641716045904354 0.0006891586859576128 0.06205424192069395" rpy="-1.529473573814961 1.2028622114983025 -2.9119895363116646"/>
+		<axis xyz="9.71445146547012e-16 1.6653345369377348e-16 0.9999999999999984"/>
+		<limit lower="-0.5235987755982988" upper="0.5235987755982988" effort="100" velocity="100"/>
+	</joint>
+	
+	<!-- P-PP_1d411b9b -->
+	<link name="P-PP_1d411b9b">
+		<inertial>
+			<origin xyz="4.1531875769068695e-17 -9.105164359140306e-18 -3.8292038109168244e-17" rpy="0.0 0.0 0.0"/>
+			<mass value="0.008117379921259958"/>
+			<inertia ixx="0.025623349512956427" iyy="0.025793614052603803" izz="0.0035189171567150722" ixy="4.694655400046905e-07" ixz="-0.0018071048258200377" iyz="-3.951184989342306e-05"/>
+		</inertial>
+		<visual>
+			<origin xyz="4.1531875769068695e-17 -9.105164359140306e-18 -3.8292038109168244e-17" rpy="0.0 0.0 0.0"/>
+			<geometry>
+				<mesh filename="package://orcahand_description/v2/assets/urdf/right/P-PP.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+			<material name="white"/>
+		</visual>
+	</link>
+	<joint type="revolute" name="P-PP_1d411b9b_to_P-AP_f5e42b61">
+		<parent link="P-AP_f5e42b61"/>
+		<child link="P-PP_1d411b9b"/>
+		<origin xyz="-0.017750000000000075 -4.698582746252626e-17 -0.0010000000000000768" rpy="0.0 -1.5707963267948908 0.0"/>
+		<axis xyz="6.439293542825908e-15 -1.0000000000000049 6.661338147750939e-16"/>
+		<limit lower="-0.4363323129985824" upper="1.7453292519943295" effort="100" velocity="100"/>
+	</joint>
+	
+	<!-- P-FingerTipAssembly_cd219176 -->
+	<link name="P-FingerTipAssembly_cd219176">
+		<inertial>
+			<origin xyz="-5.593042944930372e-17 -9.962165250943912e-18 1.5546348698018324e-16" rpy="0.0 0.0 0.0"/>
+			<mass value="0.033190557637887204"/>
+			<inertia ixx="0.11846620291721871" iyy="0.12112279455113192" izz="0.007754984986998298" ixy="8.606966746753583e-07" ixz="0.006073638955115533" iyz="3.225603641856247e-05"/>
+		</inertial>
+		<visual>
+			<origin xyz="-5.593042944930372e-17 -9.962165250943912e-18 1.5546348698018324e-16" rpy="0.0 0.0 0.0"/>
+			<geometry>
+				<mesh filename="package://orcahand_description/v2/assets/urdf/right/P-FingerTipAssembly.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+			<material name="white"/>
+		</visual>
+	</link>
+	<joint type="revolute" name="P-FingerTipAssembly_cd219176_to_P-PP_1d411b9b">
+		<parent link="P-PP_1d411b9b"/>
+		<child link="P-FingerTipAssembly_cd219176"/>
+		<origin xyz="0.000999999999999998 3.208202345938654e-17 0.030999999999999632" rpy="1.1102230246251565e-16 0.0 6.217248937900863e-15"/>
+		<axis xyz="-2.609024107869118e-15 -0.9999999999999968 3.885780586188048e-16"/>
+		<limit lower="-0.2617993877991494" upper="1.8675022996339325" effort="100" velocity="100"/>
+	</joint>
+	
+	<!-- M-AP_6ec59111 -->
+	<link name="M-AP_6ec59111">
+		<inertial>
+			<origin xyz="-0.019249999999999923 -1.734723475976807e-18 -0.0009999999999999961" rpy="0.0 0.0 0.0"/>
+			<mass value="0.004923565158859135"/>
+			<inertia ixx="0.0027136851008060596" iyy="0.009460706643278426" izz="0.009906553652317823" ixy="-2.683659267846044e-07" ixz="-0.0005629648792965329" iyz="-5.0547209593820944e-08"/>
+		</inertial>
+		<visual>
+			<origin xyz="-0.019249999999999923 -1.734723475976807e-18 -0.0009999999999999961" rpy="0.0 0.0 0.0"/>
+			<geometry>
+				<mesh filename="package://orcahand_description/v2/assets/urdf/right/M-AP.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+			<material name="white"/>
+		</visual>
+	</link>
+	<joint type="revolute" name="M-AP_6ec59111_to_R-Carpals_8d1f1041">
+		<parent link="R-Carpals_8d1f1041"/>
+		<child link="M-AP_6ec59111"/>
+		<origin xyz="0.015307722147416544 -0.003218364665125601 0.07130479703009855" rpy="-1.5707963267948946 1.4250613342533707 -3.054326190990075"/>
+		<axis xyz="8.881784197001252e-16 -5.551115123125783e-17 0.9999999999999994"/>
+		<limit lower="-0.47123889803846897" upper="0.47123889803846897" effort="100" velocity="100"/>
+	</joint>
+	
+	<!-- M-PP_8660a1eb -->
+	<link name="M-PP_8660a1eb">
+		<inertial>
+			<origin xyz="-1.7894285379910634e-17 -1.0522308765464415e-17 1.0523467387009805e-17" rpy="0.0 0.0 0.0"/>
+			<mass value="0.012733573971304512"/>
+			<inertia ixx="0.06402265919536819" iyy="0.06504284522078167" izz="0.006906062966041011" ixy="3.512600117935307e-06" ixz="-0.004968211564816455" iyz="-4.688840323020588e-05"/>
+		</inertial>
+		<visual>
+			<origin xyz="-1.7894285379910634e-17 -1.0522308765464415e-17 1.0523467387009805e-17" rpy="0.0 0.0 0.0"/>
+			<geometry>
+				<mesh filename="package://orcahand_description/v2/assets/urdf/right/M-PP.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+			<material name="white"/>
+		</visual>
+	</link>
+	<joint type="revolute" name="M-PP_8660a1eb_to_M-AP_6ec59111">
+		<parent link="M-AP_6ec59111"/>
+		<child link="M-PP_8660a1eb"/>
+		<origin xyz="-0.01986696794290542 3.8657355141463114e-17 -0.00099999999999545" rpy="0.0 -1.5707963267948908 0.0"/>
+		<axis xyz="5.9396931817445875e-15 -1.0000000000000042 1.1102230246251565e-16"/>
+		<limit lower="-0.4363323129985824" upper="1.7453292519943295" effort="100" velocity="100"/>
+	</joint>
+	
+	<!-- M-FingerTipAssembly_424a8e75 -->
+	<link name="M-FingerTipAssembly_424a8e75">
+		<inertial>
+			<origin xyz="4.078794186312799e-17 -1.9049422236114406e-17 1.0521305495457033e-16" rpy="0.0 0.0 0.0"/>
+			<mass value="0.04673701376980013"/>
+			<inertia ixx="0.23675944221186102" iyy="0.24004324353883105" izz="0.012075007532983066" ixy="9.663838314973826e-06" ixz="0.002034989647125272" iyz="2.3822489274913373e-05"/>
+		</inertial>
+		<visual>
+			<origin xyz="4.078794186312799e-17 -1.9049422236114406e-17 1.0521305495457033e-16" rpy="0.0 0.0 0.0"/>
+			<geometry>
+				<mesh filename="package://orcahand_description/v2/assets/urdf/right/M-FingerTipAssembly.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+			<material name="white"/>
+		</visual>
+	</link>
+	<joint type="revolute" name="M-FingerTipAssembly_424a8e75_to_M-PP_8660a1eb">
+		<parent link="M-PP_8660a1eb"/>
+		<child link="M-FingerTipAssembly_424a8e75"/>
+		<origin xyz="0.0019999999999998678 1.5882195667426256e-18 0.040000000000000126" rpy="2.2204460492503052e-16 0.0 6.217248937900862e-15"/>
+		<axis xyz="-2.942091015256665e-15 -0.999999999999996 2.220446049250313e-16"/>
+		<limit lower="-0.2617993877991494" upper="1.8675022996339325" effort="100" velocity="100"/>
+	</joint>
+	
+	<!-- M-AP_e04a96f2 -->
+	<link name="M-AP_e04a96f2">
+		<inertial>
+			<origin xyz="-0.019249999999999982 1.214306433183765e-17 -0.0010000000000000213" rpy="0.0 0.0 0.0"/>
+			<mass value="0.004923565158859135"/>
+			<inertia ixx="0.0027136851008060596" iyy="0.009460706643278426" izz="0.009906553652317823" ixy="-2.683659267846044e-07" ixz="-0.0005629648792965329" iyz="-5.0547209593820944e-08"/>
+		</inertial>
+		<visual>
+			<origin xyz="-0.019249999999999982 1.214306433183765e-17 -0.0010000000000000213" rpy="0.0 0.0 0.0"/>
+			<geometry>
+				<mesh filename="package://orcahand_description/v2/assets/urdf/right/M-AP.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+			<material name="white"/>
+		</visual>
+	</link>
+	<joint type="revolute" name="M-AP_e04a96f2_to_R-Carpals_8d1f1041">
+		<parent link="R-Carpals_8d1f1041"/>
+		<child link="M-AP_e04a96f2"/>
+		<origin xyz="-0.005706333727246699 -0.004023404072025678 0.07850189342716887" rpy="1.5707963267946425 1.5681783329169052 -2.544631172440859e-13"/>
+		<axis xyz="1.1102230246251565e-15 -2.220446049250313e-16 0.9999999999999971"/>
+		<limit lower="-0.47123889803846897" upper="0.47123889803846897" effort="100" velocity="100"/>
+	</joint>
+	
+	<!-- M-PP_08efa608 -->
+	<link name="M-PP_08efa608">
+		<inertial>
+			<origin xyz="7.162795302343035e-17 1.2189131211851784e-17 1.7580316556723272e-17" rpy="0.0 0.0 0.0"/>
+			<mass value="0.012733573971304512"/>
+			<inertia ixx="0.06402265919536819" iyy="0.06504284522078167" izz="0.006906062966041011" ixy="3.512600117935307e-06" ixz="-0.004968211564816455" iyz="-4.688840323020588e-05"/>
+		</inertial>
+		<visual>
+			<origin xyz="7.162795302343035e-17 1.2189131211851784e-17 1.7580316556723272e-17" rpy="0.0 0.0 0.0"/>
+			<geometry>
+				<mesh filename="package://orcahand_description/v2/assets/urdf/right/M-PP.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+			<material name="white"/>
+		</visual>
+	</link>
+	<joint type="revolute" name="M-PP_08efa608_to_M-AP_e04a96f2">
+		<parent link="M-AP_e04a96f2"/>
+		<child link="M-PP_08efa608"/>
+		<origin xyz="-0.019866967942905277 -1.8423293703642938e-17 -0.0009999999999957202" rpy="0.0 -1.5707963267948903 0.0"/>
+		<axis xyz="6.050715484207103e-15 -1.0000000000000058 -1.1102230246251565e-16"/>
+		<limit lower="-0.4363323129985824" upper="1.7453292519943295" effort="100" velocity="100"/>
+	</joint>
+	
+	<!-- M-FingerTipAssembly_34afb748 -->
+	<link name="M-FingerTipAssembly_34afb748">
+		<inertial>
+			<origin xyz="5.004759988748243e-17 1.4318233198945493e-17 1.6821919643190915e-16" rpy="0.0 0.0 0.0"/>
+			<mass value="0.04673701376980013"/>
+			<inertia ixx="0.23675944221186102" iyy="0.24004324353883105" izz="0.012075007532983066" ixy="9.663838314973826e-06" ixz="0.002034989647125272" iyz="2.3822489274913373e-05"/>
+		</inertial>
+		<visual>
+			<origin xyz="5.004759988748243e-17 1.4318233198945493e-17 1.6821919643190915e-16" rpy="0.0 0.0 0.0"/>
+			<geometry>
+				<mesh filename="package://orcahand_description/v2/assets/urdf/right/M-FingerTipAssembly.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+			<material name="white"/>
+		</visual>
+	</link>
+	<joint type="revolute" name="M-FingerTipAssembly_34afb748_to_M-PP_08efa608">
+		<parent link="M-PP_08efa608"/>
+		<child link="M-FingerTipAssembly_34afb748"/>
+		<origin xyz="0.0020000000000000313 -5.598548939047626e-18 0.0400000000000001" rpy="5.551115123125779e-16 4.440892098500626e-16 6.550315845288408e-15"/>
+		<axis xyz="-3.2751579226442118e-15 -0.9999999999999977 4.440892098500626e-16"/>
+		<limit lower="-0.2617993877991494" upper="1.8675022996339325" effort="100" velocity="100"/>
+	</joint>
+	
+	<!-- I-AP-R_d95d02d1 -->
+	<link name="I-AP-R_d95d02d1">
+		<inertial>
+			<origin xyz="-0.01875000000000003 -1.734723475976807e-18 -0.000999999999999964" rpy="0.0 0.0 0.0"/>
+			<mass value="0.004590288233037025"/>
+			<inertia ixx="0.002397637145866943" iyy="0.008675377359142282" izz="0.009122190145660012" ixy="-2.2033692605140816e-05" ixz="-0.0005173926654477824" iyz="-1.0175862940301464e-06"/>
+		</inertial>
+		<visual>
+			<origin xyz="-0.01875000000000003 -1.734723475976807e-18 -0.000999999999999964" rpy="0.0 0.0 0.0"/>
+			<geometry>
+				<mesh filename="package://orcahand_description/v2/assets/urdf/right/I-AP-R.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+			<material name="white"/>
+		</visual>
+	</link>
+	<joint type="revolute" name="I-AP-R_d95d02d1_to_R-Carpals_8d1f1041">
+		<parent link="R-Carpals_8d1f1041"/>
+		<child link="I-AP-R_d95d02d1"/>
+		<origin xyz="-0.027240979039914386 -0.002206966804174762 0.06940680269673646" rpy="1.6538568135338134 1.3873496487488786 -0.0042742186040372054"/>
+		<axis xyz="-8.326672684688674e-17 3.3306690738754696e-16 0.9999999999999991"/>
+		<limit lower="-0.4363323129985824" upper="0.5235987755982988" effort="100" velocity="100"/>
+	</joint>
+	
+	<!-- I-PP_bacbd481 -->
+	<link name="I-PP_bacbd481">
+		<inertial>
+			<origin xyz="8.461858417315034e-17 -1.4799510442361432e-17 1.3855749603332276e-17" rpy="0.0 0.0 0.0"/>
+			<mass value="0.011373207304546197"/>
+			<inertia ixx="0.049843359099354646" iyy="0.050423769660867146" izz="0.0058718342107552165" ixy="2.3856589925762227e-06" ixz="-0.0036138490637337966" iyz="-4.705755499365048e-05"/>
+		</inertial>
+		<visual>
+			<origin xyz="8.461858417315034e-17 -1.4799510442361432e-17 1.3855749603332276e-17" rpy="0.0 0.0 0.0"/>
+			<geometry>
+				<mesh filename="package://orcahand_description/v2/assets/urdf/right/I-PP.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+			<material name="white"/>
+		</visual>
+	</link>
+	<joint type="revolute" name="I-PP_bacbd481_to_I-AP-R_d95d02d1">
+		<parent link="I-AP-R_d95d02d1"/>
+		<child link="I-PP_bacbd481"/>
+		<origin xyz="-0.01915096815087666 -4.499288227880137e-18 -0.0009999999999971549" rpy="-2.9439233600320843e-16 -1.570796326794891 0.0"/>
+		<axis xyz="5.828670879282072e-15 -1.0000000000000036 1.1102230246251565e-16"/>
+		<limit lower="-0.4363323129985824" upper="1.7453292519943295" effort="100" velocity="100"/>
+	</joint>
+	
+	<!-- I-FingerTipAssembly_ec49c16c -->
+	<link name="I-FingerTipAssembly_ec49c16c">
+		<inertial>
+			<origin xyz="6.384780199281326e-17 1.6933625513663662e-18 9.316585525567554e-17" rpy="0.0 0.0 0.0"/>
+			<mass value="0.04675178908397048"/>
+			<inertia ixx="0.236837011966054" iyy="0.2401265739248485" izz="0.012081951806095455" ixy="9.240995282514058e-06" ixz="0.002013193803636903" iyz="2.2350386206292086e-05"/>
+		</inertial>
+		<visual>
+			<origin xyz="6.384780199281326e-17 1.6933625513663662e-18 9.316585525567554e-17" rpy="0.0 0.0 0.0"/>
+			<geometry>
+				<mesh filename="package://orcahand_description/v2/assets/urdf/right/I-FingerTipAssembly.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+			<material name="white"/>
+		</visual>
+	</link>
+	<joint type="revolute" name="I-FingerTipAssembly_ec49c16c_to_I-PP_bacbd481">
+		<parent link="I-PP_bacbd481"/>
+		<child link="I-FingerTipAssembly_ec49c16c"/>
+		<origin xyz="0.0015000000000000417 -7.819255613844171e-18 0.037000000000000026" rpy="3.3306690738754617e-16 0.0 6.77236045021344e-15"/>
+		<axis xyz="-3.608224830031759e-15 -0.999999999999996 2.7755575615628914e-16"/>
+		<limit lower="-0.2617993877991494" upper="1.8675022996339325" effort="100" velocity="100"/>
+	</joint>
+	
+	<!-- T-TP-R_1c2b802d -->
+	<link name="T-TP-R_1c2b802d">
+		<inertial>
+			<origin xyz="-4.228388472693467e-18 -4.911435841359335e-17 -0.003850000000000067" rpy="0.0 0.0 0.0"/>
+			<mass value="0.00797873207561227"/>
+			<inertia ixx="0.014051195383079865" iyy="0.01198841140369448" izz="0.0067523221285223315" ixy="-0.0006855897774941316" ixz="-4.4176034461858814e-05" iyz="0.000325732043218221"/>
+		</inertial>
+		<visual>
+			<origin xyz="-4.228388472693467e-18 -4.911435841359335e-17 -0.003850000000000067" rpy="0.0 0.0 0.0"/>
+			<geometry>
+				<mesh filename="package://orcahand_description/v2/assets/urdf/right/T-TP-R.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+			<material name="white"/>
+		</visual>
+	</link>
+	<joint type="revolute" name="T-TP-R_1c2b802d_to_R-Carpals_8d1f1041">
+		<parent link="R-Carpals_8d1f1041"/>
+		<child link="T-TP-R_1c2b802d"/>
+		<origin xyz="-0.028398719136200776 0.010997180928709077 0.03058953349163134" rpy="0.6614951404674763 0.3860568562160207 -1.4328677049607634"/>
+		<axis xyz="-7.771561172376096e-16 5.412337245047638e-16 -0.9999999999999931"/>
+		<limit lower="-0.7853981633974483" upper="0.5759586531581288" effort="100" velocity="100"/>
+	</joint>
+	
+	<!-- R-T-AP_a9723101 -->
+	<link name="R-T-AP_a9723101">
+		<inertial>
+			<origin xyz="-0.028 2.6020852139652106e-17 -9.540979117872439e-17" rpy="0.0 0.0 0.0"/>
+			<mass value="0.007004136465100992"/>
+			<inertia ixx="0.0037354316270734795" iyy="0.025600448390069638" izz="0.026314915926099337" ixy="2.2006742664869522e-05" ixz="9.536019187929404e-05" iyz="5.2176259027446664e-06"/>
+		</inertial>
+		<visual>
+			<origin xyz="-0.028 2.6020852139652106e-17 -9.540979117872439e-17" rpy="0.0 0.0 0.0"/>
+			<geometry>
+				<mesh filename="package://orcahand_description/v2/assets/urdf/right/R-T-AP.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+			<material name="white"/>
+		</visual>
+	</link>
+	<joint type="revolute" name="R-T-AP_a9723101_to_T-TP-R_1c2b802d">
+		<parent link="T-TP-R_1c2b802d"/>
+		<child link="R-T-AP_a9723101"/>
+		<origin xyz="-0.007999999999728488 -1.8648424965940806e-17 -0.003850000000000026" rpy="-1.221730476396032 -1.9984014443252818e-15 -2.3314683517128287e-15"/>
+		<axis xyz="-1.4988010832439613e-15 0.3420201433256641 0.9396926207859044"/>
+		<limit lower="-0.3141592653589793" upper="0.9599310885968813" effort="100" velocity="100"/>
+	</joint>
+	
+	<!-- T-PP_68395e98 -->
+	<link name="T-PP_68395e98">
+		<inertial>
+			<origin xyz="1.969071627370024e-16 -3.15114617423654e-17 -2.696802036606928e-17" rpy="0.0 0.0 0.0"/>
+			<mass value="0.010490827160908196"/>
+			<inertia ixx="0.034158167985352345" iyy="0.03398303930481624" izz="0.005591456250176966" ixy="9.86819597671277e-07" ixz="-0.002370796007998177" iyz="-5.29088213937355e-05"/>
+		</inertial>
+		<visual>
+			<origin xyz="1.969071627370024e-16 -3.15114617423654e-17 -2.696802036606928e-17" rpy="0.0 0.0 0.0"/>
+			<geometry>
+				<mesh filename="package://orcahand_description/v2/assets/urdf/right/T-PP.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+			<material name="white"/>
+		</visual>
+	</link>
+	<joint type="revolute" name="T-PP_68395e98_to_R-T-AP_a9723101">
+		<parent link="R-T-AP_a9723101"/>
+		<child link="T-PP_68395e98"/>
+		<origin xyz="-0.027999999999999976 4.673366946417151e-18 1.305542026140606e-16" rpy="-3.1415926535897927 1.5707963267948921 0.0"/>
+		<axis xyz="3.1363800445660672e-15 1.0000000000000027 -2.942091015256665e-15"/>
+		<limit lower="-1.7453292519943295" upper="0.4363323129985824" effort="100" velocity="100"/>
+	</joint>
+	
+	<!-- T-DP_b7429e50 -->
+	<link name="T-DP_b7429e50">
+		<inertial>
+			<origin xyz="2.6951590953616836e-16 -1.4511389580442956e-16 4.4964986238156687e-17" rpy="0.0 0.0 0.0"/>
+			<mass value="0.00815768733004441"/>
+			<inertia ixx="0.021558139856812465" iyy="0.021063835406619765" izz="0.003268393437691202" ixy="6.9216317465174115e-06" ixz="-0.0006770504163617516" iyz="1.9816795786366035e-05"/>
+		</inertial>
+		<visual>
+			<origin xyz="2.6951590953616836e-16 -1.4511389580442956e-16 4.4964986238156687e-17" rpy="0.0 0.0 0.0"/>
+			<geometry>
+				<mesh filename="package://orcahand_description/v2/assets/urdf/right/T-DP.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+			<material name="white"/>
+		</visual>
+	</link>
+	<joint type="revolute" name="T-DP_b7429e50_to_T-PP_68395e98">
+		<parent link="T-PP_68395e98"/>
+		<child link="T-DP_b7429e50"/>
+		<origin xyz="0.0009999999999999985 1.1880660448999647e-16 0.03200000000000021" rpy="0.0 0.0 -3.830269434956779e-15"/>
+		<axis xyz="4.718447854656915e-16 -0.9999999999999946 3.164135620181696e-15"/>
+		<limit lower="-0.2617993877991494" upper="1.8675022996339325" effort="100" velocity="100"/>
+	</joint>
+</robot>
