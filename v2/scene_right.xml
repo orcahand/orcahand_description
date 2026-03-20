@@ -1,9 +1,9 @@
 <?xml version="1.0" ?>
 <mujoco model="ORCA hand right scene">
 
-  <include file="assets/mjcf/scene.xml"/>
+  <include file="models/assets/scene.xml"/>
 
-  <include file="assets/mjcf/options.xml"/>
+  <include file="models/assets/options.xml"/>
 
   <include file="models/mjcf/orcahand_right.mjcf"/>
 
@@ -12,5 +12,11 @@
       <include file="models/mjcf/orcahand_right_body.xml"/>
     </body>
   </worldbody>
+
+  <keyframe>
+    <key name="home"
+      qpos="0 0 0.959931 0 0 0 0 0 0 0 0 0 0 0 0 0 0"
+      ctrl="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.959931 0 0"/>
+  </keyframe>
 
 </mujoco>

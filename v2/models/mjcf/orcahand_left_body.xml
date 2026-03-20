@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <mujoco model="orcahand_left_body">
-	<body name="left_root" quat="1.0 0.0 0.0 0.0">
+	<body name="left_tower" quat="1.0 0.0 0.0 0.0">
 		<body name="left_ForeArmStructure-Model_e18f2368" pos="0.0 0.0 0.0" quat="1.0 0.0 0.0 0.0">
 			<body name="left_TopTower-Model_4a80d30e" pos="-0.010000000000000018 0.05230000000000584 -2.0816681711721685e-17" quat="-0.4999999999999985 0.4999999999999986 -0.5 -0.49999999999999994">
 				<body name="left_L-Carpals_719fff8c" pos="-0.0018770780631086439 0.005000000000000008 0.0895000006705525" quat="-0.7071067811865476 -1.7172886266853953e-17 -7.605135346749523e-17 0.7071067811865495">
