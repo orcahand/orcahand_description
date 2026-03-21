@@ -1,6 +1,8 @@
 <div style="display: flex; gap: 10px;">
-  <img src=".docs/orcahand.png" alt="ORCA hand" height="300">
-  <img src=".docs/orcahand_combined_extended.png" alt="Combined extended ORCA hand" height="300">
+<p align="center">
+  <img src=".docs/orcadescription_header.png" alt="ORCA Hand Description Header" />
+</p>
+
 </div>
 
 # Orcahand Description
