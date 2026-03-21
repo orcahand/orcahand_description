@@ -8,7 +8,7 @@
   <include file="models/mjcf/orcahand_left.mjcf"/>
 
   <worldbody>
-    <body name="left_mount" pos="0 0 0.1" euler="1.5708 0 3.1416">
+    <body name="left_mount" pos="-0.06363 0.00332 0.058" euler="1.5708 0 0">
       <include file="models/mjcf/orcahand_left_body.xml"/>
     </body>
   </worldbody>
