@@ -23,11 +23,6 @@
     <light pos="0.3 0 1.5" dir="0 0 -1" directional="true"/>
     <geom name="floor" pos="0 0 0" size="0 0 0.05" type="plane" material="groundplane"/>
 
-    <!-- Example object -->
-    <body name="object" pos="0 0.2 0">
-      <freejoint/>
-      <geom type="box" size="0.025 0.025 0.025" rgba="0.5 0 0 1" condim="6" priority="1" friction="0.5 0.01 0.003"/>
-    </body>
   </worldbody>
 
 </mujoco>
