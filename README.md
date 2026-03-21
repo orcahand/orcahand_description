@@ -1,6 +1,6 @@
 <div style="display: flex; gap: 10px;">
 <p align="center">
-  <img src=".docs/orcadescription_header.png" alt="ORCA Hand Description Header" />
+  <img src=".docs/orcadescription_header.png" alt="ORCA Hand Description Header" style="max-width: 100%; height: auto;" />
 </p>
 
 </div>
