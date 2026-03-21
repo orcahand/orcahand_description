@@ -27,8 +27,8 @@ The `extended` version contains additional bodies (incl. inertial properties) su
    ```
 3. Simulate any version using MuJoCo:
    ```bash
-   python -m mujoco.viewer --mjcf=v1/scene_combined.xml
-   python -m mujoco.viewer --mjcf=v2/scene_combined.xml
+   python -m mujoco.viewer --mjcf=$(pwd)/v1/scene_combined.xml
+   python -m mujoco.viewer --mjcf=$(pwd)/v2/scene_combined.xml
    ```
 
 ## Note on Meshes
