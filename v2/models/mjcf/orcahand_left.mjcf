@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <mujoco model="orcahand_left">
 	<default>
-		<geom rgba="1 1 1 1" type="mesh" friction="1 0.005 0.001" condim="3" margin="0.0005" contype="1" conaffinity="1" />
+		<geom type="mesh" friction="1 0.005 0.001" condim="3" margin="0.0005" contype="1" conaffinity="1" />
 		<joint type="hinge" limited="true" damping="0.1" armature="0.001" margin="0.01" frictionloss="0.001" />
 		<position ctrllimited="true" forcelimited="true" forcerange="-1 1" kp="2.0" />
 		<mesh scale="0.001 0.001 0.001" />

@@ -19,8 +19,8 @@
   
   <worldbody>
     <!-- Lighting and floor -->
-    <light pos="0 0 1"/>
-    <light pos="0.3 0 1.5" dir="0 0 -1" directional="true"/>
+    <light pos="0 0.5 1" dir="0 -0.3 -1" diffuse="0.8 0.8 0.8" specular="0.2 0.2 0.2"/>
+    <light pos="0.3 0.5 1.5" dir="0 -0.3 -1" directional="true" diffuse="0.6 0.6 0.6" specular="0.1 0.1 0.1"/>
     <geom name="floor" pos="0 0 0" size="0 0 0.05" type="plane" material="groundplane"/>
 
   </worldbody>
