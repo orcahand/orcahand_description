@@ -10,7 +10,6 @@ MJCF_ENTRYPOINTS = sorted(
     [
         *ROOT_DIR.glob("v1/models/mjcf/*.mjcf"),
         *ROOT_DIR.glob("v1/scene*.xml"),
-        *ROOT_DIR.glob("v2/models/mjcf/*.mjcf"),
         *ROOT_DIR.glob("v2/scene*.xml"),
     ]
 )

@@ -1,10 +1,16 @@
 <?xml version="1.0" ?>
 <mujoco model="ORCA hand right scene">
-  
-  <include file="assets/mjcf/scene.xml"/>
 
-  <include file="assets/mjcf/options.xml"/>
-  
+  <include file="models/assets/scene.xml"/>
+
+  <include file="models/assets/options.xml"/>
+
   <include file="models/mjcf/orcahand_right.mjcf"/>
-  
+
+  <worldbody>
+    <body name="right_mount" pos="0 0 0.1" euler="1.5708 0 3.1416">
+      <include file="models/mjcf/orcahand_right_body.xml"/>
+    </body>
+  </worldbody>
+
 </mujoco>
