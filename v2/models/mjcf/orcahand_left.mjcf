@@ -56,7 +56,7 @@
 		<position name="left_m-abd_actuator" joint="left_m-abd" ctrlrange="-0.47123889803846897 0.47123889803846897" />
 		<position name="left_m-mcp_actuator" joint="left_m-mcp" ctrlrange="-0.4363323129985824 1.7453292519943295" />
 		<position name="left_m-pip_actuator" joint="left_m-pip" ctrlrange="-0.2617993877991494 1.8675022996339325" />
-		<position name="left_i-abd_actuator" joint="left_i-abd" ctrlrange="-0.436332313 0.5235987756" />
+		<position name="left_i-abd_actuator" joint="left_i-abd" ctrlrange="-0.4363323129985824 0.5235987755982988" />
 		<position name="left_i-mcp_actuator" joint="left_i-mcp" ctrlrange="-0.4363323129985824 1.7453292519943295" />
 		<position name="left_i-pip_actuator" joint="left_i-pip" ctrlrange="-0.2617993877991494 1.8675022996339325" />
 		<position name="left_t-cmc_actuator" joint="left_t-cmc" ctrlrange="-0.7853981633974483 0.5759586531581288" />
