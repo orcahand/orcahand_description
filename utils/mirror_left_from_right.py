@@ -15,6 +15,7 @@ left == mirror(right) holds exactly:
 
   - v2/models/urdf/orcahand_left.urdf      from v2/models/urdf/orcahand_right.urdf
   - v2/models/mjcf/orcahand_left_body.xml  from v2/models/mjcf/orcahand_right_body.xml
+  - v2/models/mjcf/orcahand_left.mjcf      from v2/models/mjcf/orcahand_right.mjcf
   - v2/models/assets/left/*.stl            from v2/models/assets/right/*.stl
 
 Reflection across the x=0 plane with M = diag(-1, 1, 1). Because URDF rpy is
@@ -37,8 +38,11 @@ angles therefore produce mirror-identical poses and the joint limits carry
 over unchanged, matching orca_core's v2_kinematics.yaml left section (which
 stores axis = M @ a with the orca joint sign flipped -- the same rotation).
 
-Names, joint/link/body/mesh identifiers and file layout of the existing left
-model are preserved exactly; only the numbers and the mesh geometry change.
+Joint/link/body names are semantic ({side}_{part} / {side}_{orca joint id}),
+so left names are simply the right names with the side prefix swapped; only
+the mesh file base names differ per side (MESH_NAME_MAP). The .mjcf carries
+no numbers that mirror (limits are unchanged under the same-angle convention),
+so the left .mjcf is a pure rename of the right one.
 
 Usage:
     python utils/mirror_left_from_right.py            # regenerate left files
@@ -61,21 +65,10 @@ URDF_RIGHT = V2 / "models" / "urdf" / "orcahand_right.urdf"
 URDF_LEFT = V2 / "models" / "urdf" / "orcahand_left.urdf"
 BODY_RIGHT = V2 / "models" / "mjcf" / "orcahand_right_body.xml"
 BODY_LEFT = V2 / "models" / "mjcf" / "orcahand_left_body.xml"
+MJCF_RIGHT = V2 / "models" / "mjcf" / "orcahand_right.mjcf"
+MJCF_LEFT = V2 / "models" / "mjcf" / "orcahand_left.mjcf"
 MESH_RIGHT_DIR = V2 / "models" / "assets" / "right"
 MESH_LEFT_DIR = V2 / "models" / "assets" / "left"
-
-# Right link name (with Fusion export hash) -> existing left link name.
-# The left hashes are kept so all downstream joint/body/contact names survive.
-LINK_MAP = {
-    "R-Carpals_8d1f1041": "L-Carpals_719fff8c",
-    "T-TP-R_1c2b802d": "T-TP-L_92b8100b",
-    "R-T-AP_a9723101": "L-T-AP_58680c44",
-    "T-PP_68395e98": "T-PP_ef067304",
-    "T-DP_b7429e50": "T-DP_307db3cc",
-    "I-AP-R_d95d02d1": "I-AP-L_57ce92f7",
-    "I-PP_bacbd481": "I-PP_3df4f91d",
-    "I-FingerTipAssembly_ec49c16c": "I-FingerTipAssembly_ed91b18a",
-}
 
 # Right mesh/part base names -> left equivalents (files and mjcf mesh refs).
 MESH_NAME_MAP = {
@@ -167,9 +160,7 @@ def _flip(vector_str: str, flip_indices: tuple) -> str:
 
 def _rename(text: str) -> str:
     """Apply right->left renames (longest keys first so prefixes can't clash)."""
-    renames = dict(LINK_MAP)
-    renames.update(MESH_NAME_MAP)
-    for right, left in sorted(renames.items(), key=lambda kv: -len(kv[0])):
+    for right, left in sorted(MESH_NAME_MAP.items(), key=lambda kv: -len(kv[0])):
         text = text.replace(right, left)
     return text.replace("right", "left")
 
@@ -252,6 +243,7 @@ def generate() -> dict:
     files = {}
     files[URDF_LEFT] = mirror_urdf(URDF_RIGHT.read_text()).encode()
     files[BODY_LEFT] = mirror_body_xml(BODY_RIGHT.read_text()).encode()
+    files[MJCF_LEFT] = _rename(MJCF_RIGHT.read_text()).encode()
     for left_name in LEFT_MESH_FILES:
         src = MESH_RIGHT_DIR / _right_mesh_name(left_name)
         note = f"mirror(x) of right/{src.name} by utils/mirror_left_from_right.py"

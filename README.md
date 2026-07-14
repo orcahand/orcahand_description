@@ -13,6 +13,16 @@ Versioned model layouts live under:
 
 The `extended` version contains additional bodies (incl. inertial properties) such as the camera mount, the U2D2 board and fans.
 
+## v2 Naming Convention
+
+All v2 joint, link and body names are semantic and side-prefixed, matching orca_core's joint ids:
+
+- Joints: `{side}_{joint}` with the 17 joints `wrist`, `thumb_cmc`, `thumb_abd`, `thumb_mcp`, `thumb_dip`, and `{finger}_abd` / `{finger}_mcp` / `{finger}_pip` for `index`, `middle`, `ring`, `pinky` (e.g. `right_index_mcp`). The URDF additionally has one fixed joint, `{side}_tower_fixed`.
+- Links/bodies: `{side}_forearm`, `{side}_tower`, `{side}_carpals`, then per finger `{side}_{finger}_ap`, `{side}_{finger}_pp`, `{side}_{finger}_fingertip_assembly` (thumb: `thumb_tp`, `thumb_ap`, `thumb_pp`, `thumb_dp`). The MJCF body tree is rooted at a `{side}_base` attachment body; actuators are named `{joint}_actuator`.
+- Mesh files and MJCF mesh asset names keep their Fusion360 part names (e.g. `R-Carpals.stl`).
+
+The left hand is generated from the right by `utils/mirror_left_from_right.py` (verify with `--check`); left names are the right names with the side prefix swapped.
+
 ## Example Usage
 1. Clone the repository:
    ```bash

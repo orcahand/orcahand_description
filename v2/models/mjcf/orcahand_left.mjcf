@@ -7,26 +7,26 @@
 		<mesh scale="0.001 0.001 0.001" />
 	</default>
 	<asset>
-		<mesh name="left_L-Carpals" file="models/assets/left/L-Carpals.stl" />
+		<mesh name="left_I-L-Assembly" file="models/assets/left/I-L-Assembly.stl" />
 		<mesh name="left_P-Assembly" file="models/assets/left/P-Assembly.stl" />
 		<mesh name="left_L-T-AP" file="models/assets/left/L-T-AP.stl" />
 		<mesh name="left_M-PP" file="models/assets/left/M-PP.stl" />
-		<mesh name="left_I-L-Assembly" file="models/assets/left/I-L-Assembly.stl" />
 		<mesh name="left_I-PP" file="models/assets/left/I-PP.stl" />
 		<mesh name="left_P-AP" file="models/assets/left/P-AP.stl" />
-		<mesh name="left_I-AP-L" file="models/assets/left/I-AP-L.stl" />
-		<mesh name="left_T-TP-L" file="models/assets/left/T-TP-L.stl" />
 		<mesh name="left_ForeArmStructure-Model" file="models/assets/left/ForeArmStructure-Model.stl" />
 		<mesh name="left_P-FingerTipAssembly" file="models/assets/left/P-FingerTipAssembly.stl" />
 		<mesh name="left_T-DP" file="models/assets/left/T-DP.stl" />
 		<mesh name="left_TopTower-Model" file="models/assets/left/TopTower-Model.stl" />
 		<mesh name="left_I-FingerTipAssembly" file="models/assets/left/I-FingerTipAssembly.stl" />
+		<mesh name="left_I-AP-L" file="models/assets/left/I-AP-L.stl" />
+		<mesh name="left_T-TP-L" file="models/assets/left/T-TP-L.stl" />
+		<mesh name="left_L-Carpals" file="models/assets/left/L-Carpals.stl" />
 		<mesh name="left_T-PP" file="models/assets/left/T-PP.stl" />
 		<mesh name="left_M-AP" file="models/assets/left/M-AP.stl" />
 		<mesh name="left_M-FingerTipAssembly" file="models/assets/left/M-FingerTipAssembly.stl" />
+		<mesh name="left_T-L-Assembly" file="models/assets/left/T-L-Assembly.stl" />
 		<mesh name="left_P-PP" file="models/assets/left/P-PP.stl" />
 		<mesh name="left_ForeArmStructure-Model_Logo" file="models/assets/left/ForeArmStructure-Model_Logo.stl" />
-		<mesh name="left_T-L-Assembly" file="models/assets/left/T-L-Assembly.stl" />
 		<mesh name="left_M-Assembly" file="models/assets/left/M-Assembly.stl" />
 		<mesh name="left_T-PP_Skin" file="models/assets/left/T-PP_Skin.stl" />
 		<mesh name="left_P-IP_IP" file="models/assets/left/P-IP_IP.stl" />
@@ -47,92 +47,92 @@
 	</asset>
 	<actuator>
 		<position name="left_wrist_actuator" joint="left_wrist" ctrlrange="-1.1344640137963142 0.6108652381980153" />
-		<position name="left_p-abd_actuator" joint="left_p-abd" ctrlrange="-0.5235987755982988 0.5235987755982988" />
-		<position name="left_p-mcp_actuator" joint="left_p-mcp" ctrlrange="-0.4363323129985824 1.7453292519943295" />
-		<position name="left_p-pip_actuator" joint="left_p-pip" ctrlrange="-0.2617993877991494 1.8675022996339325" />
-		<position name="left_r-abd_actuator" joint="left_r-abd" ctrlrange="-0.47123889803846897 0.47123889803846897" />
-		<position name="left_r-mcp_actuator" joint="left_r-mcp" ctrlrange="-0.4363323129985824 1.7453292519943295" />
-		<position name="left_r-pip_actuator" joint="left_r-pip" ctrlrange="-0.2617993877991494 1.8675022996339325" />
-		<position name="left_m-abd_actuator" joint="left_m-abd" ctrlrange="-0.47123889803846897 0.47123889803846897" />
-		<position name="left_m-mcp_actuator" joint="left_m-mcp" ctrlrange="-0.4363323129985824 1.7453292519943295" />
-		<position name="left_m-pip_actuator" joint="left_m-pip" ctrlrange="-0.2617993877991494 1.8675022996339325" />
-		<position name="left_i-abd_actuator" joint="left_i-abd" ctrlrange="-0.4363323129985824 0.5235987755982988" />
-		<position name="left_i-mcp_actuator" joint="left_i-mcp" ctrlrange="-0.4363323129985824 1.7453292519943295" />
-		<position name="left_i-pip_actuator" joint="left_i-pip" ctrlrange="-0.2617993877991494 1.8675022996339325" />
-		<position name="left_t-cmc_actuator" joint="left_t-cmc" ctrlrange="-0.7853981633974483 0.5759586531581288" />
-		<position name="left_t-abd_actuator" joint="left_t-abd" ctrlrange="-0.3141592653589793 0.9599310885968813" />
-		<position name="left_t-mcp_actuator" joint="left_t-mcp" ctrlrange="-0.4363323129985824 1.7453292519943295" />
-		<position name="left_t-pip_actuator" joint="left_t-pip" ctrlrange="-0.2617993877991494 1.8675022996339325" />
+		<position name="left_pinky_abd_actuator" joint="left_pinky_abd" ctrlrange="-0.5235987755982988 0.5235987755982988" />
+		<position name="left_pinky_mcp_actuator" joint="left_pinky_mcp" ctrlrange="-0.4363323129985824 1.7453292519943295" />
+		<position name="left_pinky_pip_actuator" joint="left_pinky_pip" ctrlrange="-0.2617993877991494 1.8675022996339325" />
+		<position name="left_ring_abd_actuator" joint="left_ring_abd" ctrlrange="-0.47123889803846897 0.47123889803846897" />
+		<position name="left_ring_mcp_actuator" joint="left_ring_mcp" ctrlrange="-0.4363323129985824 1.7453292519943295" />
+		<position name="left_ring_pip_actuator" joint="left_ring_pip" ctrlrange="-0.2617993877991494 1.8675022996339325" />
+		<position name="left_middle_abd_actuator" joint="left_middle_abd" ctrlrange="-0.47123889803846897 0.47123889803846897" />
+		<position name="left_middle_mcp_actuator" joint="left_middle_mcp" ctrlrange="-0.4363323129985824 1.7453292519943295" />
+		<position name="left_middle_pip_actuator" joint="left_middle_pip" ctrlrange="-0.2617993877991494 1.8675022996339325" />
+		<position name="left_index_abd_actuator" joint="left_index_abd" ctrlrange="-0.4363323129985824 0.5235987755982988" />
+		<position name="left_index_mcp_actuator" joint="left_index_mcp" ctrlrange="-0.4363323129985824 1.7453292519943295" />
+		<position name="left_index_pip_actuator" joint="left_index_pip" ctrlrange="-0.2617993877991494 1.8675022996339325" />
+		<position name="left_thumb_cmc_actuator" joint="left_thumb_cmc" ctrlrange="-0.7853981633974483 0.5759586531581288" />
+		<position name="left_thumb_abd_actuator" joint="left_thumb_abd" ctrlrange="-0.3141592653589793 0.9599310885968813" />
+		<position name="left_thumb_mcp_actuator" joint="left_thumb_mcp" ctrlrange="-0.4363323129985824 1.7453292519943295" />
+		<position name="left_thumb_dip_actuator" joint="left_thumb_dip" ctrlrange="-0.2617993877991494 1.8675022996339325" />
 	</actuator>
 	<contact>
-		<exclude body1="left_ForeArmStructure-Model_e18f2368" body2="left_TopTower-Model_4a80d30e" />
-		<exclude body1="left_ForeArmStructure-Model_e18f2368" body2="left_L-Carpals_719fff8c" />
-		<exclude body1="left_TopTower-Model_4a80d30e" body2="left_L-Carpals_719fff8c" />
-		<exclude body1="left_ForeArmStructure-Model_e18f2368" body2="left_P-AP_f5e42b61" />
-		<exclude body1="left_TopTower-Model_4a80d30e" body2="left_P-AP_f5e42b61" />
-		<exclude body1="left_L-Carpals_719fff8c" body2="left_P-AP_f5e42b61" />
-		<exclude body1="left_ForeArmStructure-Model_e18f2368" body2="left_P-PP_1d411b9b" />
-		<exclude body1="left_TopTower-Model_4a80d30e" body2="left_P-PP_1d411b9b" />
-		<exclude body1="left_L-Carpals_719fff8c" body2="left_P-PP_1d411b9b" />
-		<exclude body1="left_P-AP_f5e42b61" body2="left_P-PP_1d411b9b" />
-		<exclude body1="left_ForeArmStructure-Model_e18f2368" body2="left_P-FingerTipAssembly_cd219176" />
-		<exclude body1="left_TopTower-Model_4a80d30e" body2="left_P-FingerTipAssembly_cd219176" />
-		<exclude body1="left_L-Carpals_719fff8c" body2="left_P-FingerTipAssembly_cd219176" />
-		<exclude body1="left_P-AP_f5e42b61" body2="left_P-FingerTipAssembly_cd219176" />
-		<exclude body1="left_P-PP_1d411b9b" body2="left_P-FingerTipAssembly_cd219176" />
-		<exclude body1="left_ForeArmStructure-Model_e18f2368" body2="left_M-AP_6ec59111" />
-		<exclude body1="left_TopTower-Model_4a80d30e" body2="left_M-AP_6ec59111" />
-		<exclude body1="left_L-Carpals_719fff8c" body2="left_M-AP_6ec59111" />
-		<exclude body1="left_ForeArmStructure-Model_e18f2368" body2="left_M-PP_8660a1eb" />
-		<exclude body1="left_TopTower-Model_4a80d30e" body2="left_M-PP_8660a1eb" />
-		<exclude body1="left_L-Carpals_719fff8c" body2="left_M-PP_8660a1eb" />
-		<exclude body1="left_M-AP_6ec59111" body2="left_M-PP_8660a1eb" />
-		<exclude body1="left_ForeArmStructure-Model_e18f2368" body2="left_M-FingerTipAssembly_424a8e75" />
-		<exclude body1="left_TopTower-Model_4a80d30e" body2="left_M-FingerTipAssembly_424a8e75" />
-		<exclude body1="left_L-Carpals_719fff8c" body2="left_M-FingerTipAssembly_424a8e75" />
-		<exclude body1="left_M-AP_6ec59111" body2="left_M-FingerTipAssembly_424a8e75" />
-		<exclude body1="left_M-PP_8660a1eb" body2="left_M-FingerTipAssembly_424a8e75" />
-		<exclude body1="left_ForeArmStructure-Model_e18f2368" body2="left_M-AP_e04a96f2" />
-		<exclude body1="left_TopTower-Model_4a80d30e" body2="left_M-AP_e04a96f2" />
-		<exclude body1="left_L-Carpals_719fff8c" body2="left_M-AP_e04a96f2" />
-		<exclude body1="left_ForeArmStructure-Model_e18f2368" body2="left_M-PP_08efa608" />
-		<exclude body1="left_TopTower-Model_4a80d30e" body2="left_M-PP_08efa608" />
-		<exclude body1="left_L-Carpals_719fff8c" body2="left_M-PP_08efa608" />
-		<exclude body1="left_M-AP_e04a96f2" body2="left_M-PP_08efa608" />
-		<exclude body1="left_ForeArmStructure-Model_e18f2368" body2="left_M-FingerTipAssembly_34afb748" />
-		<exclude body1="left_TopTower-Model_4a80d30e" body2="left_M-FingerTipAssembly_34afb748" />
-		<exclude body1="left_L-Carpals_719fff8c" body2="left_M-FingerTipAssembly_34afb748" />
-		<exclude body1="left_M-AP_e04a96f2" body2="left_M-FingerTipAssembly_34afb748" />
-		<exclude body1="left_M-PP_08efa608" body2="left_M-FingerTipAssembly_34afb748" />
-		<exclude body1="left_ForeArmStructure-Model_e18f2368" body2="left_I-AP-L_57ce92f7" />
-		<exclude body1="left_TopTower-Model_4a80d30e" body2="left_I-AP-L_57ce92f7" />
-		<exclude body1="left_L-Carpals_719fff8c" body2="left_I-AP-L_57ce92f7" />
-		<exclude body1="left_ForeArmStructure-Model_e18f2368" body2="left_I-PP_3df4f91d" />
-		<exclude body1="left_TopTower-Model_4a80d30e" body2="left_I-PP_3df4f91d" />
-		<exclude body1="left_L-Carpals_719fff8c" body2="left_I-PP_3df4f91d" />
-		<exclude body1="left_I-AP-L_57ce92f7" body2="left_I-PP_3df4f91d" />
-		<exclude body1="left_ForeArmStructure-Model_e18f2368" body2="left_I-FingerTipAssembly_ed91b18a" />
-		<exclude body1="left_TopTower-Model_4a80d30e" body2="left_I-FingerTipAssembly_ed91b18a" />
-		<exclude body1="left_L-Carpals_719fff8c" body2="left_I-FingerTipAssembly_ed91b18a" />
-		<exclude body1="left_I-AP-L_57ce92f7" body2="left_I-FingerTipAssembly_ed91b18a" />
-		<exclude body1="left_I-PP_3df4f91d" body2="left_I-FingerTipAssembly_ed91b18a" />
-		<exclude body1="left_ForeArmStructure-Model_e18f2368" body2="left_T-TP-L_92b8100b" />
-		<exclude body1="left_TopTower-Model_4a80d30e" body2="left_T-TP-L_92b8100b" />
-		<exclude body1="left_L-Carpals_719fff8c" body2="left_T-TP-L_92b8100b" />
-		<exclude body1="left_ForeArmStructure-Model_e18f2368" body2="left_L-T-AP_58680c44" />
-		<exclude body1="left_TopTower-Model_4a80d30e" body2="left_L-T-AP_58680c44" />
-		<exclude body1="left_L-Carpals_719fff8c" body2="left_L-T-AP_58680c44" />
-		<exclude body1="left_T-TP-L_92b8100b" body2="left_L-T-AP_58680c44" />
-		<exclude body1="left_ForeArmStructure-Model_e18f2368" body2="left_T-PP_ef067304" />
-		<exclude body1="left_TopTower-Model_4a80d30e" body2="left_T-PP_ef067304" />
-		<exclude body1="left_L-Carpals_719fff8c" body2="left_T-PP_ef067304" />
-		<exclude body1="left_T-TP-L_92b8100b" body2="left_T-PP_ef067304" />
-		<exclude body1="left_L-T-AP_58680c44" body2="left_T-PP_ef067304" />
-		<exclude body1="left_ForeArmStructure-Model_e18f2368" body2="left_T-DP_307db3cc" />
-		<exclude body1="left_TopTower-Model_4a80d30e" body2="left_T-DP_307db3cc" />
-		<exclude body1="left_L-Carpals_719fff8c" body2="left_T-DP_307db3cc" />
-		<exclude body1="left_T-TP-L_92b8100b" body2="left_T-DP_307db3cc" />
-		<exclude body1="left_L-T-AP_58680c44" body2="left_T-DP_307db3cc" />
-		<exclude body1="left_T-PP_ef067304" body2="left_T-DP_307db3cc" />
+		<exclude body1="left_forearm" body2="left_tower" />
+		<exclude body1="left_forearm" body2="left_carpals" />
+		<exclude body1="left_tower" body2="left_carpals" />
+		<exclude body1="left_forearm" body2="left_pinky_ap" />
+		<exclude body1="left_tower" body2="left_pinky_ap" />
+		<exclude body1="left_carpals" body2="left_pinky_ap" />
+		<exclude body1="left_forearm" body2="left_pinky_pp" />
+		<exclude body1="left_tower" body2="left_pinky_pp" />
+		<exclude body1="left_carpals" body2="left_pinky_pp" />
+		<exclude body1="left_pinky_ap" body2="left_pinky_pp" />
+		<exclude body1="left_forearm" body2="left_pinky_fingertip_assembly" />
+		<exclude body1="left_tower" body2="left_pinky_fingertip_assembly" />
+		<exclude body1="left_carpals" body2="left_pinky_fingertip_assembly" />
+		<exclude body1="left_pinky_ap" body2="left_pinky_fingertip_assembly" />
+		<exclude body1="left_pinky_pp" body2="left_pinky_fingertip_assembly" />
+		<exclude body1="left_forearm" body2="left_ring_ap" />
+		<exclude body1="left_tower" body2="left_ring_ap" />
+		<exclude body1="left_carpals" body2="left_ring_ap" />
+		<exclude body1="left_forearm" body2="left_ring_pp" />
+		<exclude body1="left_tower" body2="left_ring_pp" />
+		<exclude body1="left_carpals" body2="left_ring_pp" />
+		<exclude body1="left_ring_ap" body2="left_ring_pp" />
+		<exclude body1="left_forearm" body2="left_ring_fingertip_assembly" />
+		<exclude body1="left_tower" body2="left_ring_fingertip_assembly" />
+		<exclude body1="left_carpals" body2="left_ring_fingertip_assembly" />
+		<exclude body1="left_ring_ap" body2="left_ring_fingertip_assembly" />
+		<exclude body1="left_ring_pp" body2="left_ring_fingertip_assembly" />
+		<exclude body1="left_forearm" body2="left_middle_ap" />
+		<exclude body1="left_tower" body2="left_middle_ap" />
+		<exclude body1="left_carpals" body2="left_middle_ap" />
+		<exclude body1="left_forearm" body2="left_middle_pp" />
+		<exclude body1="left_tower" body2="left_middle_pp" />
+		<exclude body1="left_carpals" body2="left_middle_pp" />
+		<exclude body1="left_middle_ap" body2="left_middle_pp" />
+		<exclude body1="left_forearm" body2="left_middle_fingertip_assembly" />
+		<exclude body1="left_tower" body2="left_middle_fingertip_assembly" />
+		<exclude body1="left_carpals" body2="left_middle_fingertip_assembly" />
+		<exclude body1="left_middle_ap" body2="left_middle_fingertip_assembly" />
+		<exclude body1="left_middle_pp" body2="left_middle_fingertip_assembly" />
+		<exclude body1="left_forearm" body2="left_index_ap" />
+		<exclude body1="left_tower" body2="left_index_ap" />
+		<exclude body1="left_carpals" body2="left_index_ap" />
+		<exclude body1="left_forearm" body2="left_index_pp" />
+		<exclude body1="left_tower" body2="left_index_pp" />
+		<exclude body1="left_carpals" body2="left_index_pp" />
+		<exclude body1="left_index_ap" body2="left_index_pp" />
+		<exclude body1="left_forearm" body2="left_index_fingertip_assembly" />
+		<exclude body1="left_tower" body2="left_index_fingertip_assembly" />
+		<exclude body1="left_carpals" body2="left_index_fingertip_assembly" />
+		<exclude body1="left_index_ap" body2="left_index_fingertip_assembly" />
+		<exclude body1="left_index_pp" body2="left_index_fingertip_assembly" />
+		<exclude body1="left_forearm" body2="left_thumb_tp" />
+		<exclude body1="left_tower" body2="left_thumb_tp" />
+		<exclude body1="left_carpals" body2="left_thumb_tp" />
+		<exclude body1="left_forearm" body2="left_thumb_ap" />
+		<exclude body1="left_tower" body2="left_thumb_ap" />
+		<exclude body1="left_carpals" body2="left_thumb_ap" />
+		<exclude body1="left_thumb_tp" body2="left_thumb_ap" />
+		<exclude body1="left_forearm" body2="left_thumb_pp" />
+		<exclude body1="left_tower" body2="left_thumb_pp" />
+		<exclude body1="left_carpals" body2="left_thumb_pp" />
+		<exclude body1="left_thumb_tp" body2="left_thumb_pp" />
+		<exclude body1="left_thumb_ap" body2="left_thumb_pp" />
+		<exclude body1="left_forearm" body2="left_thumb_dp" />
+		<exclude body1="left_tower" body2="left_thumb_dp" />
+		<exclude body1="left_carpals" body2="left_thumb_dp" />
+		<exclude body1="left_thumb_tp" body2="left_thumb_dp" />
+		<exclude body1="left_thumb_ap" body2="left_thumb_dp" />
+		<exclude body1="left_thumb_pp" body2="left_thumb_dp" />
 	</contact>
 </mujoco>

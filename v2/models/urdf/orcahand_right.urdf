@@ -4,8 +4,8 @@
 		<color rgba="1 1 1 1"/>
 	</material>
 	
-	<!-- ForeArmStructure-Model_e18f2368 -->
-	<link name="ForeArmStructure-Model_e18f2368">
+	<!-- right_forearm -->
+	<link name="right_forearm">
 		<inertial>
 			<origin xyz="0 0 0" rpy="0.0 0.0 0.0"/>
 			<mass value="7.422534035794272"/>
@@ -20,8 +20,8 @@
 		</visual>
 	</link>
 	
-	<!-- TopTower-Model_4a80d30e -->
-	<link name="TopTower-Model_4a80d30e">
+	<!-- right_tower -->
+	<link name="right_tower">
 		<inertial>
 			<origin xyz="0 0 0" rpy="0.0 0.0 0.0"/>
 			<mass value="0.18565193224536478"/>
@@ -35,14 +35,14 @@
 			<material name="white"/>
 		</visual>
 	</link>
-	<joint type="fixed" name="TopTower-Model_4a80d30e_to_ForeArmStructure-Model_e18f2368">
-		<parent link="ForeArmStructure-Model_e18f2368"/>
-		<child link="TopTower-Model_4a80d30e"/>
+	<joint type="fixed" name="right_tower_fixed">
+		<parent link="right_forearm"/>
+		<child link="right_tower"/>
 		<origin xyz="-0.010000000000000018 0.05230000000000584 -2.0816681711721685e-17" rpy="-1.5707963267948966 1.570796326794894 0.0"/>
 	</joint>
 	
-	<!-- R-Carpals_8d1f1041 -->
-	<link name="R-Carpals_8d1f1041">
+	<!-- right_carpals -->
+	<link name="right_carpals">
 		<inertial>
 			<origin xyz="-0.004999999999999997 -0.0018770780631086805 0.049500000670552255" rpy="0.0 0.0 0.0"/>
 			<mass value="0.13538810897856451"/>
@@ -56,16 +56,16 @@
 			<material name="white"/>
 		</visual>
 	</link>
-	<joint type="revolute" name="R-Carpals_8d1f1041_to_TopTower-Model_4a80d30e">
-		<parent link="TopTower-Model_4a80d30e"/>
-		<child link="R-Carpals_8d1f1041"/>
+	<joint type="revolute" name="right_wrist">
+		<parent link="right_tower"/>
+		<child link="right_carpals"/>
 		<origin xyz="5.551115123125783e-17 2.3418766925686896e-17 0.04000000000000006" rpy="0.0 0.0 -1.5707963267948992"/>
 		<axis xyz="-0.9999999999999963 -1.1270242357758872e-16 5.94450127715256e-17"/>
 		<limit lower="-1.1344640137963142" upper="0.6108652381980153" effort="100" velocity="100"/>
 	</joint>
 	
-	<!-- P-AP_f5e42b61 -->
-	<link name="P-AP_f5e42b61">
+	<!-- right_pinky_ap -->
+	<link name="right_pinky_ap">
 		<inertial>
 			<origin xyz="-0.017749999999999967 -2.42861286636753e-17 -0.0010000000000000217" rpy="0.0 0.0 0.0"/>
 			<mass value="0.004135862855401387"/>
@@ -79,16 +79,16 @@
 			<material name="white"/>
 		</visual>
 	</link>
-	<joint type="revolute" name="P-AP_f5e42b61_to_R-Carpals_8d1f1041">
-		<parent link="R-Carpals_8d1f1041"/>
-		<child link="P-AP_f5e42b61"/>
+	<joint type="revolute" name="right_pinky_abd">
+		<parent link="right_carpals"/>
+		<child link="right_pinky_ap"/>
 		<origin xyz="0.035641716045904354 0.0006891586859576128 0.06205424192069395" rpy="-1.529473573814961 1.2028622114983025 -2.9119895363116646"/>
 		<axis xyz="9.71445146547012e-16 1.6653345369377348e-16 0.9999999999999984"/>
 		<limit lower="-0.5235987755982988" upper="0.5235987755982988" effort="100" velocity="100"/>
 	</joint>
 	
-	<!-- P-PP_1d411b9b -->
-	<link name="P-PP_1d411b9b">
+	<!-- right_pinky_pp -->
+	<link name="right_pinky_pp">
 		<inertial>
 			<origin xyz="4.1531875769068695e-17 -9.105164359140306e-18 -3.8292038109168244e-17" rpy="0.0 0.0 0.0"/>
 			<mass value="0.008117379921259958"/>
@@ -102,16 +102,16 @@
 			<material name="white"/>
 		</visual>
 	</link>
-	<joint type="revolute" name="P-PP_1d411b9b_to_P-AP_f5e42b61">
-		<parent link="P-AP_f5e42b61"/>
-		<child link="P-PP_1d411b9b"/>
+	<joint type="revolute" name="right_pinky_mcp">
+		<parent link="right_pinky_ap"/>
+		<child link="right_pinky_pp"/>
 		<origin xyz="-0.017750000000000075 -4.698582746252626e-17 -0.0010000000000000768" rpy="0.0 -1.5707963267948908 0.0"/>
 		<axis xyz="6.439293542825908e-15 -1.0000000000000049 6.661338147750939e-16"/>
 		<limit lower="-0.4363323129985824" upper="1.7453292519943295" effort="100" velocity="100"/>
 	</joint>
 	
-	<!-- P-FingerTipAssembly_cd219176 -->
-	<link name="P-FingerTipAssembly_cd219176">
+	<!-- right_pinky_fingertip_assembly -->
+	<link name="right_pinky_fingertip_assembly">
 		<inertial>
 			<origin xyz="-5.593042944930372e-17 -9.962165250943912e-18 1.5546348698018324e-16" rpy="0.0 0.0 0.0"/>
 			<mass value="0.033190557637887204"/>
@@ -125,16 +125,16 @@
 			<material name="white"/>
 		</visual>
 	</link>
-	<joint type="revolute" name="P-FingerTipAssembly_cd219176_to_P-PP_1d411b9b">
-		<parent link="P-PP_1d411b9b"/>
-		<child link="P-FingerTipAssembly_cd219176"/>
+	<joint type="revolute" name="right_pinky_pip">
+		<parent link="right_pinky_pp"/>
+		<child link="right_pinky_fingertip_assembly"/>
 		<origin xyz="0.000999999999999998 3.208202345938654e-17 0.030999999999999632" rpy="1.1102230246251565e-16 0.0 6.217248937900863e-15"/>
 		<axis xyz="-2.609024107869118e-15 -0.9999999999999968 3.885780586188048e-16"/>
 		<limit lower="-0.2617993877991494" upper="1.8675022996339325" effort="100" velocity="100"/>
 	</joint>
 	
-	<!-- M-AP_6ec59111 -->
-	<link name="M-AP_6ec59111">
+	<!-- right_ring_ap -->
+	<link name="right_ring_ap">
 		<inertial>
 			<origin xyz="-0.019249999999999923 -1.734723475976807e-18 -0.0009999999999999961" rpy="0.0 0.0 0.0"/>
 			<mass value="0.004923565158859135"/>
@@ -148,16 +148,16 @@
 			<material name="white"/>
 		</visual>
 	</link>
-	<joint type="revolute" name="M-AP_6ec59111_to_R-Carpals_8d1f1041">
-		<parent link="R-Carpals_8d1f1041"/>
-		<child link="M-AP_6ec59111"/>
+	<joint type="revolute" name="right_ring_abd">
+		<parent link="right_carpals"/>
+		<child link="right_ring_ap"/>
 		<origin xyz="0.015307722147416544 -0.003218364665125601 0.07130479703009855" rpy="-1.5707963267948946 1.4250613342533707 -3.054326190990075"/>
 		<axis xyz="8.881784197001252e-16 -5.551115123125783e-17 0.9999999999999994"/>
 		<limit lower="-0.47123889803846897" upper="0.47123889803846897" effort="100" velocity="100"/>
 	</joint>
 	
-	<!-- M-PP_8660a1eb -->
-	<link name="M-PP_8660a1eb">
+	<!-- right_ring_pp -->
+	<link name="right_ring_pp">
 		<inertial>
 			<origin xyz="-1.7894285379910634e-17 -1.0522308765464415e-17 1.0523467387009805e-17" rpy="0.0 0.0 0.0"/>
 			<mass value="0.012733573971304512"/>
@@ -171,16 +171,16 @@
 			<material name="white"/>
 		</visual>
 	</link>
-	<joint type="revolute" name="M-PP_8660a1eb_to_M-AP_6ec59111">
-		<parent link="M-AP_6ec59111"/>
-		<child link="M-PP_8660a1eb"/>
+	<joint type="revolute" name="right_ring_mcp">
+		<parent link="right_ring_ap"/>
+		<child link="right_ring_pp"/>
 		<origin xyz="-0.01986696794290542 3.8657355141463114e-17 -0.00099999999999545" rpy="0.0 -1.5707963267948908 0.0"/>
 		<axis xyz="5.9396931817445875e-15 -1.0000000000000042 1.1102230246251565e-16"/>
 		<limit lower="-0.4363323129985824" upper="1.7453292519943295" effort="100" velocity="100"/>
 	</joint>
 	
-	<!-- M-FingerTipAssembly_424a8e75 -->
-	<link name="M-FingerTipAssembly_424a8e75">
+	<!-- right_ring_fingertip_assembly -->
+	<link name="right_ring_fingertip_assembly">
 		<inertial>
 			<origin xyz="4.078794186312799e-17 -1.9049422236114406e-17 1.0521305495457033e-16" rpy="0.0 0.0 0.0"/>
 			<mass value="0.04673701376980013"/>
@@ -194,16 +194,16 @@
 			<material name="white"/>
 		</visual>
 	</link>
-	<joint type="revolute" name="M-FingerTipAssembly_424a8e75_to_M-PP_8660a1eb">
-		<parent link="M-PP_8660a1eb"/>
-		<child link="M-FingerTipAssembly_424a8e75"/>
+	<joint type="revolute" name="right_ring_pip">
+		<parent link="right_ring_pp"/>
+		<child link="right_ring_fingertip_assembly"/>
 		<origin xyz="0.0019999999999998678 1.5882195667426256e-18 0.040000000000000126" rpy="2.2204460492503052e-16 0.0 6.217248937900862e-15"/>
 		<axis xyz="-2.942091015256665e-15 -0.999999999999996 2.220446049250313e-16"/>
 		<limit lower="-0.2617993877991494" upper="1.8675022996339325" effort="100" velocity="100"/>
 	</joint>
 	
-	<!-- M-AP_e04a96f2 -->
-	<link name="M-AP_e04a96f2">
+	<!-- right_middle_ap -->
+	<link name="right_middle_ap">
 		<inertial>
 			<origin xyz="-0.019249999999999982 1.214306433183765e-17 -0.0010000000000000213" rpy="0.0 0.0 0.0"/>
 			<mass value="0.004923565158859135"/>
@@ -217,16 +217,16 @@
 			<material name="white"/>
 		</visual>
 	</link>
-	<joint type="revolute" name="M-AP_e04a96f2_to_R-Carpals_8d1f1041">
-		<parent link="R-Carpals_8d1f1041"/>
-		<child link="M-AP_e04a96f2"/>
+	<joint type="revolute" name="right_middle_abd">
+		<parent link="right_carpals"/>
+		<child link="right_middle_ap"/>
 		<origin xyz="-0.005706333727246699 -0.004023404072025678 0.07850189342716887" rpy="1.5707963267946425 1.5681783329169052 -2.544631172440859e-13"/>
 		<axis xyz="1.1102230246251565e-15 -2.220446049250313e-16 0.9999999999999971"/>
 		<limit lower="-0.47123889803846897" upper="0.47123889803846897" effort="100" velocity="100"/>
 	</joint>
 	
-	<!-- M-PP_08efa608 -->
-	<link name="M-PP_08efa608">
+	<!-- right_middle_pp -->
+	<link name="right_middle_pp">
 		<inertial>
 			<origin xyz="7.162795302343035e-17 1.2189131211851784e-17 1.7580316556723272e-17" rpy="0.0 0.0 0.0"/>
 			<mass value="0.012733573971304512"/>
@@ -240,16 +240,16 @@
 			<material name="white"/>
 		</visual>
 	</link>
-	<joint type="revolute" name="M-PP_08efa608_to_M-AP_e04a96f2">
-		<parent link="M-AP_e04a96f2"/>
-		<child link="M-PP_08efa608"/>
+	<joint type="revolute" name="right_middle_mcp">
+		<parent link="right_middle_ap"/>
+		<child link="right_middle_pp"/>
 		<origin xyz="-0.019866967942905277 -1.8423293703642938e-17 -0.0009999999999957202" rpy="0.0 -1.5707963267948903 0.0"/>
 		<axis xyz="6.050715484207103e-15 -1.0000000000000058 -1.1102230246251565e-16"/>
 		<limit lower="-0.4363323129985824" upper="1.7453292519943295" effort="100" velocity="100"/>
 	</joint>
 	
-	<!-- M-FingerTipAssembly_34afb748 -->
-	<link name="M-FingerTipAssembly_34afb748">
+	<!-- right_middle_fingertip_assembly -->
+	<link name="right_middle_fingertip_assembly">
 		<inertial>
 			<origin xyz="5.004759988748243e-17 1.4318233198945493e-17 1.6821919643190915e-16" rpy="0.0 0.0 0.0"/>
 			<mass value="0.04673701376980013"/>
@@ -263,16 +263,16 @@
 			<material name="white"/>
 		</visual>
 	</link>
-	<joint type="revolute" name="M-FingerTipAssembly_34afb748_to_M-PP_08efa608">
-		<parent link="M-PP_08efa608"/>
-		<child link="M-FingerTipAssembly_34afb748"/>
+	<joint type="revolute" name="right_middle_pip">
+		<parent link="right_middle_pp"/>
+		<child link="right_middle_fingertip_assembly"/>
 		<origin xyz="0.0020000000000000313 -5.598548939047626e-18 0.0400000000000001" rpy="5.551115123125779e-16 4.440892098500626e-16 6.550315845288408e-15"/>
 		<axis xyz="-3.2751579226442118e-15 -0.9999999999999977 4.440892098500626e-16"/>
 		<limit lower="-0.2617993877991494" upper="1.8675022996339325" effort="100" velocity="100"/>
 	</joint>
 	
-	<!-- I-AP-R_d95d02d1 -->
-	<link name="I-AP-R_d95d02d1">
+	<!-- right_index_ap -->
+	<link name="right_index_ap">
 		<inertial>
 			<origin xyz="-0.01875000000000003 -1.734723475976807e-18 -0.000999999999999964" rpy="0.0 0.0 0.0"/>
 			<mass value="0.004590288233037025"/>
@@ -286,16 +286,16 @@
 			<material name="white"/>
 		</visual>
 	</link>
-	<joint type="revolute" name="I-AP-R_d95d02d1_to_R-Carpals_8d1f1041">
-		<parent link="R-Carpals_8d1f1041"/>
-		<child link="I-AP-R_d95d02d1"/>
+	<joint type="revolute" name="right_index_abd">
+		<parent link="right_carpals"/>
+		<child link="right_index_ap"/>
 		<origin xyz="-0.027240979039914386 -0.002206966804174762 0.06940680269673646" rpy="1.6538568135338134 1.3873496487488786 -0.0042742186040372054"/>
 		<axis xyz="-8.326672684688674e-17 3.3306690738754696e-16 0.9999999999999991"/>
 		<limit lower="-0.4363323129985824" upper="0.5235987755982988" effort="100" velocity="100"/>
 	</joint>
 	
-	<!-- I-PP_bacbd481 -->
-	<link name="I-PP_bacbd481">
+	<!-- right_index_pp -->
+	<link name="right_index_pp">
 		<inertial>
 			<origin xyz="8.461858417315034e-17 -1.4799510442361432e-17 1.3855749603332276e-17" rpy="0.0 0.0 0.0"/>
 			<mass value="0.011373207304546197"/>
@@ -309,16 +309,16 @@
 			<material name="white"/>
 		</visual>
 	</link>
-	<joint type="revolute" name="I-PP_bacbd481_to_I-AP-R_d95d02d1">
-		<parent link="I-AP-R_d95d02d1"/>
-		<child link="I-PP_bacbd481"/>
+	<joint type="revolute" name="right_index_mcp">
+		<parent link="right_index_ap"/>
+		<child link="right_index_pp"/>
 		<origin xyz="-0.01915096815087666 -4.499288227880137e-18 -0.0009999999999971549" rpy="-2.9439233600320843e-16 -1.570796326794891 0.0"/>
 		<axis xyz="5.828670879282072e-15 -1.0000000000000036 1.1102230246251565e-16"/>
 		<limit lower="-0.4363323129985824" upper="1.7453292519943295" effort="100" velocity="100"/>
 	</joint>
 	
-	<!-- I-FingerTipAssembly_ec49c16c -->
-	<link name="I-FingerTipAssembly_ec49c16c">
+	<!-- right_index_fingertip_assembly -->
+	<link name="right_index_fingertip_assembly">
 		<inertial>
 			<origin xyz="6.384780199281326e-17 1.6933625513663662e-18 9.316585525567554e-17" rpy="0.0 0.0 0.0"/>
 			<mass value="0.04675178908397048"/>
@@ -332,16 +332,16 @@
 			<material name="white"/>
 		</visual>
 	</link>
-	<joint type="revolute" name="I-FingerTipAssembly_ec49c16c_to_I-PP_bacbd481">
-		<parent link="I-PP_bacbd481"/>
-		<child link="I-FingerTipAssembly_ec49c16c"/>
+	<joint type="revolute" name="right_index_pip">
+		<parent link="right_index_pp"/>
+		<child link="right_index_fingertip_assembly"/>
 		<origin xyz="0.0015000000000000417 -7.819255613844171e-18 0.037000000000000026" rpy="3.3306690738754617e-16 0.0 6.77236045021344e-15"/>
 		<axis xyz="-3.608224830031759e-15 -0.999999999999996 2.7755575615628914e-16"/>
 		<limit lower="-0.2617993877991494" upper="1.8675022996339325" effort="100" velocity="100"/>
 	</joint>
 	
-	<!-- T-TP-R_1c2b802d -->
-	<link name="T-TP-R_1c2b802d">
+	<!-- right_thumb_tp -->
+	<link name="right_thumb_tp">
 		<inertial>
 			<origin xyz="-4.228388472693467e-18 -4.911435841359335e-17 -0.003850000000000067" rpy="0.0 0.0 0.0"/>
 			<mass value="0.00797873207561227"/>
@@ -355,16 +355,16 @@
 			<material name="white"/>
 		</visual>
 	</link>
-	<joint type="revolute" name="T-TP-R_1c2b802d_to_R-Carpals_8d1f1041">
-		<parent link="R-Carpals_8d1f1041"/>
-		<child link="T-TP-R_1c2b802d"/>
+	<joint type="revolute" name="right_thumb_cmc">
+		<parent link="right_carpals"/>
+		<child link="right_thumb_tp"/>
 		<origin xyz="-0.028398719136200776 0.010997180928709077 0.03058953349163134" rpy="0.6614951404674763 0.3860568562160207 -1.4328677049607634"/>
 		<axis xyz="-7.771561172376096e-16 5.412337245047638e-16 -0.9999999999999931"/>
 		<limit lower="-0.7853981633974483" upper="0.5759586531581288" effort="100" velocity="100"/>
 	</joint>
 	
-	<!-- R-T-AP_a9723101 -->
-	<link name="R-T-AP_a9723101">
+	<!-- right_thumb_ap -->
+	<link name="right_thumb_ap">
 		<inertial>
 			<origin xyz="-0.028 2.6020852139652106e-17 -9.540979117872439e-17" rpy="0.0 0.0 0.0"/>
 			<mass value="0.007004136465100992"/>
@@ -378,16 +378,16 @@
 			<material name="white"/>
 		</visual>
 	</link>
-	<joint type="revolute" name="R-T-AP_a9723101_to_T-TP-R_1c2b802d">
-		<parent link="T-TP-R_1c2b802d"/>
-		<child link="R-T-AP_a9723101"/>
+	<joint type="revolute" name="right_thumb_abd">
+		<parent link="right_thumb_tp"/>
+		<child link="right_thumb_ap"/>
 		<origin xyz="-0.007999999999728488 -1.8648424965940806e-17 -0.003850000000000026" rpy="-1.221730476396032 -1.9984014443252818e-15 -2.3314683517128287e-15"/>
 		<axis xyz="-1.4988010832439613e-15 0.3420201433256641 0.9396926207859044"/>
 		<limit lower="-0.3141592653589793" upper="0.9599310885968813" effort="100" velocity="100"/>
 	</joint>
 	
-	<!-- T-PP_68395e98 -->
-	<link name="T-PP_68395e98">
+	<!-- right_thumb_pp -->
+	<link name="right_thumb_pp">
 		<inertial>
 			<origin xyz="1.969071627370024e-16 -3.15114617423654e-17 -2.696802036606928e-17" rpy="0.0 0.0 0.0"/>
 			<mass value="0.010490827160908196"/>
@@ -401,16 +401,16 @@
 			<material name="white"/>
 		</visual>
 	</link>
-	<joint type="revolute" name="T-PP_68395e98_to_R-T-AP_a9723101">
-		<parent link="R-T-AP_a9723101"/>
-		<child link="T-PP_68395e98"/>
+	<joint type="revolute" name="right_thumb_mcp">
+		<parent link="right_thumb_ap"/>
+		<child link="right_thumb_pp"/>
 		<origin xyz="-0.027999999999999976 4.673366946417151e-18 1.305542026140606e-16" rpy="-3.1415926535897927 1.5707963267948921 0.0"/>
 		<axis xyz="-3.1363800445660672e-15 -1.0000000000000027 2.942091015256665e-15"/>
 		<limit lower="-0.4363323129985824" upper="1.7453292519943295" effort="100" velocity="100"/>
 	</joint>
 	
-	<!-- T-DP_b7429e50 -->
-	<link name="T-DP_b7429e50">
+	<!-- right_thumb_dp -->
+	<link name="right_thumb_dp">
 		<inertial>
 			<origin xyz="2.6951590953616836e-16 -1.4511389580442956e-16 4.4964986238156687e-17" rpy="0.0 0.0 0.0"/>
 			<mass value="0.00815768733004441"/>
@@ -424,9 +424,9 @@
 			<material name="white"/>
 		</visual>
 	</link>
-	<joint type="revolute" name="T-DP_b7429e50_to_T-PP_68395e98">
-		<parent link="T-PP_68395e98"/>
-		<child link="T-DP_b7429e50"/>
+	<joint type="revolute" name="right_thumb_dip">
+		<parent link="right_thumb_pp"/>
+		<child link="right_thumb_dp"/>
 		<origin xyz="0.0009999999999999985 1.1880660448999647e-16 0.03200000000000021" rpy="0.0 0.0 -3.830269434956779e-15"/>
 		<axis xyz="4.718447854656915e-16 -0.9999999999999946 3.164135620181696e-15"/>
 		<limit lower="-0.2617993877991494" upper="1.8675022996339325" effort="100" velocity="100"/>
