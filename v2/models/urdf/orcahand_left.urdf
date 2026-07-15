@@ -431,4 +431,38 @@
 		<axis xyz="4.718447854656915e-16 0.9999999999999946 -3.164135620181696e-15"/>
 		<limit lower="-0.2617993877991494" upper="1.8675022996339325" effort="100" velocity="100"/>
 	</joint>
+
+	<!-- Fingertip anchor frames: massless leaf links on the skin surface of
+	     each distal link (bbox center transversally, bbox max along the distal
+	     axis of the fingertip skin mesh). -->
+	<link name="left_thumb_fingertip"/>
+	<joint type="fixed" name="left_thumb_fingertip_fixed">
+		<parent link="left_thumb_dp"/>
+		<child link="left_thumb_fingertip"/>
+		<origin xyz="-0.001017 0.0 0.03" rpy="0 0 0"/>
+	</joint>
+	<link name="left_index_fingertip"/>
+	<joint type="fixed" name="left_index_fingertip_fixed">
+		<parent link="left_index_fingertip_assembly"/>
+		<child link="left_index_fingertip"/>
+		<origin xyz="0.001718 0.0 0.0444" rpy="0 0 0"/>
+	</joint>
+	<link name="left_middle_fingertip"/>
+	<joint type="fixed" name="left_middle_fingertip_fixed">
+		<parent link="left_middle_fingertip_assembly"/>
+		<child link="left_middle_fingertip"/>
+		<origin xyz="0.001718 0.0 0.0444" rpy="0 0 0"/>
+	</joint>
+	<link name="left_ring_fingertip"/>
+	<joint type="fixed" name="left_ring_fingertip_fixed">
+		<parent link="left_ring_fingertip_assembly"/>
+		<child link="left_ring_fingertip"/>
+		<origin xyz="0.001718 0.0 0.0444" rpy="0 0 0"/>
+	</joint>
+	<link name="left_pinky_fingertip"/>
+	<joint type="fixed" name="left_pinky_fingertip_fixed">
+		<parent link="left_pinky_fingertip_assembly"/>
+		<child link="left_pinky_fingertip"/>
+		<origin xyz="0.002225 0.0 0.0374" rpy="0 0 0"/>
+	</joint>
 </robot>
