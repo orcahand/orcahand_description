@@ -6,6 +6,9 @@ mujoco = pytest.importorskip("mujoco")
 
 ROOT_DIR = Path(__file__).resolve().parent.parent
 
+# v2/models/mjcf/*.mjcf and *_body.xml are include fragments (assets/actuators
+# and kinematic tree respectively), composed by the v2 scene files; they are
+# not standalone models, so only the scenes are loadable entrypoints there.
 MJCF_ENTRYPOINTS = sorted(
     [
         *ROOT_DIR.glob("v1/models/mjcf/*.mjcf"),

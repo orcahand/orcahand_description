@@ -17,7 +17,7 @@ The `extended` version contains additional bodies (incl. inertial properties) su
 
 All v2 joint, link and body names are semantic and side-prefixed, matching orca_core's joint ids:
 
-- Joints: `{side}_{joint}` with the 17 joints `wrist`, `thumb_cmc`, `thumb_abd`, `thumb_mcp`, `thumb_dip`, and `{finger}_abd` / `{finger}_mcp` / `{finger}_pip` for `index`, `middle`, `ring`, `pinky` (e.g. `right_index_mcp`). The URDF additionally has one fixed joint, `{side}_tower_fixed`.
+- Joints: `{side}_{joint}` with the 17 joints `wrist`, `thumb_cmc`, `thumb_abd`, `thumb_mcp`, `thumb_dip`, and `{finger}_abd` / `{finger}_mcp` / `{finger}_pip` for `index`, `middle`, `ring`, `pinky` (e.g. `right_index_mcp`). The URDF additionally has fixed joints: `{side}_tower_fixed` and the five `{side}_{finger}_fingertip_fixed` anchors.
 - Links/bodies: `{side}_forearm`, `{side}_tower`, `{side}_carpals`, then per finger `{side}_{finger}_ap`, `{side}_{finger}_pp`, `{side}_{finger}_fingertip_assembly` (thumb: `thumb_tp`, `thumb_ap`, `thumb_pp`, `thumb_dp`). The MJCF body tree is rooted at a `{side}_base` attachment body; actuators are named `{joint}_actuator`.
 - Fingertip anchors: each URDF additionally carries a massless `{side}_{finger}_fingertip` leaf link (fixed joint `..._fingertip_fixed`) marking the tip point on the fingertip skin surface, for retargeting and visualization.
 - Mesh files and MJCF mesh asset names keep their Fusion360 part names (e.g. `R-Carpals.stl`).
