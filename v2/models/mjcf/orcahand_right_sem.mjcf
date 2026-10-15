@@ -1,0 +1,138 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mujoco model="orcahand_right">
+	<default>
+		<geom type="mesh" friction="1 0.005 0.001" condim="3" margin="0.0005" contype="1" conaffinity="1" />
+		<joint type="hinge" limited="true" damping="0.1" armature="0.001" margin="0.01" frictionloss="0.001" />
+		<position ctrllimited="true" forcelimited="true" forcerange="-1 1" kp="2.0" />
+		<mesh scale="0.001 0.001 0.001" />
+	</default>
+	<asset>
+		<mesh name="right_I-R-Assembly" file="models/assets/right/I-R-Assembly.stl" />
+		<mesh name="right_P-Assembly" file="models/assets/right/P-Assembly.stl" />
+		<mesh name="right_R-T-AP" file="models/assets/right/R-T-AP.stl" />
+		<mesh name="right_M-PP" file="models/assets/right/M-PP.stl" />
+		<mesh name="right_I-PP" file="models/assets/right/I-PP.stl" />
+		<mesh name="right_P-AP" file="models/assets/right/P-AP.stl" />
+		<mesh name="right_ForeArmStructure-Model" file="models/assets/right/ForeArmStructure-Model.stl" />
+		<mesh name="right_P-FingerTipAssembly" file="models/assets/right/P-FingerTipAssembly.stl" />
+		<mesh name="right_T-DP" file="models/assets/right/T-DP.stl" />
+		<mesh name="right_TopTower-Model" file="models/assets/right/TopTower-Model.stl" />
+		<mesh name="right_I-FingerTipAssembly" file="models/assets/right/I-FingerTipAssembly.stl" />
+		<mesh name="right_I-AP-R" file="models/assets/right/I-AP-R.stl" />
+		<mesh name="right_T-TP-R" file="models/assets/right/T-TP-R.stl" />
+		<mesh name="right_R-Carpals" file="models/assets/right/R-Carpals.stl" />
+		<mesh name="right_T-PP" file="models/assets/right/T-PP.stl" />
+		<mesh name="right_M-AP" file="models/assets/right/M-AP.stl" />
+		<mesh name="right_M-FingerTipAssembly" file="models/assets/right/M-FingerTipAssembly.stl" />
+		<mesh name="right_T-R-Assembly" file="models/assets/right/T-R-Assembly.stl" />
+		<mesh name="right_P-PP" file="models/assets/right/P-PP.stl" />
+		<mesh name="right_ForeArmStructure-Model_Logo" file="models/assets/right/ForeArmStructure-Model_Logo.stl" />
+		<mesh name="right_M-Assembly" file="models/assets/right/M-Assembly.stl" />
+		<mesh name="right_T-PP_Skin" file="models/assets/right/T-PP_Skin.stl" />
+		<mesh name="right_P-IP_IP" file="models/assets/right/P-IP_IP.stl" />
+		<mesh name="right_M-PP_PP" file="models/assets/right/M-PP_PP.stl" />
+		<mesh name="right_M-PP_Skin" file="models/assets/right/M-PP_Skin.stl" />
+		<mesh name="right_T-DP_Skin" file="models/assets/right/T-DP_Skin.stl" />
+		<mesh name="right_P-FingerTipAssembly_P-DP-Skin" file="models/assets/right/P-FingerTipAssembly_P-DP-Skin.stl" />
+		<mesh name="right_T-PP_PP" file="models/assets/right/T-PP_PP.stl" />
+		<mesh name="right_I-IP_IP" file="models/assets/right/I-IP_IP.stl" />
+		<mesh name="right_T-DP_T-DP" file="models/assets/right/T-DP_T-DP.stl" />
+		<mesh name="right_P-PP_Skin" file="models/assets/right/P-PP_Skin.stl" />
+		<mesh name="right_I-PP_PP" file="models/assets/right/I-PP_PP.stl" />
+		<mesh name="right_I-FingerTipAssembly_I-DP-Skin" file="models/assets/right/I-FingerTipAssembly_I-DP-Skin.stl" />
+		<mesh name="right_P-PP_PP" file="models/assets/right/P-PP_PP.stl" />
+		<mesh name="right_I-PP_Skin" file="models/assets/right/I-PP_Skin.stl" />
+		<mesh name="right_M-IP_IP" file="models/assets/right/M-IP_IP.stl" />
+		<mesh name="right_M-FingerTipAssembly_M-DP-Skin" file="models/assets/right/M-FingerTipAssembly_M-DP-Skin.stl" />
+	</asset>
+	<actuator>
+		<position name="right_wrist_actuator" joint="right_wrist" ctrlrange="-1.1344640137963142 0.6108652381980153" />
+		<position name="right_p-abd_actuator" joint="right_p-abd" ctrlrange="-0.5235987755982988 0.5235987755982988" />
+		<position name="right_p-mcp_actuator" joint="right_p-mcp" ctrlrange="-0.4363323129985824 1.7453292519943295" />
+		<position name="right_p-pip_actuator" joint="right_p-pip" ctrlrange="-0.2617993877991494 1.8675022996339325" />
+		<position name="right_r-abd_actuator" joint="right_r-abd" ctrlrange="-0.47123889803846897 0.47123889803846897" />
+		<position name="right_r-mcp_actuator" joint="right_r-mcp" ctrlrange="-0.4363323129985824 1.7453292519943295" />
+		<position name="right_r-pip_actuator" joint="right_r-pip" ctrlrange="-0.2617993877991494 1.8675022996339325" />
+		<position name="right_m-abd_actuator" joint="right_m-abd" ctrlrange="-0.47123889803846897 0.47123889803846897" />
+		<position name="right_m-mcp_actuator" joint="right_m-mcp" ctrlrange="-0.4363323129985824 1.7453292519943295" />
+		<position name="right_m-pip_actuator" joint="right_m-pip" ctrlrange="-0.2617993877991494 1.8675022996339325" />
+		<position name="right_i-abd_actuator" joint="right_i-abd" ctrlrange="-0.4363323129985824 0.5235987755982988" />
+		<position name="right_i-mcp_actuator" joint="right_i-mcp" ctrlrange="-0.4363323129985824 1.7453292519943295" />
+		<position name="right_i-pip_actuator" joint="right_i-pip" ctrlrange="-0.2617993877991494 1.8675022996339325" />
+		<position name="right_t-cmc_actuator" joint="right_t-cmc" ctrlrange="-0.7853981633974483 0.5759586531581288" />
+		<position name="right_t-abd_actuator" joint="right_t-abd" ctrlrange="-0.3141592653589793 0.9599310885968813" />
+		<position name="right_t-mcp_actuator" joint="right_t-mcp" ctrlrange="-0.4363323129985824 1.7453292519943295" />
+		<position name="right_t-pip_actuator" joint="right_t-pip" ctrlrange="-0.2617993877991494 1.8675022996339325" />
+	</actuator>
+	<contact>
+		<exclude body1="right_ForeArmStructure-Model_e18f2368" body2="right_TopTower-Model_4a80d30e" />
+		<exclude body1="right_ForeArmStructure-Model_e18f2368" body2="right_R-Carpals_8d1f1041" />
+		<exclude body1="right_TopTower-Model_4a80d30e" body2="right_R-Carpals_8d1f1041" />
+		<exclude body1="right_ForeArmStructure-Model_e18f2368" body2="right_P-AP_f5e42b61" />
+		<exclude body1="right_TopTower-Model_4a80d30e" body2="right_P-AP_f5e42b61" />
+		<exclude body1="right_R-Carpals_8d1f1041" body2="right_P-AP_f5e42b61" />
+		<exclude body1="right_ForeArmStructure-Model_e18f2368" body2="right_P-PP_1d411b9b" />
+		<exclude body1="right_TopTower-Model_4a80d30e" body2="right_P-PP_1d411b9b" />
+		<exclude body1="right_R-Carpals_8d1f1041" body2="right_P-PP_1d411b9b" />
+		<exclude body1="right_P-AP_f5e42b61" body2="right_P-PP_1d411b9b" />
+		<exclude body1="right_ForeArmStructure-Model_e18f2368" body2="right_P-FingerTipAssembly_cd219176" />
+		<exclude body1="right_TopTower-Model_4a80d30e" body2="right_P-FingerTipAssembly_cd219176" />
+		<exclude body1="right_R-Carpals_8d1f1041" body2="right_P-FingerTipAssembly_cd219176" />
+		<exclude body1="right_P-AP_f5e42b61" body2="right_P-FingerTipAssembly_cd219176" />
+		<exclude body1="right_P-PP_1d411b9b" body2="right_P-FingerTipAssembly_cd219176" />
+		<exclude body1="right_ForeArmStructure-Model_e18f2368" body2="right_M-AP_6ec59111" />
+		<exclude body1="right_TopTower-Model_4a80d30e" body2="right_M-AP_6ec59111" />
+		<exclude body1="right_R-Carpals_8d1f1041" body2="right_M-AP_6ec59111" />
+		<exclude body1="right_ForeArmStructure-Model_e18f2368" body2="right_M-PP_8660a1eb" />
+		<exclude body1="right_TopTower-Model_4a80d30e" body2="right_M-PP_8660a1eb" />
+		<exclude body1="right_R-Carpals_8d1f1041" body2="right_M-PP_8660a1eb" />
+		<exclude body1="right_M-AP_6ec59111" body2="right_M-PP_8660a1eb" />
+		<exclude body1="right_ForeArmStructure-Model_e18f2368" body2="right_M-FingerTipAssembly_424a8e75" />
+		<exclude body1="right_TopTower-Model_4a80d30e" body2="right_M-FingerTipAssembly_424a8e75" />
+		<exclude body1="right_R-Carpals_8d1f1041" body2="right_M-FingerTipAssembly_424a8e75" />
+		<exclude body1="right_M-AP_6ec59111" body2="right_M-FingerTipAssembly_424a8e75" />
+		<exclude body1="right_M-PP_8660a1eb" body2="right_M-FingerTipAssembly_424a8e75" />
+		<exclude body1="right_ForeArmStructure-Model_e18f2368" body2="right_M-AP_e04a96f2" />
+		<exclude body1="right_TopTower-Model_4a80d30e" body2="right_M-AP_e04a96f2" />
+		<exclude body1="right_R-Carpals_8d1f1041" body2="right_M-AP_e04a96f2" />
+		<exclude body1="right_ForeArmStructure-Model_e18f2368" body2="right_M-PP_08efa608" />
+		<exclude body1="right_TopTower-Model_4a80d30e" body2="right_M-PP_08efa608" />
+		<exclude body1="right_R-Carpals_8d1f1041" body2="right_M-PP_08efa608" />
+		<exclude body1="right_M-AP_e04a96f2" body2="right_M-PP_08efa608" />
+		<exclude body1="right_ForeArmStructure-Model_e18f2368" body2="right_M-FingerTipAssembly_34afb748" />
+		<exclude body1="right_TopTower-Model_4a80d30e" body2="right_M-FingerTipAssembly_34afb748" />
+		<exclude body1="right_R-Carpals_8d1f1041" body2="right_M-FingerTipAssembly_34afb748" />
+		<exclude body1="right_M-AP_e04a96f2" body2="right_M-FingerTipAssembly_34afb748" />
+		<exclude body1="right_M-PP_08efa608" body2="right_M-FingerTipAssembly_34afb748" />
+		<exclude body1="right_ForeArmStructure-Model_e18f2368" body2="right_I-AP-R_d95d02d1" />
+		<exclude body1="right_TopTower-Model_4a80d30e" body2="right_I-AP-R_d95d02d1" />
+		<exclude body1="right_R-Carpals_8d1f1041" body2="right_I-AP-R_d95d02d1" />
+		<exclude body1="right_ForeArmStructure-Model_e18f2368" body2="right_I-PP_bacbd481" />
+		<exclude body1="right_TopTower-Model_4a80d30e" body2="right_I-PP_bacbd481" />
+		<exclude body1="right_R-Carpals_8d1f1041" body2="right_I-PP_bacbd481" />
+		<exclude body1="right_I-AP-R_d95d02d1" body2="right_I-PP_bacbd481" />
+		<exclude body1="right_ForeArmStructure-Model_e18f2368" body2="right_I-FingerTipAssembly_ec49c16c" />
+		<exclude body1="right_TopTower-Model_4a80d30e" body2="right_I-FingerTipAssembly_ec49c16c" />
+		<exclude body1="right_R-Carpals_8d1f1041" body2="right_I-FingerTipAssembly_ec49c16c" />
+		<exclude body1="right_I-AP-R_d95d02d1" body2="right_I-FingerTipAssembly_ec49c16c" />
+		<exclude body1="right_I-PP_bacbd481" body2="right_I-FingerTipAssembly_ec49c16c" />
+		<exclude body1="right_ForeArmStructure-Model_e18f2368" body2="right_T-TP-R_1c2b802d" />
+		<exclude body1="right_TopTower-Model_4a80d30e" body2="right_T-TP-R_1c2b802d" />
+		<exclude body1="right_R-Carpals_8d1f1041" body2="right_T-TP-R_1c2b802d" />
+		<exclude body1="right_ForeArmStructure-Model_e18f2368" body2="right_R-T-AP_a9723101" />
+		<exclude body1="right_TopTower-Model_4a80d30e" body2="right_R-T-AP_a9723101" />
+		<exclude body1="right_R-Carpals_8d1f1041" body2="right_R-T-AP_a9723101" />
+		<exclude body1="right_T-TP-R_1c2b802d" body2="right_R-T-AP_a9723101" />
+		<exclude body1="right_ForeArmStructure-Model_e18f2368" body2="right_T-PP_68395e98" />
+		<exclude body1="right_TopTower-Model_4a80d30e" body2="right_T-PP_68395e98" />
+		<exclude body1="right_R-Carpals_8d1f1041" body2="right_T-PP_68395e98" />
+		<exclude body1="right_T-TP-R_1c2b802d" body2="right_T-PP_68395e98" />
+		<exclude body1="right_R-T-AP_a9723101" body2="right_T-PP_68395e98" />
+		<exclude body1="right_ForeArmStructure-Model_e18f2368" body2="right_T-DP_b7429e50" />
+		<exclude body1="right_TopTower-Model_4a80d30e" body2="right_T-DP_b7429e50" />
+		<exclude body1="right_R-Carpals_8d1f1041" body2="right_T-DP_b7429e50" />
+		<exclude body1="right_T-TP-R_1c2b802d" body2="right_T-DP_b7429e50" />
+		<exclude body1="right_R-T-AP_a9723101" body2="right_T-DP_b7429e50" />
+		<exclude body1="right_T-PP_68395e98" body2="right_T-DP_b7429e50" />
+	</contact>
+</mujoco>
