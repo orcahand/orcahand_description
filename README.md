@@ -15,6 +15,31 @@ Versioned model layouts live under:
 
 The `extended` version contains additional bodies (incl. inertial properties) such as the camera mount, the U2D2 board and fans.
 
+## v2 names
+
+Every v2 name starts with the side, `right_` or `left_`. Left names are the right names with the prefix swapped.
+
+**Joints** are `{side}_{joint}`, using orca_core's 17 joint ids: `wrist`; `thumb_cmc`, `thumb_abd`, `thumb_mcp`, `thumb_dip`; and `{finger}_abd`, `{finger}_mcp`, `{finger}_pip` for `index`, `middle`, `ring`, `pinky` (e.g. `right_index_mcp`). The URDF also has one fixed joint, `{side}_tower_fixed`.
+
+**Parts** (URDF links and MJCF bodies), from the arm outwards:
+
+| Part | What it is | Moves at joint |
+|---|---|---|
+| `{side}_forearm` | forearm structure | (root) |
+| `{side}_tower` | tower on the forearm, holds the motors | fixed |
+| `{side}_carpals` | palm | `wrist` |
+| `{side}_{finger}_ap` | finger base, swings sideways | `{finger}_abd` |
+| `{side}_{finger}_pp` | first finger segment | `{finger}_mcp` |
+| `{side}_{finger}_fingertip_assembly` | last finger segment (there is no DIP joint) | `{finger}_pip` |
+| `{side}_thumb_tp` | thumb base | `thumb_cmc` |
+| `{side}_thumb_ap` | second thumb piece | `thumb_abd` |
+| `{side}_thumb_pp` | first thumb segment | `thumb_mcp` |
+| `{side}_thumb_dp` | last thumb segment | `thumb_dip` |
+
+In the URDF, each part's frame sits on the joint it moves at, so the last finger segment's origin is its PIP joint (thumb: DIP joint). In the MJCF, the hand hangs from a `{side}_base` body, and motors are `{side}_{joint}_actuator`.
+
+Mesh files keep their Fusion360 part names (e.g. `R-Carpals.stl`). The ring finger uses the middle finger's `M-` meshes. The left hand is generated from the right by `utils/mirror_left_from_right.py`; `--check` verifies it.
+
 ## Example Usage
 1. Clone the repository:
    ```bash
