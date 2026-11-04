@@ -25,20 +25,28 @@ Every v2 name starts with the side, `right_` or `left_`. Left names are the righ
 
 | Part | What it is | Moves at joint |
 |---|---|---|
-| `{side}_forearm` | forearm structure | (root) |
-| `{side}_tower` | tower on the forearm, holds the motors | fixed |
+| `{side}_forearm` | forearm structure, holds the 16 finger motors and the board | (root) |
+| `{side}_tower` | tower on the forearm, holds the wrist motor | fixed |
 | `{side}_carpals` | palm | `wrist` |
 | `{side}_{finger}_ap` | finger base, swings sideways | `{finger}_abd` |
 | `{side}_{finger}_pp` | first finger segment | `{finger}_mcp` |
-| `{side}_{finger}_fingertip_assembly` | last finger segment (there is no DIP joint) | `{finger}_pip` |
+| `{side}_{finger}_dp` | last finger segment, CAD part `I-IP`/`M-IP`/`P-IP` (there is no DIP joint) | `{finger}_pip` |
 | `{side}_thumb_tp` | thumb base | `thumb_cmc` |
 | `{side}_thumb_ap` | second thumb piece | `thumb_abd` |
 | `{side}_thumb_pp` | first thumb segment | `thumb_mcp` |
 | `{side}_thumb_dp` | last thumb segment | `thumb_dip` |
 
-In the URDF, each part's frame sits on the joint it moves at, so the last finger segment's origin is its PIP joint (thumb: DIP joint). In the MJCF, the hand hangs from a `{side}_base` body, and motors are `{side}_{joint}_actuator`.
+In the URDF, each part's frame sits on the joint it moves at, so the last finger segment's origin is its PIP joint (thumb: DIP joint). In the MJCF, the hand hangs from a `{side}_base` body, and motors are `{side}_{joint}_actuator`. Each MJCF body frame sits at its part's mesh origin: the URDF link frame moved by that link's visual origin, with the same orientation.
 
 Mesh files keep their Fusion360 part names (e.g. `R-Carpals.stl`). The ring finger uses the middle finger's `M-` meshes. The left hand is generated from the right by `utils/mirror_left_from_right.py`; `--check` verifies it.
+
+Older names, from orcahand_description `main` before the rename (`--source main`) or from the `fb/split-mjcf-scene-positioning` branch that orca_ui's bundle uses without the side prefix (`--source fb-split-mjcf`), are listed in `v2/name_changes.csv`. `python utils/migrate_v2_names.py --source main --side right FILE...` rewrites them in your own files; `--check` only reports.
+
+## v2 kinematics and masses
+
+**Joints** match the v2.1 CAD assembly (orcahand_hardware `orca_v2/base/Orcahand_BaseV2_Right.zip`) within 0.3 mm and 0.3°. v2.0 hands have the same joint geometry; their thumb TP is shaped slightly differently. At 0° the palm is in line with the forearm.
+
+**Centres of mass and inertias** come from each part's bone and skin meshes at uniform density, scaled to its mass. The URDF and the MJCF carry the same numbers. The MJCF's joint damping (0.1 N·m·s/rad), friction loss (0.001 N·m) and armature (0.001 kg·m²) are estimates, not measurements. The URDF carries none of them: URDF can't express armature, and without it the damping makes simulators that apply damping explicitly unstable.
 
 ## Example Usage
 1. Clone the repository:

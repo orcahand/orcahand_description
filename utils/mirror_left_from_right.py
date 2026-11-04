@@ -28,7 +28,7 @@ lexical sign flip that preserves all digits of the right-hand source:
   origin rpy  [r, p, y]     ->  [ r, -p, -y]
   quaternion  [w, x, y, z]  ->  [ w,  x, -y, -z]
   joint axis  [ax, ay, az]  ->  [ ax, -ay, -az]   (see below)
-  inertia     ixy, ixz negated; ixx/iyy/izz/iyz unchanged
+  inertia     ixy, ixz negated; ixx/iyy/izz/iyz unchanged (URDF and MJCF)
   meshes      vertex x negated, triangle winding inverted (normals stay outward)
 
 Joint axes use the SAME-ANGLE convention: a rotation by theta about axis a in
@@ -72,29 +72,18 @@ MESH_LEFT_DIR = V2 / "models" / "assets" / "left"
 
 # Right mesh/part base names -> left equivalents (files and mjcf mesh refs).
 MESH_NAME_MAP = {
-    "R-Carpals_CarpalsTeeth": "L-Carpals_CarpalsTeeth",
-    "R-Carpals_CORE": "L-Carpals_CORE",
-    "R-Carpals_Skin": "L-Carpals_Skin",
     "R-Carpals": "L-Carpals",
-    "I-AP-R_AP": "I-AP-L_AP",
     "I-AP-R": "I-AP-L",
     "T-TP-R": "T-TP-L",
-    "R-T-AP_AP": "L-T-AP_AP",
     "R-T-AP": "L-T-AP",
-    "I-R-Assembly": "I-L-Assembly",
-    "T-R-Assembly": "T-L-Assembly",
 }
 
-# STL files to mirror: every file the current left asset dir ships (each has a
-# right-hand counterpart). Right-only extras (R-Carpals_Skin, *_AP duplicates,
-# Logo) are unreferenced by URDF/MJCF and intentionally not added to left.
+# STL files to mirror: every mesh the right URDF or MJCF references.
 LEFT_MESH_FILES = [
     "ForeArmStructure-Model.stl",
     "ForeArmStructure-Model_Logo.stl",
     "TopTower-Model.stl",
     "L-Carpals.stl",
-    "L-Carpals_CORE.stl",
-    "L-Carpals_CarpalsTeeth.stl",
     "P-AP.stl",
     "P-PP.stl",
     "P-PP_PP.stl",
@@ -102,8 +91,6 @@ LEFT_MESH_FILES = [
     "P-IP_IP.stl",
     "P-FingerTipAssembly.stl",
     "P-FingerTipAssembly_P-DP-Skin.stl",
-    "P-FingerTipAssembly_P-IP.stl",
-    "P-Assembly.stl",
     "M-AP.stl",
     "M-PP.stl",
     "M-PP_PP.stl",
@@ -111,8 +98,6 @@ LEFT_MESH_FILES = [
     "M-IP_IP.stl",
     "M-FingerTipAssembly.stl",
     "M-FingerTipAssembly_M-DP-Skin.stl",
-    "M-FingerTipAssembly_M-IP.stl",
-    "M-Assembly.stl",
     "I-AP-L.stl",
     "I-PP.stl",
     "I-PP_PP.stl",
@@ -120,8 +105,6 @@ LEFT_MESH_FILES = [
     "I-IP_IP.stl",
     "I-FingerTipAssembly.stl",
     "I-FingerTipAssembly_I-DP-Skin.stl",
-    "I-FingerTipAssembly_I-IP.stl",
-    "I-L-Assembly.stl",
     "T-TP-L.stl",
     "L-T-AP.stl",
     "T-PP.stl",
@@ -130,7 +113,6 @@ LEFT_MESH_FILES = [
     "T-DP.stl",
     "T-DP_T-DP.stl",
     "T-DP_Skin.stl",
-    "T-L-Assembly.stl",
 ]
 
 
@@ -188,6 +170,7 @@ BODY_RULES = (
     ("pos", (0,)),      # body/geom/joint positions: x -> -x
     ("quat", (2, 3)),   # quaternions (w x y z): y, z -> negated (M @ R @ M)
     ("axis", (1, 2)),   # joint axes: same-angle mirror axis = -M @ a
+    ("fullinertia", (3, 4)),  # inertia (ixx iyy izz ixy ixz iyz): ixy, ixz negated
 )
 
 

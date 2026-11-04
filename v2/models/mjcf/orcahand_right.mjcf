@@ -7,27 +7,15 @@
 		<mesh scale="0.001 0.001 0.001" />
 	</default>
 	<asset>
-		<mesh name="right_I-R-Assembly" file="models/assets/right/I-R-Assembly.stl" />
-		<mesh name="right_P-Assembly" file="models/assets/right/P-Assembly.stl" />
 		<mesh name="right_R-T-AP" file="models/assets/right/R-T-AP.stl" />
-		<mesh name="right_M-PP" file="models/assets/right/M-PP.stl" />
-		<mesh name="right_I-PP" file="models/assets/right/I-PP.stl" />
 		<mesh name="right_P-AP" file="models/assets/right/P-AP.stl" />
 		<mesh name="right_ForeArmStructure-Model" file="models/assets/right/ForeArmStructure-Model.stl" />
-		<mesh name="right_P-FingerTipAssembly" file="models/assets/right/P-FingerTipAssembly.stl" />
-		<mesh name="right_T-DP" file="models/assets/right/T-DP.stl" />
 		<mesh name="right_TopTower-Model" file="models/assets/right/TopTower-Model.stl" />
-		<mesh name="right_I-FingerTipAssembly" file="models/assets/right/I-FingerTipAssembly.stl" />
 		<mesh name="right_I-AP-R" file="models/assets/right/I-AP-R.stl" />
 		<mesh name="right_T-TP-R" file="models/assets/right/T-TP-R.stl" />
 		<mesh name="right_R-Carpals" file="models/assets/right/R-Carpals.stl" />
-		<mesh name="right_T-PP" file="models/assets/right/T-PP.stl" />
 		<mesh name="right_M-AP" file="models/assets/right/M-AP.stl" />
-		<mesh name="right_M-FingerTipAssembly" file="models/assets/right/M-FingerTipAssembly.stl" />
-		<mesh name="right_T-R-Assembly" file="models/assets/right/T-R-Assembly.stl" />
-		<mesh name="right_P-PP" file="models/assets/right/P-PP.stl" />
 		<mesh name="right_ForeArmStructure-Model_Logo" file="models/assets/right/ForeArmStructure-Model_Logo.stl" />
-		<mesh name="right_M-Assembly" file="models/assets/right/M-Assembly.stl" />
 		<mesh name="right_T-PP_Skin" file="models/assets/right/T-PP_Skin.stl" />
 		<mesh name="right_P-IP_IP" file="models/assets/right/P-IP_IP.stl" />
 		<mesh name="right_M-PP_PP" file="models/assets/right/M-PP_PP.stl" />
@@ -75,11 +63,11 @@
 		<exclude body1="right_tower" body2="right_pinky_pp" />
 		<exclude body1="right_carpals" body2="right_pinky_pp" />
 		<exclude body1="right_pinky_ap" body2="right_pinky_pp" />
-		<exclude body1="right_forearm" body2="right_pinky_fingertip_assembly" />
-		<exclude body1="right_tower" body2="right_pinky_fingertip_assembly" />
-		<exclude body1="right_carpals" body2="right_pinky_fingertip_assembly" />
-		<exclude body1="right_pinky_ap" body2="right_pinky_fingertip_assembly" />
-		<exclude body1="right_pinky_pp" body2="right_pinky_fingertip_assembly" />
+		<exclude body1="right_forearm" body2="right_pinky_dp" />
+		<exclude body1="right_tower" body2="right_pinky_dp" />
+		<exclude body1="right_carpals" body2="right_pinky_dp" />
+		<exclude body1="right_pinky_ap" body2="right_pinky_dp" />
+		<exclude body1="right_pinky_pp" body2="right_pinky_dp" />
 		<exclude body1="right_forearm" body2="right_ring_ap" />
 		<exclude body1="right_tower" body2="right_ring_ap" />
 		<exclude body1="right_carpals" body2="right_ring_ap" />
@@ -87,11 +75,11 @@
 		<exclude body1="right_tower" body2="right_ring_pp" />
 		<exclude body1="right_carpals" body2="right_ring_pp" />
 		<exclude body1="right_ring_ap" body2="right_ring_pp" />
-		<exclude body1="right_forearm" body2="right_ring_fingertip_assembly" />
-		<exclude body1="right_tower" body2="right_ring_fingertip_assembly" />
-		<exclude body1="right_carpals" body2="right_ring_fingertip_assembly" />
-		<exclude body1="right_ring_ap" body2="right_ring_fingertip_assembly" />
-		<exclude body1="right_ring_pp" body2="right_ring_fingertip_assembly" />
+		<exclude body1="right_forearm" body2="right_ring_dp" />
+		<exclude body1="right_tower" body2="right_ring_dp" />
+		<exclude body1="right_carpals" body2="right_ring_dp" />
+		<exclude body1="right_ring_ap" body2="right_ring_dp" />
+		<exclude body1="right_ring_pp" body2="right_ring_dp" />
 		<exclude body1="right_forearm" body2="right_middle_ap" />
 		<exclude body1="right_tower" body2="right_middle_ap" />
 		<exclude body1="right_carpals" body2="right_middle_ap" />
@@ -99,11 +87,11 @@
 		<exclude body1="right_tower" body2="right_middle_pp" />
 		<exclude body1="right_carpals" body2="right_middle_pp" />
 		<exclude body1="right_middle_ap" body2="right_middle_pp" />
-		<exclude body1="right_forearm" body2="right_middle_fingertip_assembly" />
-		<exclude body1="right_tower" body2="right_middle_fingertip_assembly" />
-		<exclude body1="right_carpals" body2="right_middle_fingertip_assembly" />
-		<exclude body1="right_middle_ap" body2="right_middle_fingertip_assembly" />
-		<exclude body1="right_middle_pp" body2="right_middle_fingertip_assembly" />
+		<exclude body1="right_forearm" body2="right_middle_dp" />
+		<exclude body1="right_tower" body2="right_middle_dp" />
+		<exclude body1="right_carpals" body2="right_middle_dp" />
+		<exclude body1="right_middle_ap" body2="right_middle_dp" />
+		<exclude body1="right_middle_pp" body2="right_middle_dp" />
 		<exclude body1="right_forearm" body2="right_index_ap" />
 		<exclude body1="right_tower" body2="right_index_ap" />
 		<exclude body1="right_carpals" body2="right_index_ap" />
@@ -111,11 +99,11 @@
 		<exclude body1="right_tower" body2="right_index_pp" />
 		<exclude body1="right_carpals" body2="right_index_pp" />
 		<exclude body1="right_index_ap" body2="right_index_pp" />
-		<exclude body1="right_forearm" body2="right_index_fingertip_assembly" />
-		<exclude body1="right_tower" body2="right_index_fingertip_assembly" />
-		<exclude body1="right_carpals" body2="right_index_fingertip_assembly" />
-		<exclude body1="right_index_ap" body2="right_index_fingertip_assembly" />
-		<exclude body1="right_index_pp" body2="right_index_fingertip_assembly" />
+		<exclude body1="right_forearm" body2="right_index_dp" />
+		<exclude body1="right_tower" body2="right_index_dp" />
+		<exclude body1="right_carpals" body2="right_index_dp" />
+		<exclude body1="right_index_ap" body2="right_index_dp" />
+		<exclude body1="right_index_pp" body2="right_index_dp" />
 		<exclude body1="right_forearm" body2="right_thumb_tp" />
 		<exclude body1="right_tower" body2="right_thumb_tp" />
 		<exclude body1="right_carpals" body2="right_thumb_tp" />
