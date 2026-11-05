@@ -52,6 +52,7 @@ Requires numpy only (for the binary STL mirroring).
 """
 
 import argparse
+import re
 import sys
 import tempfile
 from pathlib import Path
@@ -77,52 +78,6 @@ MESH_NAME_MAP = {
     "T-TP-R": "T-TP-L",
     "R-T-AP": "L-T-AP",
 }
-
-# STL files to mirror: every mesh the right URDF or MJCF references.
-LEFT_MESH_FILES = [
-    "ForeArmStructure-Model.stl",
-    "ForeArmStructure-Model_Logo.stl",
-    "TopTower-Model.stl",
-    "L-Carpals.stl",
-    "P-AP.stl",
-    "P-PP.stl",
-    "P-PP_PP.stl",
-    "P-PP_Skin.stl",
-    "P-IP_IP.stl",
-    "P-FingerTipAssembly.stl",
-    "P-FingerTipAssembly_P-DP-Skin.stl",
-    "M-AP.stl",
-    "M-PP.stl",
-    "M-PP_PP.stl",
-    "M-PP_Skin.stl",
-    "M-IP_IP.stl",
-    "M-FingerTipAssembly.stl",
-    "M-FingerTipAssembly_M-DP-Skin.stl",
-    "I-AP-L.stl",
-    "I-PP.stl",
-    "I-PP_PP.stl",
-    "I-PP_Skin.stl",
-    "I-IP_IP.stl",
-    "I-FingerTipAssembly.stl",
-    "I-FingerTipAssembly_I-DP-Skin.stl",
-    "T-TP-L.stl",
-    "L-T-AP.stl",
-    "T-PP.stl",
-    "T-PP_PP.stl",
-    "T-PP_Skin.stl",
-    "T-DP.stl",
-    "T-DP_T-DP.stl",
-    "T-DP_Skin.stl",
-]
-
-
-def _right_mesh_name(left_name: str) -> str:
-    """Map a left STL file name back to its right-hand source file name."""
-    stem = left_name[: -len(".stl")]
-    for right, left in MESH_NAME_MAP.items():
-        if left == stem:
-            return right + ".stl"
-    return left_name
 
 
 def _neg(token: str) -> str:
@@ -227,10 +182,11 @@ def generate() -> dict:
     files[URDF_LEFT] = mirror_urdf(URDF_RIGHT.read_text()).encode()
     files[BODY_LEFT] = mirror_body_xml(BODY_RIGHT.read_text()).encode()
     files[MJCF_LEFT] = _rename(MJCF_RIGHT.read_text()).encode()
-    for left_name in LEFT_MESH_FILES:
-        src = MESH_RIGHT_DIR / _right_mesh_name(left_name)
-        note = f"mirror(x) of right/{src.name} by utils/mirror_left_from_right.py"
-        files[MESH_LEFT_DIR / left_name] = mirror_stl(src.read_bytes(), note)
+    # Every mesh the right URDF or MJCF references.
+    meshes = re.findall(r"assets/right/([\w.-]+\.stl)", URDF_RIGHT.read_text() + MJCF_RIGHT.read_text())
+    for name in sorted(set(meshes)):
+        note = f"mirror(x) of right/{name} by utils/mirror_left_from_right.py"
+        files[MESH_LEFT_DIR / _rename(name)] = mirror_stl((MESH_RIGHT_DIR / name).read_bytes(), note)
     return files
 
 

@@ -28,9 +28,13 @@ PARTS = ["forearm", "tower", "carpals", "thumb_tp", "thumb_ap", "thumb_pp", "thu
 AP_SPACING_MM = {"index": 18.75, "middle": 19.25, "ring": 19.25, "pinky": 17.75}
 
 
+def urdf_path(side: str) -> Path:
+    return V2 / "models" / "urdf" / f"orcahand_{side}.urdf"
+
+
 def load_urdf(side: str):
     """Load a v2 URDF into MuJoCo, keeping every link as its own body."""
-    text = (V2 / "models" / "urdf" / f"orcahand_{side}.urdf").read_text()
+    text = urdf_path(side).read_text()
     text = text.replace("package://orcahand_description/", f"{ROOT_DIR}/")
     text = text.replace(
         "</robot>",
@@ -43,16 +47,9 @@ def load_mjcf(side: str):
     return mujoco.MjModel.from_xml_path(str(V2 / f"scene_{side}.xml"))
 
 
-def pose(data, body_id: int) -> np.ndarray:
-    transform = np.eye(4)
-    transform[:3, :3] = data.xmat[body_id].reshape(3, 3)
-    transform[:3, 3] = data.xpos[body_id]
-    return transform
-
-
 @pytest.mark.parametrize("side", SIDES)
 def test_names(side: str) -> None:
-    urdf = ET.parse(V2 / "models" / "urdf" / f"orcahand_{side}.urdf").getroot()
+    urdf = ET.parse(urdf_path(side)).getroot()
     joints = urdf.findall("joint")
     assert {link.get("name") for link in urdf.findall("link")} == {f"{side}_{p}" for p in PARTS}
     assert {j.get("name") for j in joints if j.get("type") == "revolute"} == {f"{side}_{j}" for j in JOINTS}
@@ -79,51 +76,78 @@ def test_ap_spacing_matches_cad(side: str, loader) -> None:
     data = mujoco.MjData(model)
     mujoco.mj_forward(model, data)
     for finger, spacing_mm in AP_SPACING_MM.items():
-        abd = model.joint(f"{side}_{finger}_abd").id
-        mcp = model.joint(f"{side}_{finger}_mcp").id
-        normal = np.cross(data.xaxis[abd], data.xaxis[mcp])
+        abd, mcp = data.joint(f"{side}_{finger}_abd"), data.joint(f"{side}_{finger}_mcp")
+        normal = np.cross(abd.xaxis, mcp.xaxis)
         normal /= np.linalg.norm(normal)
-        distance_mm = abs(normal @ (data.xanchor[mcp] - data.xanchor[abd])) * 1e3
+        distance_mm = abs(normal @ (mcp.xanchor - abd.xanchor)) * 1e3
         assert distance_mm == pytest.approx(spacing_mm, abs=1e-3), finger
+
+
+@pytest.mark.parametrize("loader", [load_urdf, load_mjcf], ids=["urdf", "mjcf"])
+@pytest.mark.parametrize("side", SIDES)
+def test_positive_spread_moves_toward_the_thumb(side: str, loader) -> None:
+    """+15° of each {finger}_abd moves that finger's PIP joint toward the thumb side."""
+    model = loader(side)
+    data = mujoco.MjData(model)
+
+    def pip_positions(joint: str = "") -> dict:
+        data.qpos[:] = 0
+        if joint:
+            data.qpos[model.joint(joint).qposadr[0]] = np.deg2rad(15)
+        mujoco.mj_kinematics(model, data)
+        return {finger: data.joint(f"{side}_{finger}_pip").xanchor.copy() for finger in FINGERS}
+
+    rest = pip_positions()
+    toward_thumb = rest["index"] - rest["pinky"]
+    toward_thumb /= np.linalg.norm(toward_thumb)
+    for finger in FINGERS:
+        moved = pip_positions(f"{side}_{finger}_abd")[finger]
+        assert (moved - rest[finger]) @ toward_thumb > 0.005, finger
 
 
 @pytest.mark.parametrize("side", SIDES)
 def test_urdf_and_mjcf_agree(side: str) -> None:
-    """Both files give the same joints, masses, centres of mass and inertias."""
+    """Both files give the same joints, joint limits, masses, centres of mass and inertias."""
     model_u, model_m = load_urdf(side), load_mjcf(side)
     data_u, data_m = mujoco.MjData(model_u), mujoco.MjData(model_m)
     mujoco.mj_forward(model_u, data_u)
     mujoco.mj_forward(model_m, data_m)
 
     # MJCF world -> URDF world, through the forearm, whose frame is the same in both.
-    root = f"{side}_forearm"
-    align = pose(data_u, model_u.body(root).id) @ np.linalg.inv(pose(data_m, model_m.body(root).id))
-    rot, shift = align[:3, :3], align[:3, 3]
+    root_u, root_m = data_u.body(f"{side}_forearm"), data_m.body(f"{side}_forearm")
+    rot = root_u.xmat.reshape(3, 3) @ root_m.xmat.reshape(3, 3).T
+    shift = root_u.xpos - rot @ root_m.xpos
 
     for joint in JOINTS:
-        ju, jm = model_u.joint(f"{side}_{joint}").id, model_m.joint(f"{side}_{joint}").id
-        np.testing.assert_allclose(data_u.xanchor[ju], rot @ data_m.xanchor[jm] + shift, atol=1e-6)
-        np.testing.assert_allclose(data_u.xaxis[ju], rot @ data_m.xaxis[jm], atol=1e-6)
+        name = f"{side}_{joint}"
+        ju, jm = data_u.joint(name), data_m.joint(name)
+        np.testing.assert_allclose(ju.xanchor, rot @ jm.xanchor + shift, atol=1e-6)
+        np.testing.assert_allclose(ju.xaxis, rot @ jm.xaxis, atol=1e-6)
+        limits = model_m.joint(name).range
+        np.testing.assert_allclose(model_u.joint(name).range, limits, atol=1e-6, err_msg=joint)
+        np.testing.assert_allclose(model_m.actuator(f"{name}_actuator").ctrlrange, limits, atol=1e-6, err_msg=joint)
 
     for part in PARTS:
-        bu, bm = model_u.body(f"{side}_{part}").id, model_m.body(f"{side}_{part}").id
-        assert model_u.body_mass[bu] == pytest.approx(model_m.body_mass[bm], rel=1e-6), part
-        np.testing.assert_allclose(data_u.xipos[bu], rot @ data_m.xipos[bm] + shift, atol=1e-6)
-        inertia_u = data_u.ximat[bu].reshape(3, 3) @ np.diag(model_u.body_inertia[bu]) @ data_u.ximat[bu].reshape(3, 3).T
-        frame_m = rot @ data_m.ximat[bm].reshape(3, 3)
-        inertia_m = frame_m @ np.diag(model_m.body_inertia[bm]) @ frame_m.T
+        name = f"{side}_{part}"
+        bu, bm = data_u.body(name), data_m.body(name)
+        assert model_u.body(name).mass[0] == pytest.approx(model_m.body(name).mass[0], rel=1e-6), part
+        np.testing.assert_allclose(bu.xipos, rot @ bm.xipos + shift, atol=1e-6)
+        frame_u = bu.ximat.reshape(3, 3)
+        frame_m = rot @ bm.ximat.reshape(3, 3)
+        inertia_u = frame_u @ np.diag(model_u.body(name).inertia) @ frame_u.T
+        inertia_m = frame_m @ np.diag(model_m.body(name).inertia) @ frame_m.T
         np.testing.assert_allclose(inertia_u, inertia_m, atol=1e-6 * np.abs(inertia_u).max())
 
 
 @pytest.mark.parametrize("side", SIDES)
 def test_masses_are_plausible(side: str) -> None:
     model = load_mjcf(side)
-    masses = {part: model.body_mass[model.body(f"{side}_{part}").id] for part in PARTS}
+    bodies = {part: model.body(f"{side}_{part}") for part in PARTS}
+    masses = {part: body.mass[0] for part, body in bodies.items()}
     assert 1.0 < sum(masses.values()) < 1.4
     assert 0.2 < sum(m for part, m in masses.items() if part not in ("forearm", "tower")) < 0.26
-    for part in PARTS:
-        body = model.body(f"{side}_{part}").id
-        radius = np.sqrt(model.body_inertia[body] / model.body_mass[body])
+    for part, body in bodies.items():
+        radius = np.sqrt(body.inertia / body.mass[0])
         assert np.all((radius > 0.005) & (radius < 0.06)), part
 
 
