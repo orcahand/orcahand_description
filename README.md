@@ -17,6 +17,8 @@ The `extended` version contains additional bodies (incl. inertial properties) su
 
 ## v2 names
 
+The v2 names changed in November 2026 ([#20](https://github.com/orcahand/orcahand_description/pull/20)) from Fusion360 export names such as `P-AP_f5e42b61` to the names below. If your code uses the old names, see [Renaming your files](#renaming-your-files).
+
 Every v2 name starts with the side, `right_` or `left_`. Left names are the right names with the prefix swapped.
 
 **Joints** are `{side}_{joint}`, using orca_core's 17 joint ids: `wrist`; `thumb_cmc`, `thumb_abd`, `thumb_mcp`, `thumb_dip`; and `{finger}_abd`, `{finger}_mcp`, `{finger}_pip` for `index`, `middle`, `ring`, `pinky` (e.g. `right_index_mcp`). The URDF also has one fixed joint, `{side}_tower_fixed`.
@@ -40,13 +42,31 @@ In the URDF, each part's frame sits on the joint it moves at, so the last finger
 
 Mesh files keep their Fusion360 part names (e.g. `R-Carpals.stl`). The ring finger uses the middle finger's `M-` meshes. The left hand is generated from the right by `utils/mirror_left_from_right.py`; `--check` verifies it.
 
-Older names, from orcahand_description `main` before the rename (`--source main`) or from the `fb/split-mjcf-scene-positioning` branch that orca_ui's bundle uses without the side prefix (`--source fb-split-mjcf`), are listed in `v2/name_changes.csv`. `python utils/migrate_v2_names.py --source main --side right FILE...` rewrites them in your own files; `--check` only reports.
+### Renaming your files
+
+`v2/name_changes.csv` lists every old name with its new name. An empty new name means the name was removed, with no replacement. The list covers two sets of old names:
+- `--source main`: orcahand_description `main` before the rename, e.g. `P-AP_f5e42b61` or `right_i-mcp`.
+- `--source fb-split-mjcf`: the `fb/split-mjcf-scene-positioning` branch, e.g. `right_index_fingertip_assembly`.
+
+`utils/migrate_v2_names.py` applies the list to your own files:
+1. See what would change. This writes nothing:
+   ```bash
+   python utils/migrate_v2_names.py --source main --side right FILE...
+   ```
+2. Commit your files, then rewrite them:
+   ```bash
+   python utils/migrate_v2_names.py --source main --side right --write FILE...
+   ```
+
+Run it on one hand's files at a time: some old names were the same in the right and left files. Names without the side prefix, as in orca_ui's bundle, are not covered.
 
 ## v2 kinematics and masses
 
 **Joints** match the v2.1 CAD assembly (orcahand_hardware `orca_v2/base/Orcahand_BaseV2_Right.zip`) within 0.3 mm and 0.3°. v2.0 hands have the same joint geometry; their thumb TP is shaped slightly differently. At 0° the palm is in line with the forearm.
 
-**Centres of mass and inertias** come from each part's bone and skin meshes at uniform density, scaled to its mass. The URDF and the MJCF carry the same numbers. The MJCF's joint damping (0.1 N·m·s/rad), friction loss (0.001 N·m) and armature (0.001 kg·m²) are estimates, not measurements. The URDF carries none of them: URDF can't express armature, and without it the damping makes simulators that apply damping explicitly unstable.
+**Centres of mass and inertias** were computed from each part's bone and skin meshes, assuming uniform density, and then scaled to the part's mass. The URDF and the MJCF have the same masses, centres of mass and inertias.
+
+**Joint damping, friction and armature** are only in the MJCF: damping 0.1 N·m·s/rad, friction loss 0.001 N·m, armature 0.001 kg·m². These values are estimates, not measurements. The URDF has no joint damping, friction or armature: URDF can't express armature, and damping without armature makes simulators that apply damping explicitly unstable.
 
 ## Example Usage
 1. Clone the repository:
