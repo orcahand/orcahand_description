@@ -21,7 +21,7 @@ The v2 names changed in November 2026 ([#20](https://github.com/orcahand/orcahan
 
 Every v2 name starts with the side, `right_` or `left_`. Left names are the right names with the prefix swapped.
 
-**Joints** are `{side}_{joint}`, using orca_core's 17 joint ids: `wrist`; `thumb_cmc`, `thumb_abd`, `thumb_mcp`, `thumb_dip`; and `{finger}_abd`, `{finger}_mcp`, `{finger}_pip` for `index`, `middle`, `ring`, `pinky` (e.g. `right_index_mcp`). The URDF also has one fixed joint, `{side}_tower_fixed`.
+**Joints** are `{side}_{joint}`, using orca_core's 17 joint ids: `wrist`; `thumb_cmc`, `thumb_abd`, `thumb_mcp`, `thumb_dip`; and `{finger}_abd`, `{finger}_mcp`, `{finger}_pip` for `index`, `middle`, `ring`, `pinky` (e.g. `right_index_mcp`). The URDF also has one fixed joint, `{side}_tower_fixed`. Positive finger spread (`{finger}_abd`) moves the finger toward the thumb, in this model and on the real hand.
 
 **Parts** (URDF links and MJCF bodies), from the arm outwards:
 
@@ -58,7 +58,7 @@ Mesh files keep their Fusion360 part names (e.g. `R-Carpals.stl`). The ring fing
    python utils/migrate_v2_names.py --source main --side right --write FILE...
    ```
 
-Run it on one hand's files at a time: some old names were the same in the right and left files. Names without the side prefix, as in orca_ui's bundle, are not covered.
+Run it on one hand's files at a time: some old names were the same in the right and left files. The script skips a file with the other hand's or the other source's old names, and in both modes exits with code 1 if it skipped a file you need to check. Names without the side prefix, as in orca_ui's bundle, are not covered.
 
 ## v2 kinematics and masses
 

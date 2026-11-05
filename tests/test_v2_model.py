@@ -83,6 +83,28 @@ def test_ap_spacing_matches_cad(side: str, loader) -> None:
         assert distance_mm == pytest.approx(spacing_mm, abs=1e-3), finger
 
 
+@pytest.mark.parametrize("loader", [load_urdf, load_mjcf], ids=["urdf", "mjcf"])
+@pytest.mark.parametrize("side", SIDES)
+def test_positive_spread_moves_toward_the_thumb(side: str, loader) -> None:
+    """+15° of each {finger}_abd moves that finger's PIP joint toward the thumb side."""
+    model = loader(side)
+    data = mujoco.MjData(model)
+
+    def pip_positions(joint: str = "") -> dict:
+        data.qpos[:] = 0
+        if joint:
+            data.qpos[model.joint(joint).qposadr[0]] = np.deg2rad(15)
+        mujoco.mj_kinematics(model, data)
+        return {finger: data.joint(f"{side}_{finger}_pip").xanchor.copy() for finger in FINGERS}
+
+    rest = pip_positions()
+    toward_thumb = rest["index"] - rest["pinky"]
+    toward_thumb /= np.linalg.norm(toward_thumb)
+    for finger in FINGERS:
+        moved = pip_positions(f"{side}_{finger}_abd")[finger]
+        assert (moved - rest[finger]) @ toward_thumb > 0.005, finger
+
+
 @pytest.mark.parametrize("side", SIDES)
 def test_urdf_and_mjcf_agree(side: str) -> None:
     """Both files give the same joints, joint limits, masses, centres of mass and inertias."""
