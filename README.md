@@ -40,7 +40,7 @@ Every v2 name starts with the side, `right_` or `left_`. Left names are the righ
 
 In the URDF, each part's frame sits on the joint it moves at, so the last finger segment's origin is its PIP joint (thumb: DIP joint). In the MJCF, the hand hangs from a `{side}_base` body, and motors are `{side}_{joint}_actuator`. Each MJCF body frame sits at its part's mesh origin: the URDF link frame moved by that link's visual origin, with the same orientation.
 
-Mesh files keep their Fusion360 part names (e.g. `R-Carpals.stl`). The ring finger uses the middle finger's `M-` meshes. The left hand is generated from the right by `utils/mirror_left_from_right.py`; `--check` verifies it.
+**Meshes** show each part's printed body in dark grey and its silicone skin in white (the palm skin in black), within about 0.1 mm of the CAD. Screws, bearings, motors and electronics are not drawn. The forearm is its convex hull: closed, but flat over the fan grilles and the connector box. Mesh files keep their CAD part names; the ring finger uses the middle finger's `M-` meshes. The left hand is generated from the right by `utils/mirror_left_from_right.py`; `--check` verifies it.
 
 ### Renaming your files
 

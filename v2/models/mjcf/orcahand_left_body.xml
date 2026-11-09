@@ -98,6 +98,7 @@
 						<geom mesh="left_P-AP" material="black" rgba="0.1569 0.1569 0.1569 1" />
 					</body>
 					<joint name="left_wrist" pos="-0.004999999999999997 0.0018770780631086805 -0.049500000670552255" axis="-0.9999999999999963 1.1270242357758872e-16 -5.94450127715256e-17" range="-1.1344640137963142 0.6108652381980153" ref="0.0" />
+					<geom mesh="left_L-Carpals_Skin" material="black" rgba="0.1569 0.1569 0.1569 1" contype="0" conaffinity="0" />
 					<geom mesh="left_L-Carpals" material="black" rgba="0.1569 0.1569 0.1569 1" />
 				</body>
 				<geom mesh="left_TopTower-Model" material="black" rgba="0.1569 0.1569 0.1569 1" />

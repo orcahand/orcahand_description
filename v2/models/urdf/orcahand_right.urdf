@@ -58,6 +58,13 @@
 			</geometry>
 			<material name="black"/>
 		</visual>
+		<visual>
+			<origin xyz="-0.004999999999999997 -0.0018770780631086805 0.049500000670552255" rpy="0.0 0.0 0.0"/>
+			<geometry>
+				<mesh filename="package://orcahand_description/v2/models/assets/right/R-Carpals_Skin.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+			<material name="black"/>
+		</visual>
 	</link>
 	<joint type="revolute" name="right_wrist">
 		<parent link="right_tower"/>

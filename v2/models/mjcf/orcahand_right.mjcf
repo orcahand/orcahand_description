@@ -14,6 +14,7 @@
 		<mesh name="right_I-AP-R" file="models/assets/right/I-AP-R.stl" />
 		<mesh name="right_T-TP-R" file="models/assets/right/T-TP-R.stl" />
 		<mesh name="right_R-Carpals" file="models/assets/right/R-Carpals.stl" />
+		<mesh name="right_R-Carpals_Skin" file="models/assets/right/R-Carpals_Skin.stl" />
 		<mesh name="right_M-AP" file="models/assets/right/M-AP.stl" />
 		<mesh name="right_ForeArmStructure-Model_Logo" file="models/assets/right/ForeArmStructure-Model_Logo.stl" />
 		<mesh name="right_T-PP_Skin" file="models/assets/right/T-PP_Skin.stl" />
