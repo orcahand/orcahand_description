@@ -69,6 +69,16 @@ def test_left_is_mirror_of_right() -> None:
     assert result.returncode == 0, result.stdout + result.stderr
 
 
+@pytest.mark.parametrize("side", SIDES)
+def test_meshes_load_in_mujoco(side: str) -> None:
+    """MuJoCo refuses binary STL files with more than 200,000 triangles; a finer mesh must stay below."""
+    for stl in sorted((V2 / "models" / "assets" / side).glob("*.stl")):
+        data = stl.read_bytes()
+        triangles = int(np.frombuffer(data[80:84], dtype="<u4")[0])
+        assert len(data) == 84 + 50 * triangles, f"{stl.name}: not a binary STL"
+        assert 0 < triangles <= 200_000, f"{stl.name}: {triangles} triangles"
+
+
 @pytest.mark.parametrize("loader", [load_urdf, load_mjcf], ids=["urdf", "mjcf"])
 @pytest.mark.parametrize("side", SIDES)
 def test_ap_spacing_matches_cad(side: str, loader) -> None:

@@ -85,17 +85,7 @@ Run it on one hand's files at a time: some old names were the same in the right 
    ```
 
 ## Note on Meshes
-Visual meshes contain the following amount of faces:
-- Main tower, camera & fans: 15'000
-- Rest of base: 2'000
-- Skin: 5'000
-- Rest: 500
-
-Collision meshes contain the following amount of faces:
-- Main tower, camera & fans: 7500
-- Rest of base: 1000
-- Skin: 500
-- Rest: 250
+MuJoCo loads STL files of up to 200,000 triangles; the tests check every v2 mesh.
 
 You can further reduce or mirror meshes using the `utils/mesh_utils.py` script. With the same script, you can also print their number of faces. Some extra dependencies are required:
 ```bash
