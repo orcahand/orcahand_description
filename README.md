@@ -62,7 +62,7 @@ Run it on one hand's files at a time: some old names were the same in the right 
 
 ## v2 kinematics and masses
 
-**Joints** match the v2.1 CAD assembly (orcahand_hardware `orca_v2/base/Orcahand_BaseV2_Right.zip`) within 0.3 mm and 0.3°. v2.0 hands have the same joint geometry; their thumb TP is shaped slightly differently. At 0° the palm is in line with the forearm.
+**Joints** follow the v2.1 CAD assembly (November 2026). At 0° the palm is in line with the forearm.
 
 **Centres of mass and inertias** were computed from each part's bone and skin meshes, assuming uniform density, and then scaled to the part's mass. The URDF and the MJCF have the same masses, centres of mass and inertias.
 
