@@ -3,6 +3,9 @@
 	<material name="white">
 		<color rgba="1 1 1 1"/>
 	</material>
+	<material name="black">
+		<color rgba="0.1569 0.1569 0.1569 1"/>
+	</material>
 	
 	<!-- right_forearm -->
 	<link name="right_forearm">
@@ -16,7 +19,7 @@
 			<geometry>
 				<mesh filename="package://orcahand_description/v2/models/assets/right/ForeArmStructure-Model.stl" scale="0.001 0.001 0.001"/>
 			</geometry>
-			<material name="white"/>
+			<material name="black"/>
 		</visual>
 	</link>
 	
@@ -32,7 +35,7 @@
 			<geometry>
 				<mesh filename="package://orcahand_description/v2/models/assets/right/TopTower-Model.stl" scale="0.001 0.001 0.001"/>
 			</geometry>
-			<material name="white"/>
+			<material name="black"/>
 		</visual>
 	</link>
 	<joint type="fixed" name="right_tower_fixed">
@@ -53,7 +56,7 @@
 			<geometry>
 				<mesh filename="package://orcahand_description/v2/models/assets/right/R-Carpals.stl" scale="0.001 0.001 0.001"/>
 			</geometry>
-			<material name="white"/>
+			<material name="black"/>
 		</visual>
 	</link>
 	<joint type="revolute" name="right_wrist">
@@ -76,7 +79,7 @@
 			<geometry>
 				<mesh filename="package://orcahand_description/v2/models/assets/right/P-AP.stl" scale="0.001 0.001 0.001"/>
 			</geometry>
-			<material name="white"/>
+			<material name="black"/>
 		</visual>
 	</link>
 	<joint type="revolute" name="right_pinky_abd">
@@ -97,7 +100,14 @@
 		<visual>
 			<origin xyz="4.1531875769068695e-17 -9.105164359140306e-18 -3.8292038109168244e-17" rpy="0.0 0.0 0.0"/>
 			<geometry>
-				<mesh filename="package://orcahand_description/v2/models/assets/right/P-PP.stl" scale="0.001 0.001 0.001"/>
+				<mesh filename="package://orcahand_description/v2/models/assets/right/P-PP_PP.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+			<material name="black"/>
+		</visual>
+		<visual>
+			<origin xyz="4.1531875769068695e-17 -9.105164359140306e-18 -3.8292038109168244e-17" rpy="0.0 0.0 0.0"/>
+			<geometry>
+				<mesh filename="package://orcahand_description/v2/models/assets/right/P-PP_Skin.stl" scale="0.001 0.001 0.001"/>
 			</geometry>
 			<material name="white"/>
 		</visual>
@@ -120,7 +130,14 @@
 		<visual>
 			<origin xyz="-5.593042944930372e-17 -9.962165250943912e-18 1.5546348698018324e-16" rpy="0.0 0.0 0.0"/>
 			<geometry>
-				<mesh filename="package://orcahand_description/v2/models/assets/right/P-FingerTipAssembly.stl" scale="0.001 0.001 0.001"/>
+				<mesh filename="package://orcahand_description/v2/models/assets/right/P-IP_IP.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+			<material name="black"/>
+		</visual>
+		<visual>
+			<origin xyz="-5.593042944930372e-17 -9.962165250943912e-18 1.5546348698018324e-16" rpy="0.0 0.0 0.0"/>
+			<geometry>
+				<mesh filename="package://orcahand_description/v2/models/assets/right/P-FingerTipAssembly_P-DP-Skin.stl" scale="0.001 0.001 0.001"/>
 			</geometry>
 			<material name="white"/>
 		</visual>
@@ -145,7 +162,7 @@
 			<geometry>
 				<mesh filename="package://orcahand_description/v2/models/assets/right/M-AP.stl" scale="0.001 0.001 0.001"/>
 			</geometry>
-			<material name="white"/>
+			<material name="black"/>
 		</visual>
 	</link>
 	<joint type="revolute" name="right_ring_abd">
@@ -166,7 +183,14 @@
 		<visual>
 			<origin xyz="-1.7894285379910634e-17 -1.0522308765464415e-17 1.0523467387009805e-17" rpy="0.0 0.0 0.0"/>
 			<geometry>
-				<mesh filename="package://orcahand_description/v2/models/assets/right/M-PP.stl" scale="0.001 0.001 0.001"/>
+				<mesh filename="package://orcahand_description/v2/models/assets/right/M-PP_PP.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+			<material name="black"/>
+		</visual>
+		<visual>
+			<origin xyz="-1.7894285379910634e-17 -1.0522308765464415e-17 1.0523467387009805e-17" rpy="0.0 0.0 0.0"/>
+			<geometry>
+				<mesh filename="package://orcahand_description/v2/models/assets/right/M-PP_Skin.stl" scale="0.001 0.001 0.001"/>
 			</geometry>
 			<material name="white"/>
 		</visual>
@@ -189,7 +213,14 @@
 		<visual>
 			<origin xyz="4.078794186312799e-17 -1.9049422236114406e-17 1.0521305495457033e-16" rpy="0.0 0.0 0.0"/>
 			<geometry>
-				<mesh filename="package://orcahand_description/v2/models/assets/right/M-FingerTipAssembly.stl" scale="0.001 0.001 0.001"/>
+				<mesh filename="package://orcahand_description/v2/models/assets/right/M-IP_IP.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+			<material name="black"/>
+		</visual>
+		<visual>
+			<origin xyz="4.078794186312799e-17 -1.9049422236114406e-17 1.0521305495457033e-16" rpy="0.0 0.0 0.0"/>
+			<geometry>
+				<mesh filename="package://orcahand_description/v2/models/assets/right/M-FingerTipAssembly_M-DP-Skin.stl" scale="0.001 0.001 0.001"/>
 			</geometry>
 			<material name="white"/>
 		</visual>
@@ -214,7 +245,7 @@
 			<geometry>
 				<mesh filename="package://orcahand_description/v2/models/assets/right/M-AP.stl" scale="0.001 0.001 0.001"/>
 			</geometry>
-			<material name="white"/>
+			<material name="black"/>
 		</visual>
 	</link>
 	<joint type="revolute" name="right_middle_abd">
@@ -235,7 +266,14 @@
 		<visual>
 			<origin xyz="7.162795302343035e-17 1.2189131211851784e-17 1.7580316556723272e-17" rpy="0.0 0.0 0.0"/>
 			<geometry>
-				<mesh filename="package://orcahand_description/v2/models/assets/right/M-PP.stl" scale="0.001 0.001 0.001"/>
+				<mesh filename="package://orcahand_description/v2/models/assets/right/M-PP_PP.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+			<material name="black"/>
+		</visual>
+		<visual>
+			<origin xyz="7.162795302343035e-17 1.2189131211851784e-17 1.7580316556723272e-17" rpy="0.0 0.0 0.0"/>
+			<geometry>
+				<mesh filename="package://orcahand_description/v2/models/assets/right/M-PP_Skin.stl" scale="0.001 0.001 0.001"/>
 			</geometry>
 			<material name="white"/>
 		</visual>
@@ -258,7 +296,14 @@
 		<visual>
 			<origin xyz="5.004759988748243e-17 1.4318233198945493e-17 1.6821919643190915e-16" rpy="0.0 0.0 0.0"/>
 			<geometry>
-				<mesh filename="package://orcahand_description/v2/models/assets/right/M-FingerTipAssembly.stl" scale="0.001 0.001 0.001"/>
+				<mesh filename="package://orcahand_description/v2/models/assets/right/M-IP_IP.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+			<material name="black"/>
+		</visual>
+		<visual>
+			<origin xyz="5.004759988748243e-17 1.4318233198945493e-17 1.6821919643190915e-16" rpy="0.0 0.0 0.0"/>
+			<geometry>
+				<mesh filename="package://orcahand_description/v2/models/assets/right/M-FingerTipAssembly_M-DP-Skin.stl" scale="0.001 0.001 0.001"/>
 			</geometry>
 			<material name="white"/>
 		</visual>
@@ -283,7 +328,7 @@
 			<geometry>
 				<mesh filename="package://orcahand_description/v2/models/assets/right/I-AP-R.stl" scale="0.001 0.001 0.001"/>
 			</geometry>
-			<material name="white"/>
+			<material name="black"/>
 		</visual>
 	</link>
 	<joint type="revolute" name="right_index_abd">
@@ -304,7 +349,14 @@
 		<visual>
 			<origin xyz="8.461858417315034e-17 -1.4799510442361432e-17 1.3855749603332276e-17" rpy="0.0 0.0 0.0"/>
 			<geometry>
-				<mesh filename="package://orcahand_description/v2/models/assets/right/I-PP.stl" scale="0.001 0.001 0.001"/>
+				<mesh filename="package://orcahand_description/v2/models/assets/right/I-PP_PP.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+			<material name="black"/>
+		</visual>
+		<visual>
+			<origin xyz="8.461858417315034e-17 -1.4799510442361432e-17 1.3855749603332276e-17" rpy="0.0 0.0 0.0"/>
+			<geometry>
+				<mesh filename="package://orcahand_description/v2/models/assets/right/I-PP_Skin.stl" scale="0.001 0.001 0.001"/>
 			</geometry>
 			<material name="white"/>
 		</visual>
@@ -327,7 +379,14 @@
 		<visual>
 			<origin xyz="6.384780199281326e-17 1.6933625513663662e-18 9.316585525567554e-17" rpy="0.0 0.0 0.0"/>
 			<geometry>
-				<mesh filename="package://orcahand_description/v2/models/assets/right/I-FingerTipAssembly.stl" scale="0.001 0.001 0.001"/>
+				<mesh filename="package://orcahand_description/v2/models/assets/right/I-IP_IP.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+			<material name="black"/>
+		</visual>
+		<visual>
+			<origin xyz="6.384780199281326e-17 1.6933625513663662e-18 9.316585525567554e-17" rpy="0.0 0.0 0.0"/>
+			<geometry>
+				<mesh filename="package://orcahand_description/v2/models/assets/right/I-FingerTipAssembly_I-DP-Skin.stl" scale="0.001 0.001 0.001"/>
 			</geometry>
 			<material name="white"/>
 		</visual>
@@ -352,7 +411,7 @@
 			<geometry>
 				<mesh filename="package://orcahand_description/v2/models/assets/right/T-TP-R.stl" scale="0.001 0.001 0.001"/>
 			</geometry>
-			<material name="white"/>
+			<material name="black"/>
 		</visual>
 	</link>
 	<joint type="revolute" name="right_thumb_cmc">
@@ -375,7 +434,7 @@
 			<geometry>
 				<mesh filename="package://orcahand_description/v2/models/assets/right/R-T-AP.stl" scale="0.001 0.001 0.001"/>
 			</geometry>
-			<material name="white"/>
+			<material name="black"/>
 		</visual>
 	</link>
 	<joint type="revolute" name="right_thumb_abd">
@@ -396,7 +455,14 @@
 		<visual>
 			<origin xyz="1.969071627370024e-16 -3.15114617423654e-17 -2.696802036606928e-17" rpy="0.0 0.0 0.0"/>
 			<geometry>
-				<mesh filename="package://orcahand_description/v2/models/assets/right/T-PP.stl" scale="0.001 0.001 0.001"/>
+				<mesh filename="package://orcahand_description/v2/models/assets/right/T-PP_PP.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+			<material name="black"/>
+		</visual>
+		<visual>
+			<origin xyz="1.969071627370024e-16 -3.15114617423654e-17 -2.696802036606928e-17" rpy="0.0 0.0 0.0"/>
+			<geometry>
+				<mesh filename="package://orcahand_description/v2/models/assets/right/T-PP_Skin.stl" scale="0.001 0.001 0.001"/>
 			</geometry>
 			<material name="white"/>
 		</visual>
@@ -419,7 +485,14 @@
 		<visual>
 			<origin xyz="2.6951590953616836e-16 -1.4511389580442956e-16 4.4964986238156687e-17" rpy="0.0 0.0 0.0"/>
 			<geometry>
-				<mesh filename="package://orcahand_description/v2/models/assets/right/T-DP.stl" scale="0.001 0.001 0.001"/>
+				<mesh filename="package://orcahand_description/v2/models/assets/right/T-DP_T-DP.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+			<material name="black"/>
+		</visual>
+		<visual>
+			<origin xyz="2.6951590953616836e-16 -1.4511389580442956e-16 4.4964986238156687e-17" rpy="0.0 0.0 0.0"/>
+			<geometry>
+				<mesh filename="package://orcahand_description/v2/models/assets/right/T-DP_Skin.stl" scale="0.001 0.001 0.001"/>
 			</geometry>
 			<material name="white"/>
 		</visual>
