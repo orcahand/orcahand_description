@@ -151,14 +151,32 @@ def test_urdf_and_mjcf_agree(side: str) -> None:
 
 @pytest.mark.parametrize("side", SIDES)
 def test_masses_are_plausible(side: str) -> None:
+    """The weighed v2.1.1 right hand (Dynamixel): 1125.3 g, of which 230.15 g move. (MuJoCo refuses impossible inertias.)"""
     model = load_mjcf(side)
     bodies = {part: model.body(f"{side}_{part}") for part in PARTS}
     masses = {part: body.mass[0] for part, body in bodies.items()}
-    assert 1.0 < sum(masses.values()) < 1.4
-    assert 0.2 < sum(m for part, m in masses.items() if part not in ("forearm", "tower")) < 0.26
+    assert sum(masses.values()) == pytest.approx(1.1253, abs=1e-6)
+    assert sum(m for part, m in masses.items() if part not in ("forearm", "tower")) == pytest.approx(0.23015, abs=1e-6)
     for part, body in bodies.items():
         radius = np.sqrt(body.inertia / body.mass[0])
         assert np.all((radius > 0.005) & (radius < 0.06)), part
+
+
+@pytest.mark.parametrize("side", SIDES)
+def test_centres_of_mass_lie_in_their_parts(side: str) -> None:
+    """Each part's centre of mass lies inside the box around its meshes; a frame mix-up would put it outside."""
+    model = load_mjcf(side)
+    data = mujoco.MjData(model)
+    mujoco.mj_forward(model, data)
+    for part in PARTS:
+        body = model.body(f"{side}_{part}").id
+        points = []
+        for g in np.flatnonzero((model.geom_bodyid == body) & (model.geom_type == mujoco.mjtGeom.mjGEOM_MESH)):
+            mesh = model.geom_dataid[g]
+            vertices = model.mesh_vert[model.mesh_vertadr[mesh]:model.mesh_vertadr[mesh] + model.mesh_vertnum[mesh]]
+            points.append(data.geom_xpos[g] + vertices @ data.geom_xmat[g].reshape(3, 3).T)
+        points = np.vstack(points)
+        assert np.all(points.min(0) < data.xipos[body]) and np.all(data.xipos[body] < points.max(0)), part
 
 
 @pytest.mark.parametrize("side", SIDES)

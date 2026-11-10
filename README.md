@@ -52,7 +52,7 @@ For names from the `fb/split-mjcf-scene-positioning` branch, use `--source fb-sp
 
 **Joints** follow the v2.1 CAD assembly (November 2026); the left hand is the exact mirror of the right. At 0° the palm is in line with the forearm.
 
-**Centres of mass and inertias** were computed from each part's bone and skin meshes, assuming uniform density, and then scaled to the part's mass. The URDF and the MJCF have the same masses, centres of mass and inertias.
+**Masses** were weighed on a v2.1.1 right hand with Dynamixel motors. **Centres of mass and inertias** come from the CAD, with each part at its weighed mass. The URDF and the MJCF have the same masses, centres of mass and inertias.
 
 **Joint damping, friction and armature** are estimates and only in the MJCF. The URDF has none: URDF can't express armature, and damping without armature makes simulators that apply damping explicitly unstable.
 
