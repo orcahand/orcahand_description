@@ -42,6 +42,8 @@ In the URDF, each part's frame sits on the joint it moves at. In the MJCF, the h
 
 **Meshes** show each part's printed body in dark grey and its silicone skin in white (the palm skin in black), within about 0.1 mm of the CAD. Screws, bearings, motors and electronics are not drawn. The forearm is its convex hull: closed, but flat over the fan grilles and the connector box. Mesh files keep their CAD part names; the ring finger uses the middle finger's `M-` meshes.
 
+**Collision shapes** are convex pieces that follow each part's outer surface, skin included: 4 for each fingertip, 8 for the palm, 6 for the tower and one for every other part, each with at most 64 vertices (`<part>_collision*.stl`). On the fingertips' skin around the tip and pad they stay within about 1 mm of the real surface; elsewhere they bridge hollows, by up to about 7 mm on the finger segments and 10 mm on the palm and tower. The URDF and the MJCF use the same pieces; in the MJCF they are in geom group 3, and the visual geoms don't collide. The MJCF excludes contacts between the palm and the tower, and between the palm and each finger's first segment and the thumb's second part, whose pieces meet across a joint; exclude the same pairs when you enable self-collision with the URDF.
+
 ### Renaming your files
 
 `v2/name_changes.csv` lists every old name with its new one (empty if removed). `utils/migrate_v2_names.py` applies it to your files, one hand at a time. Without `--write` it only previews; commit your files, then add `--write`:
@@ -75,7 +77,7 @@ For names from the `fb/split-mjcf-scene-positioning` branch, use `--source fb-sp
    ```
 
 ## Note on Meshes
-`utils/mirror_left_from_right.py` generates the left hand from the right (`--check` verifies it). It needs `utils/utils_requirements.txt`. MuJoCo loads STL files of up to 200,000 triangles; the tests check every v2 mesh.
+`utils/make_v2_collisions.py` makes the collision shapes from the right hand's meshes, and `utils/mirror_left_from_right.py` generates the left hand from the right (`--check` verifies it). They need `utils/utils_requirements.txt`. MuJoCo loads STL files of up to 200,000 triangles; the tests check every v2 mesh.
 
 You can further reduce or mirror meshes using the `utils/mesh_utils.py` script. With the same script, you can also print their number of faces. Some extra dependencies are required:
 ```bash

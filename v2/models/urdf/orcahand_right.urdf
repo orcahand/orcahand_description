@@ -21,6 +21,12 @@
 			</geometry>
 			<material name="black"/>
 		</visual>
+		<collision>
+			<origin xyz="0 0 0" rpy="0.0 0.0 0.0"/>
+			<geometry>
+				<mesh filename="package://orcahand_description/v2/models/assets/right/forearm_collision.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+		</collision>
 	</link>
 	
 	<!-- right_tower -->
@@ -37,6 +43,42 @@
 			</geometry>
 			<material name="black"/>
 		</visual>
+		<collision>
+			<origin xyz="0 0 0" rpy="0.0 0.0 0.0"/>
+			<geometry>
+				<mesh filename="package://orcahand_description/v2/models/assets/right/tower_collision_0.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0" rpy="0.0 0.0 0.0"/>
+			<geometry>
+				<mesh filename="package://orcahand_description/v2/models/assets/right/tower_collision_1.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0" rpy="0.0 0.0 0.0"/>
+			<geometry>
+				<mesh filename="package://orcahand_description/v2/models/assets/right/tower_collision_2.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0" rpy="0.0 0.0 0.0"/>
+			<geometry>
+				<mesh filename="package://orcahand_description/v2/models/assets/right/tower_collision_3.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0" rpy="0.0 0.0 0.0"/>
+			<geometry>
+				<mesh filename="package://orcahand_description/v2/models/assets/right/tower_collision_4.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="0 0 0" rpy="0.0 0.0 0.0"/>
+			<geometry>
+				<mesh filename="package://orcahand_description/v2/models/assets/right/tower_collision_5.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+		</collision>
 	</link>
 	<joint type="fixed" name="right_tower_fixed">
 		<parent link="right_forearm"/>
@@ -65,6 +107,54 @@
 			</geometry>
 			<material name="black"/>
 		</visual>
+		<collision>
+			<origin xyz="-0.004999999999999997 -0.0018770780631086805 0.049500000670552255" rpy="0.0 0.0 0.0"/>
+			<geometry>
+				<mesh filename="package://orcahand_description/v2/models/assets/right/carpals_collision_0.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="-0.004999999999999997 -0.0018770780631086805 0.049500000670552255" rpy="0.0 0.0 0.0"/>
+			<geometry>
+				<mesh filename="package://orcahand_description/v2/models/assets/right/carpals_collision_1.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="-0.004999999999999997 -0.0018770780631086805 0.049500000670552255" rpy="0.0 0.0 0.0"/>
+			<geometry>
+				<mesh filename="package://orcahand_description/v2/models/assets/right/carpals_collision_2.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="-0.004999999999999997 -0.0018770780631086805 0.049500000670552255" rpy="0.0 0.0 0.0"/>
+			<geometry>
+				<mesh filename="package://orcahand_description/v2/models/assets/right/carpals_collision_3.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="-0.004999999999999997 -0.0018770780631086805 0.049500000670552255" rpy="0.0 0.0 0.0"/>
+			<geometry>
+				<mesh filename="package://orcahand_description/v2/models/assets/right/carpals_collision_4.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="-0.004999999999999997 -0.0018770780631086805 0.049500000670552255" rpy="0.0 0.0 0.0"/>
+			<geometry>
+				<mesh filename="package://orcahand_description/v2/models/assets/right/carpals_collision_5.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="-0.004999999999999997 -0.0018770780631086805 0.049500000670552255" rpy="0.0 0.0 0.0"/>
+			<geometry>
+				<mesh filename="package://orcahand_description/v2/models/assets/right/carpals_collision_6.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="-0.004999999999999997 -0.0018770780631086805 0.049500000670552255" rpy="0.0 0.0 0.0"/>
+			<geometry>
+				<mesh filename="package://orcahand_description/v2/models/assets/right/carpals_collision_7.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+		</collision>
 	</link>
 	<joint type="revolute" name="right_wrist">
 		<parent link="right_tower"/>
@@ -88,6 +178,12 @@
 			</geometry>
 			<material name="black"/>
 		</visual>
+		<collision>
+			<origin xyz="-0.017749999999999967 -2.42861286636753e-17 -0.0010000000000000217" rpy="0.0 0.0 0.0"/>
+			<geometry>
+				<mesh filename="package://orcahand_description/v2/models/assets/right/pinky_ap_collision.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+		</collision>
 	</link>
 	<joint type="revolute" name="right_pinky_abd">
 		<parent link="right_carpals"/>
@@ -118,6 +214,12 @@
 			</geometry>
 			<material name="white"/>
 		</visual>
+		<collision>
+			<origin xyz="4.1531875769068695e-17 -9.105164359140306e-18 -3.8292038109168244e-17" rpy="0.0 0.0 0.0"/>
+			<geometry>
+				<mesh filename="package://orcahand_description/v2/models/assets/right/pinky_pp_collision.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+		</collision>
 	</link>
 	<joint type="revolute" name="right_pinky_mcp">
 		<parent link="right_pinky_ap"/>
@@ -148,6 +250,30 @@
 			</geometry>
 			<material name="white"/>
 		</visual>
+		<collision>
+			<origin xyz="-5.593042944930372e-17 -9.962165250943912e-18 1.5546348698018324e-16" rpy="0.0 0.0 0.0"/>
+			<geometry>
+				<mesh filename="package://orcahand_description/v2/models/assets/right/pinky_dp_collision_0.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="-5.593042944930372e-17 -9.962165250943912e-18 1.5546348698018324e-16" rpy="0.0 0.0 0.0"/>
+			<geometry>
+				<mesh filename="package://orcahand_description/v2/models/assets/right/pinky_dp_collision_1.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="-5.593042944930372e-17 -9.962165250943912e-18 1.5546348698018324e-16" rpy="0.0 0.0 0.0"/>
+			<geometry>
+				<mesh filename="package://orcahand_description/v2/models/assets/right/pinky_dp_collision_2.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="-5.593042944930372e-17 -9.962165250943912e-18 1.5546348698018324e-16" rpy="0.0 0.0 0.0"/>
+			<geometry>
+				<mesh filename="package://orcahand_description/v2/models/assets/right/pinky_dp_collision_3.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+		</collision>
 	</link>
 	<joint type="revolute" name="right_pinky_pip">
 		<parent link="right_pinky_pp"/>
@@ -187,6 +313,12 @@
 			</geometry>
 			<material name="black"/>
 		</visual>
+		<collision>
+			<origin xyz="-0.019249999999999923 -1.734723475976807e-18 -0.0009999999999999961" rpy="0.0 0.0 0.0"/>
+			<geometry>
+				<mesh filename="package://orcahand_description/v2/models/assets/right/ring_ap_collision.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+		</collision>
 	</link>
 	<joint type="revolute" name="right_ring_abd">
 		<parent link="right_carpals"/>
@@ -217,6 +349,12 @@
 			</geometry>
 			<material name="white"/>
 		</visual>
+		<collision>
+			<origin xyz="-1.7894285379910634e-17 -1.0522308765464415e-17 1.0523467387009805e-17" rpy="0.0 0.0 0.0"/>
+			<geometry>
+				<mesh filename="package://orcahand_description/v2/models/assets/right/ring_pp_collision.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+		</collision>
 	</link>
 	<joint type="revolute" name="right_ring_mcp">
 		<parent link="right_ring_ap"/>
@@ -247,6 +385,30 @@
 			</geometry>
 			<material name="white"/>
 		</visual>
+		<collision>
+			<origin xyz="4.078794186312799e-17 -1.9049422236114406e-17 1.0521305495457033e-16" rpy="0.0 0.0 0.0"/>
+			<geometry>
+				<mesh filename="package://orcahand_description/v2/models/assets/right/ring_dp_collision_0.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="4.078794186312799e-17 -1.9049422236114406e-17 1.0521305495457033e-16" rpy="0.0 0.0 0.0"/>
+			<geometry>
+				<mesh filename="package://orcahand_description/v2/models/assets/right/ring_dp_collision_1.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="4.078794186312799e-17 -1.9049422236114406e-17 1.0521305495457033e-16" rpy="0.0 0.0 0.0"/>
+			<geometry>
+				<mesh filename="package://orcahand_description/v2/models/assets/right/ring_dp_collision_2.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="4.078794186312799e-17 -1.9049422236114406e-17 1.0521305495457033e-16" rpy="0.0 0.0 0.0"/>
+			<geometry>
+				<mesh filename="package://orcahand_description/v2/models/assets/right/ring_dp_collision_3.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+		</collision>
 	</link>
 	<joint type="revolute" name="right_ring_pip">
 		<parent link="right_ring_pp"/>
@@ -286,6 +448,12 @@
 			</geometry>
 			<material name="black"/>
 		</visual>
+		<collision>
+			<origin xyz="-0.019249999999999982 1.214306433183765e-17 -0.0010000000000000213" rpy="0.0 0.0 0.0"/>
+			<geometry>
+				<mesh filename="package://orcahand_description/v2/models/assets/right/middle_ap_collision.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+		</collision>
 	</link>
 	<joint type="revolute" name="right_middle_abd">
 		<parent link="right_carpals"/>
@@ -316,6 +484,12 @@
 			</geometry>
 			<material name="white"/>
 		</visual>
+		<collision>
+			<origin xyz="7.162795302343035e-17 1.2189131211851784e-17 1.7580316556723272e-17" rpy="0.0 0.0 0.0"/>
+			<geometry>
+				<mesh filename="package://orcahand_description/v2/models/assets/right/middle_pp_collision.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+		</collision>
 	</link>
 	<joint type="revolute" name="right_middle_mcp">
 		<parent link="right_middle_ap"/>
@@ -346,6 +520,30 @@
 			</geometry>
 			<material name="white"/>
 		</visual>
+		<collision>
+			<origin xyz="5.004759988748243e-17 1.4318233198945493e-17 1.6821919643190915e-16" rpy="0.0 0.0 0.0"/>
+			<geometry>
+				<mesh filename="package://orcahand_description/v2/models/assets/right/middle_dp_collision_0.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="5.004759988748243e-17 1.4318233198945493e-17 1.6821919643190915e-16" rpy="0.0 0.0 0.0"/>
+			<geometry>
+				<mesh filename="package://orcahand_description/v2/models/assets/right/middle_dp_collision_1.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="5.004759988748243e-17 1.4318233198945493e-17 1.6821919643190915e-16" rpy="0.0 0.0 0.0"/>
+			<geometry>
+				<mesh filename="package://orcahand_description/v2/models/assets/right/middle_dp_collision_2.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="5.004759988748243e-17 1.4318233198945493e-17 1.6821919643190915e-16" rpy="0.0 0.0 0.0"/>
+			<geometry>
+				<mesh filename="package://orcahand_description/v2/models/assets/right/middle_dp_collision_3.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+		</collision>
 	</link>
 	<joint type="revolute" name="right_middle_pip">
 		<parent link="right_middle_pp"/>
@@ -385,6 +583,12 @@
 			</geometry>
 			<material name="black"/>
 		</visual>
+		<collision>
+			<origin xyz="-0.01875000000000003 -1.734723475976807e-18 -0.000999999999999964" rpy="0.0 0.0 0.0"/>
+			<geometry>
+				<mesh filename="package://orcahand_description/v2/models/assets/right/index_ap_collision.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+		</collision>
 	</link>
 	<joint type="revolute" name="right_index_abd">
 		<parent link="right_carpals"/>
@@ -415,6 +619,12 @@
 			</geometry>
 			<material name="white"/>
 		</visual>
+		<collision>
+			<origin xyz="8.461858417315034e-17 -1.4799510442361432e-17 1.3855749603332276e-17" rpy="0.0 0.0 0.0"/>
+			<geometry>
+				<mesh filename="package://orcahand_description/v2/models/assets/right/index_pp_collision.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+		</collision>
 	</link>
 	<joint type="revolute" name="right_index_mcp">
 		<parent link="right_index_ap"/>
@@ -445,6 +655,30 @@
 			</geometry>
 			<material name="white"/>
 		</visual>
+		<collision>
+			<origin xyz="6.384780199281326e-17 1.6933625513663662e-18 9.316585525567554e-17" rpy="0.0 0.0 0.0"/>
+			<geometry>
+				<mesh filename="package://orcahand_description/v2/models/assets/right/index_dp_collision_0.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="6.384780199281326e-17 1.6933625513663662e-18 9.316585525567554e-17" rpy="0.0 0.0 0.0"/>
+			<geometry>
+				<mesh filename="package://orcahand_description/v2/models/assets/right/index_dp_collision_1.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="6.384780199281326e-17 1.6933625513663662e-18 9.316585525567554e-17" rpy="0.0 0.0 0.0"/>
+			<geometry>
+				<mesh filename="package://orcahand_description/v2/models/assets/right/index_dp_collision_2.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="6.384780199281326e-17 1.6933625513663662e-18 9.316585525567554e-17" rpy="0.0 0.0 0.0"/>
+			<geometry>
+				<mesh filename="package://orcahand_description/v2/models/assets/right/index_dp_collision_3.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+		</collision>
 	</link>
 	<joint type="revolute" name="right_index_pip">
 		<parent link="right_index_pp"/>
@@ -484,6 +718,12 @@
 			</geometry>
 			<material name="black"/>
 		</visual>
+		<collision>
+			<origin xyz="-4.228388472693467e-18 -4.911435841359335e-17 -0.003850000000000067" rpy="0.0 0.0 0.0"/>
+			<geometry>
+				<mesh filename="package://orcahand_description/v2/models/assets/right/thumb_tp_collision.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+		</collision>
 	</link>
 	<joint type="revolute" name="right_thumb_cmc">
 		<parent link="right_carpals"/>
@@ -507,6 +747,12 @@
 			</geometry>
 			<material name="black"/>
 		</visual>
+		<collision>
+			<origin xyz="-0.028 2.6020852139652106e-17 -9.540979117872439e-17" rpy="0.0 0.0 0.0"/>
+			<geometry>
+				<mesh filename="package://orcahand_description/v2/models/assets/right/thumb_ap_collision.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+		</collision>
 	</link>
 	<joint type="revolute" name="right_thumb_abd">
 		<parent link="right_thumb_tp"/>
@@ -537,6 +783,12 @@
 			</geometry>
 			<material name="white"/>
 		</visual>
+		<collision>
+			<origin xyz="1.969071627370024e-16 -3.15114617423654e-17 -2.696802036606928e-17" rpy="0.0 0.0 0.0"/>
+			<geometry>
+				<mesh filename="package://orcahand_description/v2/models/assets/right/thumb_pp_collision.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+		</collision>
 	</link>
 	<joint type="revolute" name="right_thumb_mcp">
 		<parent link="right_thumb_ap"/>
@@ -567,6 +819,30 @@
 			</geometry>
 			<material name="white"/>
 		</visual>
+		<collision>
+			<origin xyz="2.6951590953616836e-16 -1.4511389580442956e-16 4.4964986238156687e-17" rpy="0.0 0.0 0.0"/>
+			<geometry>
+				<mesh filename="package://orcahand_description/v2/models/assets/right/thumb_dp_collision_0.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="2.6951590953616836e-16 -1.4511389580442956e-16 4.4964986238156687e-17" rpy="0.0 0.0 0.0"/>
+			<geometry>
+				<mesh filename="package://orcahand_description/v2/models/assets/right/thumb_dp_collision_1.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="2.6951590953616836e-16 -1.4511389580442956e-16 4.4964986238156687e-17" rpy="0.0 0.0 0.0"/>
+			<geometry>
+				<mesh filename="package://orcahand_description/v2/models/assets/right/thumb_dp_collision_2.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+		</collision>
+		<collision>
+			<origin xyz="2.6951590953616836e-16 -1.4511389580442956e-16 4.4964986238156687e-17" rpy="0.0 0.0 0.0"/>
+			<geometry>
+				<mesh filename="package://orcahand_description/v2/models/assets/right/thumb_dp_collision_3.stl" scale="0.001 0.001 0.001"/>
+			</geometry>
+		</collision>
 	</link>
 	<joint type="revolute" name="right_thumb_dip">
 		<parent link="right_thumb_pp"/>

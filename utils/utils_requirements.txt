@@ -2,3 +2,5 @@ trimesh
 fast_simplification
 tabulate
 termcolor
+scipy
+coacd

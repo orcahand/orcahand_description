@@ -49,6 +49,19 @@ def load_mjcf(side: str):
     return mujoco.MjModel.from_xml_path(str(V2 / f"scene_{side}.xml"))
 
 
+def collision_pieces(model, data, side: str) -> dict:
+    """Mesh name -> world vertices of every colliding mesh geom of the hand."""
+    pieces = {}
+    for g in range(model.ngeom):
+        if model.geom_type[g] != mujoco.mjtGeom.mjGEOM_MESH or not (model.geom_contype[g] or model.geom_conaffinity[g]):
+            continue
+        assert model.body(model.geom_bodyid[g]).name.startswith(side)
+        mesh = model.geom_dataid[g]
+        vertices = model.mesh_vert[model.mesh_vertadr[mesh]:model.mesh_vertadr[mesh] + model.mesh_vertnum[mesh]]
+        pieces[model.mesh(mesh).name] = data.geom_xpos[g] + vertices @ data.geom_xmat[g].reshape(3, 3).T
+    return pieces
+
+
 @pytest.mark.parametrize("side", SIDES)
 def test_names(side: str) -> None:
     urdf = ET.parse(urdf_path(side)).getroot()
@@ -127,7 +140,8 @@ def test_positive_spread_moves_toward_the_thumb(side: str, loader) -> None:
 
 @pytest.mark.parametrize("side", SIDES)
 def test_urdf_and_mjcf_agree(side: str) -> None:
-    """Both files give the same joints, joint limits, masses, centres of mass, inertias and fingertip points."""
+    """Both files give the same joints, joint limits, masses, centres of mass, inertias, fingertip points and
+    collision pieces."""
     model_u, model_m = load_urdf(side), load_mjcf(side)
     data_u, data_m = mujoco.MjData(model_u), mujoco.MjData(model_m)
     mujoco.mj_forward(model_u, data_u)
@@ -163,6 +177,11 @@ def test_urdf_and_mjcf_agree(side: str) -> None:
         link, site = data_u.body(name), data_m.site(name)
         np.testing.assert_allclose(link.xpos, rot @ site.xpos + shift, atol=1e-6, err_msg=point)
         np.testing.assert_allclose(link.xmat.reshape(3, 3), rot @ site.xmat.reshape(3, 3), atol=1e-5, err_msg=point)
+
+    pieces_u, pieces_m = collision_pieces(model_u, data_u, side), collision_pieces(model_m, data_m, side)
+    assert pieces_u.keys() == {name.removeprefix(f"{side}_") for name in pieces_m}
+    for name, points in pieces_u.items():
+        np.testing.assert_allclose(points, pieces_m[f"{side}_{name}"] @ rot.T + shift, atol=1e-6, err_msg=name)
 
 
 @pytest.mark.parametrize("side", SIDES)
@@ -221,3 +240,47 @@ def test_fingertip_points_sit_on_the_skin(side: str) -> None:
         from_outside = mujoco.mj_rayMesh(model, data, skin, site.xpos + 0.001 * z, -z)
         assert from_outside == pytest.approx(0.001, abs=0.00015), point
         assert mujoco.mj_rayMesh(model, data, skin, site.xpos + 0.0002 * z, z) == -1, point   # nothing of the skin outside
+
+
+@pytest.mark.parametrize("side", SIDES)
+def test_collision_pieces_are_light_and_clear(side: str) -> None:
+    """Only the collision pieces collide: each part has its own, every piece is convex with at most 64 vertices and
+    sits in geom group 3; and no two parts touch at 0 deg."""
+    model = load_mjcf(side)
+    data = mujoco.MjData(model)
+    mujoco.mj_forward(model, data)
+    hand = {g for g in range(model.ngeom) if model.body(model.geom_bodyid[g]).name.startswith(side)}
+    colliding = [g for g in hand if model.geom_contype[g] or model.geom_conaffinity[g]]
+    assert {model.body(model.geom_bodyid[g]).name for g in colliding} == {f"{side}_{p}" for p in PARTS}
+    for g in colliding:
+        mesh = model.geom_dataid[g]
+        name = model.mesh(mesh).name
+        assert model.geom_group[g] == 3 and "_collision" in name, name
+        vertices = model.mesh_vert[model.mesh_vertadr[mesh]:model.mesh_vertadr[mesh] + model.mesh_vertnum[mesh]]
+        faces = model.mesh_face[model.mesh_faceadr[mesh]:model.mesh_faceadr[mesh] + model.mesh_facenum[mesh]]
+        assert len(vertices) <= 64, name
+        a, b, c = (vertices[faces[:, k]] for k in range(3))
+        normals = np.cross(b - a, c - a)
+        normals /= np.linalg.norm(normals, axis=1)[:, None]
+        heights = normals @ vertices.T - np.einsum("fk,fk->f", normals, a)[:, None]   # every vertex below every face
+        assert heights.max() < 2e-5, name   # STL stores float32: nearly flat faces tilt by micrometres
+    touching = [(model.geom_bodyid[c.geom1], model.geom_bodyid[c.geom2]) for c in data.contact[:data.ncon]
+                if c.geom1 in hand and c.geom2 in hand]
+    assert not touching, [(model.body(a).name, model.body(b).name) for a, b in touching]
+
+
+@pytest.mark.parametrize("side", SIDES)
+def test_one_joint_at_a_limit_touches_only_a_neighbouring_finger(side: str) -> None:
+    """With one joint at either limit and the rest at 0, a finger may touch the neighbour it spreads into; the palm,
+    tower and thumb touch nothing (each missing <exclude> shows up here)."""
+    model = load_mjcf(side)
+    data = mujoco.MjData(model)
+    for j in np.flatnonzero(model.jnt_type == mujoco.mjtJoint.mjJNT_HINGE):
+        for limit in model.jnt_range[j]:
+            data.qpos[:] = 0
+            data.qpos[model.jnt_qposadr[j]] = limit
+            mujoco.mj_forward(model, data)
+            for c in data.contact[:data.ncon]:
+                names = [model.body(model.geom_bodyid[g]).name for g in (c.geom1, c.geom2)]
+                digits = sorted(FINGERS.index(n.split("_")[1]) if n.split("_")[1] in FINGERS else -9 for n in names)
+                assert digits[1] - digits[0] == 1, (model.joint(j).name, np.degrees(limit), names)

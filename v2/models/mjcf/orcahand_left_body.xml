@@ -17,19 +17,26 @@
 									<inertial pos="-0.000708943 1.8514e-05 0.0145621" mass="0.00626" fullinertia="5.71143e-07 5.30081e-07 2.65592e-07 -4.73186e-10 -3.11082e-08 2.62583e-09" />
 									<joint name="left_thumb_dip" pos="2.6951590953616836e-16 1.4511389580442956e-16 -4.4964986238156687e-17" axis="4.718447854656915e-16 0.9999999999999946 -3.164135620181696e-15" range="-0.2617993877991494 1.8675022996339325" ref="0.0" />
 									<geom mesh="left_T-DP_Skin" material="white" rgba="1 1 1 1" pos="-5.329070518200751e-17 -1.7763568394002505e-17 1.7763568394002505e-17" quat="1.0 0.0 0.0 5.551115123125783e-17" contype="0" conaffinity="0" />
-									<geom mesh="left_T-DP_T-DP" material="black" rgba="0.1569 0.1569 0.1569 1" pos="-1.7763568394002505e-17 1.7763568394002505e-17 0.0" quat="1.0 1.3877787807814457e-17 2.7755575615628914e-17 -2.7755575615628914e-17" />
+									<geom mesh="left_T-DP_T-DP" material="black" rgba="0.1569 0.1569 0.1569 1" pos="-1.7763568394002505e-17 1.7763568394002505e-17 0.0" quat="1.0 1.3877787807814457e-17 2.7755575615628914e-17 -2.7755575615628914e-17" contype="0" conaffinity="0" />
 									<site name="left_thumb_tip" pos="0.0001 0 0.029954" quat="0.706152 0.0367 0.0367001 0.706155" size="0.001" group="4" />
 									<site name="left_thumb_pad" pos="0.007461 0 0.01758" quat="0.481489 0.517848 0.51785 0.481491" size="0.001" group="4" />
+									<geom mesh="left_thumb_dp_collision_0" group="3" />
+									<geom mesh="left_thumb_dp_collision_1" group="3" />
+									<geom mesh="left_thumb_dp_collision_2" group="3" />
+									<geom mesh="left_thumb_dp_collision_3" group="3" />
 								</body>
 								<joint name="left_thumb_mcp" pos="1.969071627370024e-16 3.15114617423654e-17 2.696802036606928e-17" axis="-3.1363800445660672e-15 1.0000000000000027 -2.942091015256665e-15" range="-0.4363323129985824 1.7453292519943295" ref="0.0" />
 								<geom mesh="left_T-PP_Skin" material="white" rgba="1 1 1 1" pos="1.7763568394002505e-17 0.0 0.0" quat="1.0 0.0 0.0 -1.3877787807814457e-17" contype="0" conaffinity="0" />
-								<geom mesh="left_T-PP_PP" material="black" rgba="0.1569 0.1569 0.1569 1" pos="1.7763568394002505e-17 0.0 0.0" quat="1.0 0.0 0.0 -1.3877787807814457e-17" />
+								<geom mesh="left_T-PP_PP" material="black" rgba="0.1569 0.1569 0.1569 1" pos="1.7763568394002505e-17 0.0 0.0" quat="1.0 0.0 0.0 -1.3877787807814457e-17" contype="0" conaffinity="0" />
+								<geom mesh="left_thumb_pp_collision" group="3" />
 							</body>
 							<joint name="left_thumb_abd" pos="-0.028 -2.6020852139652106e-17 9.540979117872439e-17" axis="-1.4988010832439613e-15 -0.3420201433256641 -0.9396926207859044" range="-0.3141592653589793 0.9599310885968813" ref="0.0" />
-							<geom mesh="left_L-T-AP" material="black" rgba="0.1569 0.1569 0.1569 1" />
+							<geom mesh="left_L-T-AP" material="black" rgba="0.1569 0.1569 0.1569 1" contype="0" conaffinity="0" />
+							<geom mesh="left_thumb_ap_collision" group="3" />
 						</body>
 						<joint name="left_thumb_cmc" pos="-4.228388472693467e-18 4.911435841359335e-17 0.003850000000000067" axis="-7.771561172376096e-16 -5.412337245047638e-16 0.9999999999999931" range="-0.7853981633974483 0.5759586531581288" ref="0.0" />
-						<geom mesh="left_T-TP-L" material="black" rgba="0.1569 0.1569 0.1569 1" />
+						<geom mesh="left_T-TP-L" material="black" rgba="0.1569 0.1569 0.1569 1" contype="0" conaffinity="0" />
+						<geom mesh="left_thumb_tp_collision" group="3" />
 					</body>
 					<body name="left_index_ap" pos="0.025575481691250117 0.0006809253025602396 0.03835732632869239" quat="0.519646788331587 0.5667240334680995 -0.4317303415794619 0.4715930421730138">
 						<inertial pos="-0.00681348 2.17705e-05 0.000391154" mass="0.005" fullinertia="2.51476e-07 3.99563e-07 4.94671e-07 1.49174e-09 2.64969e-08 -9.42703e-12" />
@@ -38,17 +45,23 @@
 							<body name="left_index_dp" pos="-0.0015000000000000208 8.673617379884035e-18 0.0370000000000001" quat="1.0000000000000022 1.6653345369377348e-16 -4.163336342344337e-17 -3.3861802251067274e-15">
 								<inertial pos="0.000140358 9.87192e-06 0.0210139" mass="0.01011" fullinertia="1.67665e-06 1.77627e-06 4.49599e-07 -4.89629e-10 -2.65033e-07 3.91749e-09" />
 								<joint name="left_index_pip" pos="6.384780199281326e-17 -1.6933625513663662e-18 -9.316585525567554e-17" axis="-3.608224830031759e-15 0.999999999999996 -2.7755575615628914e-16" range="-0.2617993877991494 1.8675022996339325" ref="0.0" />
-								<geom mesh="left_I-IP_IP" material="black" rgba="0.1569 0.1569 0.1569 1" pos="1.3877787807814458e-18 4.440892098500626e-18 3.552713678800501e-17" quat="0.9999999999999998 -1.179611963664229e-16 1.3010426069826057e-18 2.547875105340936e-17" />
+								<geom mesh="left_I-IP_IP" material="black" rgba="0.1569 0.1569 0.1569 1" pos="1.3877787807814458e-18 4.440892098500626e-18 3.552713678800501e-17" quat="0.9999999999999998 -1.179611963664229e-16 1.3010426069826057e-18 2.547875105340936e-17" contype="0" conaffinity="0" />
 								<geom mesh="left_I-FingerTipAssembly_I-DP-Skin" material="white" rgba="1 1 1 1" pos="2.7755575615628914e-19 4.440892098500626e-18 -3.552713678800501e-17" quat="1.0 -6.938893903907228e-18 8.673617379884035e-19 1.0516761073109393e-17" contype="0" conaffinity="0" />
 								<site name="left_index_tip" pos="0.010181 0 0.043057" quat="0.672406 0.218787 0.218788 0.672409" size="0.001" group="4" />
 								<site name="left_index_pad" pos="0.011582 0 0.031309" quat="0.391792 0.58864 0.588642 0.391794" size="0.001" group="4" />
+								<geom mesh="left_index_dp_collision_0" group="3" />
+								<geom mesh="left_index_dp_collision_1" group="3" />
+								<geom mesh="left_index_dp_collision_2" group="3" />
+								<geom mesh="left_index_dp_collision_3" group="3" />
 							</body>
 							<joint name="left_index_mcp" pos="8.461858417315034e-17 1.4799510442361432e-17 -1.3855749603332276e-17" axis="5.828670879282072e-15 1.0000000000000036 -1.1102230246251565e-16" range="-0.4363323129985824 1.7453292519943295" ref="0.0" />
 							<geom mesh="left_I-PP_Skin" material="white" rgba="1 1 1 1" pos="2.7755575615628914e-19 4.440892098500626e-18 0.0" quat="1.0 0.0 4.336808689942018e-19 6.830473686658678e-18" contype="0" conaffinity="0" />
-							<geom mesh="left_I-PP_PP" material="black" rgba="0.1569 0.1569 0.1569 1" pos="2.7755575615628914e-19 4.440892098500626e-18 0.0" quat="1.0 0.0 4.336808689942018e-19 6.830473686658678e-18" />
+							<geom mesh="left_I-PP_PP" material="black" rgba="0.1569 0.1569 0.1569 1" pos="2.7755575615628914e-19 4.440892098500626e-18 0.0" quat="1.0 0.0 4.336808689942018e-19 6.830473686658678e-18" contype="0" conaffinity="0" />
+							<geom mesh="left_index_pp_collision" group="3" />
 						</body>
 						<joint name="left_index_abd" pos="-0.01875000000000003 1.734723475976807e-18 0.000999999999999964" axis="-8.326672684688674e-17 -3.3306690738754696e-16 -0.9999999999999991" range="-0.4363323129985824 0.5235987755982988" ref="0.0" />
-						<geom mesh="left_I-AP-L" material="black" rgba="0.1569 0.1569 0.1569 1" />
+						<geom mesh="left_I-AP-L" material="black" rgba="0.1569 0.1569 0.1569 1" contype="0" conaffinity="0" />
+						<geom mesh="left_index_ap_collision" group="3" />
 					</body>
 					<body name="left_middle_ap" pos="0.0007567300518294843 -0.0011463260089169605 0.04825182678794436" quat="-0.5006540699144025 -0.5006540699144022 0.4993450733492283 -0.4993450733492286">
 						<inertial pos="-0.00678201 1.67034e-07 0.000373506" mass="0.0051" fullinertia="2.667e-07 4.33436e-07 5.24447e-07 3.73608e-12 2.81909e-08 -4.66425e-11" />
@@ -58,16 +71,22 @@
 								<inertial pos="0.000109508 1.18335e-05 0.0208105" mass="0.00996" fullinertia="1.67107e-06 1.76826e-06 4.34778e-07 -6.00513e-10 -2.56911e-07 3.73038e-09" />
 								<joint name="left_middle_pip" pos="5.004759988748243e-17 -1.4318233198945493e-17 -1.6821919643190915e-16" axis="-3.2751579226442118e-15 0.9999999999999977 -4.440892098500626e-16" range="-0.2617993877991494 1.8675022996339325" ref="0.0" />
 								<geom mesh="left_M-FingerTipAssembly_M-DP-Skin" material="white" rgba="1 1 1 1" pos="0.0 -1.1102230246251566e-18 0.0" quat="1.0 0.0 0.0 -2.0583376280638583e-32" contype="0" conaffinity="0" />
-								<geom mesh="left_M-IP_IP" material="black" rgba="0.1569 0.1569 0.1569 1" pos="0.0 1.4432899320127036e-17 0.0" quat="1.0 -1.1102230246251565e-16 -1.3552527155997931e-20 1.7708282553569727e-20" />
+								<geom mesh="left_M-IP_IP" material="black" rgba="0.1569 0.1569 0.1569 1" pos="0.0 1.4432899320127036e-17 0.0" quat="1.0 -1.1102230246251565e-16 -1.3552527155997931e-20 1.7708282553569727e-20" contype="0" conaffinity="0" />
 								<site name="left_middle_tip" pos="0.010181 0 0.043057" quat="0.672406 0.218787 0.218788 0.672409" size="0.001" group="4" />
 								<site name="left_middle_pad" pos="0.011588 0 0.031322" quat="0.391969 0.588522 0.588524 0.39197" size="0.001" group="4" />
+								<geom mesh="left_middle_dp_collision_0" group="3" />
+								<geom mesh="left_middle_dp_collision_1" group="3" />
+								<geom mesh="left_middle_dp_collision_2" group="3" />
+								<geom mesh="left_middle_dp_collision_3" group="3" />
 							</body>
 							<joint name="left_middle_mcp" pos="7.162795302343035e-17 -1.2189131211851784e-17 -1.7580316556723272e-17" axis="6.050715484207103e-15 1.0000000000000058 1.1102230246251565e-16" range="-0.4363323129985824 1.7453292519943295" ref="0.0" />
 							<geom mesh="left_M-PP_Skin" material="white" rgba="1 1 1 1" pos="0.0 -1.1102230246251566e-18 0.0" quat="1.0 -1.0842021724855044e-19 6.162975822039155e-33 -1.5931051758728167e-31" contype="0" conaffinity="0" />
-							<geom mesh="left_M-PP_PP" material="black" rgba="0.1569 0.1569 0.1569 1" pos="0.0 -1.1102230246251566e-18 0.0" quat="1.0 -1.0842021724855044e-19 6.162975822039155e-33 -1.5931051758728167e-31" />
+							<geom mesh="left_M-PP_PP" material="black" rgba="0.1569 0.1569 0.1569 1" pos="0.0 -1.1102230246251566e-18 0.0" quat="1.0 -1.0842021724855044e-19 6.162975822039155e-33 -1.5931051758728167e-31" contype="0" conaffinity="0" />
+							<geom mesh="left_middle_pp_collision" group="3" />
 						</body>
 						<joint name="left_middle_abd" pos="-0.019249999999999982 -1.214306433183765e-17 0.0010000000000000213" axis="1.1102230246251565e-15 2.220446049250313e-16 -0.9999999999999971" range="-0.47123889803846897 0.47123889803846897" ref="0.0" />
-						<geom mesh="left_M-AP" material="black" rgba="0.1569 0.1569 0.1569 1" />
+						<geom mesh="left_M-AP" material="black" rgba="0.1569 0.1569 0.1569 1" contype="0" conaffinity="0" />
+						<geom mesh="left_middle_ap_collision" group="3" />
 					</body>
 					<body name="left_ring_ap" pos="-0.02300540741341827 -0.0001014498859375039 0.04085073553625944" quat="-0.4851713041498216 -0.43849204432323763 0.554729417883375 -0.514401405159008">
 						<inertial pos="-0.00678201 1.67034e-07 0.000373506" mass="0.0051" fullinertia="2.667e-07 4.33436e-07 5.24447e-07 3.73608e-12 2.81909e-08 -4.66425e-11" />
@@ -77,16 +96,22 @@
 								<inertial pos="0.000109508 1.18335e-05 0.0208105" mass="0.00996" fullinertia="1.67107e-06 1.76826e-06 4.34778e-07 -6.00513e-10 -2.56911e-07 3.73038e-09" />
 								<joint name="left_ring_pip" pos="4.078794186312799e-17 1.9049422236114406e-17 -1.0521305495457033e-16" axis="-2.942091015256665e-15 0.999999999999996 -2.220446049250313e-16" range="-0.2617993877991494 1.8675022996339325" ref="0.0" />
 								<geom mesh="left_M-FingerTipAssembly_M-DP-Skin" material="white" rgba="1 1 1 1" pos="1.1102230246251566e-18 4.440892098500626e-18 0.0" quat="1.0 -6.938893903907228e-18 -6.299706001402638e-19 3.531120121539116e-19" contype="0" conaffinity="0" />
-								<geom mesh="left_M-IP_IP" material="black" rgba="0.1569 0.1569 0.1569 1" pos="1.1102230246251566e-18 4.440892098500626e-18 -3.552713678800501e-17" quat="1.0 -1.1796119636642288e-16 6.710720068423415e-19 -1.0055228843706928e-17" />
+								<geom mesh="left_M-IP_IP" material="black" rgba="0.1569 0.1569 0.1569 1" pos="1.1102230246251566e-18 4.440892098500626e-18 -3.552713678800501e-17" quat="1.0 -1.1796119636642288e-16 6.710720068423415e-19 -1.0055228843706928e-17" contype="0" conaffinity="0" />
 								<site name="left_ring_tip" pos="0.010181 0 0.043057" quat="0.672406 0.218787 0.218788 0.672409" size="0.001" group="4" />
 								<site name="left_ring_pad" pos="0.011582 0 0.031309" quat="0.391792 0.58864 0.588642 0.391794" size="0.001" group="4" />
+								<geom mesh="left_ring_dp_collision_0" group="3" />
+								<geom mesh="left_ring_dp_collision_1" group="3" />
+								<geom mesh="left_ring_dp_collision_2" group="3" />
+								<geom mesh="left_ring_dp_collision_3" group="3" />
 							</body>
 							<joint name="left_ring_mcp" pos="-1.7894285379910634e-17 1.0522308765464415e-17 -1.0523467387009805e-17" axis="5.9396931817445875e-15 1.0000000000000042 -1.1102230246251565e-16" range="-0.4363323129985824 1.7453292519943295" ref="0.0" />
 							<geom mesh="left_M-PP_Skin" material="white" rgba="1 1 1 1" pos="5.551115123125783e-19 0.0 -3.552713678800501e-17" quat="1.0 0.0 -1.0744787839022148e-18 3.948277295454671e-18" contype="0" conaffinity="0" />
-							<geom mesh="left_M-PP_PP" material="black" rgba="0.1569 0.1569 0.1569 1" pos="5.551115123125783e-19 0.0 -3.552713678800501e-17" quat="1.0 0.0 -1.0744787839022148e-18 3.948277295454671e-18" />
+							<geom mesh="left_M-PP_PP" material="black" rgba="0.1569 0.1569 0.1569 1" pos="5.551115123125783e-19 0.0 -3.552713678800501e-17" quat="1.0 0.0 -1.0744787839022148e-18 3.948277295454671e-18" contype="0" conaffinity="0" />
+							<geom mesh="left_ring_pp_collision" group="3" />
 						</body>
 						<joint name="left_ring_abd" pos="-0.019249999999999923 1.734723475976807e-18 0.0009999999999999961" axis="8.881784197001252e-16 5.551115123125783e-17 -0.9999999999999994" range="-0.47123889803846897 0.47123889803846897" ref="0.0" />
-						<geom mesh="left_M-AP" material="black" rgba="0.1569 0.1569 0.1569 1" />
+						<geom mesh="left_M-AP" material="black" rgba="0.1569 0.1569 0.1569 1" contype="0" conaffinity="0" />
+						<geom mesh="left_ring_ap_collision" group="3" />
 					</body>
 					<body name="left_pinky_ap" pos="-0.04666877715017955 0.00500098395792942 0.029101417458615046" quat="-0.45731846125607556 -0.3401988014151619 0.6138690651598068 -0.5461587418964287">
 						<inertial pos="-0.00673745 -6.03792e-07 0.000419549" mass="0.0044" fullinertia="1.88098e-07 3.09559e-07 3.85588e-07 4.21396e-11 2.07946e-08 -6.3651e-11" />
@@ -95,26 +120,47 @@
 							<body name="left_pinky_dp" pos="-0.0009999999999999005 3.122502256758253e-17 0.030999999999999826" quat="1.0000000000000022 5.551115123125783e-17 -1.3877787807814457e-17 -3.1086244689504383e-15">
 								<inertial pos="0.00137978 1.43408e-05 0.0187999" mass="0.00616" fullinertia="6.31263e-07 7.27785e-07 2.89007e-07 -5.79075e-10 -1.65547e-07 4.39773e-10" />
 								<joint name="left_pinky_pip" pos="-5.593042944930372e-17 9.962165250943912e-18 -1.5546348698018324e-16" axis="-2.609024107869118e-15 0.9999999999999968 -3.885780586188048e-16" range="-0.2617993877991494 1.8675022996339325" ref="0.0" />
-								<geom mesh="left_P-IP_IP" material="black" rgba="0.1569 0.1569 0.1569 1" pos="5.551115123125783e-18 2.6645352591003756e-17 3.552713678800501e-17" quat="1.0 -1.5265566588595902e-16 -7.37257477290143e-18 -9.324138683375338e-18" />
+								<geom mesh="left_P-IP_IP" material="black" rgba="0.1569 0.1569 0.1569 1" pos="5.551115123125783e-18 2.6645352591003756e-17 3.552713678800501e-17" quat="1.0 -1.5265566588595902e-16 -7.37257477290143e-18 -9.324138683375338e-18" contype="0" conaffinity="0" />
 								<geom mesh="left_P-FingerTipAssembly_P-DP-Skin" material="white" rgba="1 1 1 1" pos="-1.1102230246251566e-18 8.881784197001253e-18 3.552713678800501e-17" quat="1.0 -2.7755575615628914e-17 -1.3010426069826053e-18 -7.37257477290143e-18" contype="0" conaffinity="0" />
 								<site name="left_pinky_tip" pos="0.010838 0 0.036133" quat="0.670294 0.225175 0.225176 0.670297" size="0.001" group="4" />
 								<site name="left_pinky_pad" pos="0.012561 0 0.02556" quat="0.408592 0.577106 0.577108 0.408593" size="0.001" group="4" />
+								<geom mesh="left_pinky_dp_collision_0" group="3" />
+								<geom mesh="left_pinky_dp_collision_1" group="3" />
+								<geom mesh="left_pinky_dp_collision_2" group="3" />
+								<geom mesh="left_pinky_dp_collision_3" group="3" />
 							</body>
 							<joint name="left_pinky_mcp" pos="4.1531875769068695e-17 9.105164359140306e-18 3.8292038109168244e-17" axis="6.439293542825908e-15 1.0000000000000049 -6.661338147750939e-16" range="-0.4363323129985824 1.7453292519943295" ref="0.0" />
 							<geom mesh="left_P-PP_Skin" material="white" rgba="1 1 1 1" pos="-1.1102230246251566e-18 8.881784197001253e-18 0.0" quat="1.0 -1.3877787807814457e-17 4.7704895589362195e-18 -5.637851296924623e-18" contype="0" conaffinity="0" />
-							<geom mesh="left_P-PP_PP" material="black" rgba="0.1569 0.1569 0.1569 1" pos="-1.1102230246251566e-18 8.881784197001253e-18 0.0" quat="1.0 -1.3877787807814457e-17 4.7704895589362195e-18 -5.637851296924623e-18" />
+							<geom mesh="left_P-PP_PP" material="black" rgba="0.1569 0.1569 0.1569 1" pos="-1.1102230246251566e-18 8.881784197001253e-18 0.0" quat="1.0 -1.3877787807814457e-17 4.7704895589362195e-18 -5.637851296924623e-18" contype="0" conaffinity="0" />
+							<geom mesh="left_pinky_pp_collision" group="3" />
 						</body>
 						<joint name="left_pinky_abd" pos="-0.017749999999999967 2.42861286636753e-17 0.0010000000000000217" axis="9.71445146547012e-16 -1.6653345369377348e-16 -0.9999999999999984" range="-0.5235987755982988 0.5235987755982988" ref="0.0" />
-						<geom mesh="left_P-AP" material="black" rgba="0.1569 0.1569 0.1569 1" />
+						<geom mesh="left_P-AP" material="black" rgba="0.1569 0.1569 0.1569 1" contype="0" conaffinity="0" />
+						<geom mesh="left_pinky_ap_collision" group="3" />
 					</body>
 					<joint name="left_wrist" pos="-0.004999999999999997 0.0018770780631086805 -0.049500000670552255" axis="-0.9999999999999963 1.1270242357758872e-16 -5.94450127715256e-17" range="-1.1344640137963142 0.6108652381980153" ref="0.0" />
 					<geom mesh="left_L-Carpals_Skin" material="black" rgba="0.1569 0.1569 0.1569 1" contype="0" conaffinity="0" />
-					<geom mesh="left_L-Carpals" material="black" rgba="0.1569 0.1569 0.1569 1" />
+					<geom mesh="left_L-Carpals" material="black" rgba="0.1569 0.1569 0.1569 1" contype="0" conaffinity="0" />
+					<geom mesh="left_carpals_collision_0" group="3" />
+					<geom mesh="left_carpals_collision_1" group="3" />
+					<geom mesh="left_carpals_collision_2" group="3" />
+					<geom mesh="left_carpals_collision_3" group="3" />
+					<geom mesh="left_carpals_collision_4" group="3" />
+					<geom mesh="left_carpals_collision_5" group="3" />
+					<geom mesh="left_carpals_collision_6" group="3" />
+					<geom mesh="left_carpals_collision_7" group="3" />
 				</body>
-				<geom mesh="left_TopTower-Model" material="black" rgba="0.1569 0.1569 0.1569 1" />
+				<geom mesh="left_TopTower-Model" material="black" rgba="0.1569 0.1569 0.1569 1" contype="0" conaffinity="0" />
+				<geom mesh="left_tower_collision_0" group="3" />
+				<geom mesh="left_tower_collision_1" group="3" />
+				<geom mesh="left_tower_collision_2" group="3" />
+				<geom mesh="left_tower_collision_3" group="3" />
+				<geom mesh="left_tower_collision_4" group="3" />
+				<geom mesh="left_tower_collision_5" group="3" />
 			</body>
 			<geom mesh="left_ForeArmStructure-Model_Logo" material="white" rgba="1 1 1 1" pos="0.0 0.0 0.0" quat="1.0 0.0 0.0 0.0" contype="0" conaffinity="0" />
-			<geom mesh="left_ForeArmStructure-Model" material="black" rgba="0.1569 0.1569 0.1569 1" />
+			<geom mesh="left_ForeArmStructure-Model" material="black" rgba="0.1569 0.1569 0.1569 1" contype="0" conaffinity="0" />
+			<geom mesh="left_forearm_collision" group="3" />
 		</body>
 	</body>
 </mujoco>
