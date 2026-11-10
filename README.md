@@ -38,6 +38,8 @@ Every v2 name starts with the side, `right_` or `left_`. **Joints** are `{side}_
 
 In the URDF, each part's frame sits on the joint it moves at. In the MJCF, the hand hangs from a `{side}_base` body, and each body frame sits at its part's mesh origin.
 
+**Fingertip points:** each digit's last segment has two frames on its skin, `{side}_{digit}_tip` at the end of the fingertip and `{side}_{digit}_pad` in the middle of the pad, where pinches touch (`digit` is `thumb`, `index`, `middle`, `ring` or `pinky`). In the URDF they are links on the fixed joints `{side}_{digit}_tip_fixed` and `{side}_{digit}_pad_fixed`; in the MJCF they are sites. Z points out of the skin, X along the segment's joint axis, and Y = Z × X. They were placed by hand on the right hand's skin; the left hand's are their mirror.
+
 **Meshes** show each part's printed body in dark grey and its silicone skin in white (the palm skin in black), within about 0.1 mm of the CAD. Screws, bearings, motors and electronics are not drawn. The forearm is its convex hull: closed, but flat over the fan grilles and the connector box. Mesh files keep their CAD part names; the ring finger uses the middle finger's `M-` meshes.
 
 ### Renaming your files

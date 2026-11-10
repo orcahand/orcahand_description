@@ -145,7 +145,13 @@ def _mirror_urdf_numbers(text: str) -> str:
     return "\n".join(out)
 
 
+UNMIRRORED = ("fromto", "euler", "xyaxes", "zaxis", "axisangle")   # MJCF attributes the rules above don't cover
+
+
 def _mirror_body_numbers(text: str) -> str:
+    unknown = [attr for attr in UNMIRRORED if f' {attr}="' in text]
+    if unknown:
+        raise ValueError(f"cannot mirror {unknown}: write positions as pos and orientations as quat")
     out = []
     for line in text.split("\n"):
         for attr, idx in BODY_RULES:

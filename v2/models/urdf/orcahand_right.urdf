@@ -157,6 +157,22 @@
 		<limit lower="-0.2617993877991494" upper="1.8675022996339325" effort="100" velocity="100"/>
 	</joint>
 	
+	<!-- right_pinky_tip -->
+	<link name="right_pinky_tip"/>
+	<joint type="fixed" name="right_pinky_tip_fixed">
+		<parent link="right_pinky_dp"/>
+		<child link="right_pinky_tip"/>
+		<origin xyz="-0.010838 0 0.036133" rpy="0.64818 0 -1.5708"/>
+	</joint>
+	
+	<!-- right_pinky_pad -->
+	<link name="right_pinky_pad"/>
+	<joint type="fixed" name="right_pinky_pad_fixed">
+		<parent link="right_pinky_dp"/>
+		<child link="right_pinky_pad"/>
+		<origin xyz="-0.012561 0 0.02556" rpy="1.90944 0 -1.5708"/>
+	</joint>
+	
 	<!-- right_ring_ap -->
 	<link name="right_ring_ap">
 		<inertial>
@@ -238,6 +254,22 @@
 		<origin xyz="0.0019999999999998678 1.5882195667426256e-18 0.040000000000000126" rpy="2.2204460492503052e-16 0.0 6.217248937900862e-15"/>
 		<axis xyz="-2.942091015256665e-15 -0.999999999999996 2.220446049250313e-16"/>
 		<limit lower="-0.2617993877991494" upper="1.8675022996339325" effort="100" velocity="100"/>
+	</joint>
+	
+	<!-- right_ring_tip -->
+	<link name="right_ring_tip"/>
+	<joint type="fixed" name="right_ring_tip_fixed">
+		<parent link="right_ring_dp"/>
+		<child link="right_ring_tip"/>
+		<origin xyz="-0.010181 0 0.043057" rpy="0.62915 0 -1.5708"/>
+	</joint>
+	
+	<!-- right_ring_pad -->
+	<link name="right_ring_pad"/>
+	<joint type="fixed" name="right_ring_pad_fixed">
+		<parent link="right_ring_dp"/>
+		<child link="right_ring_pad"/>
+		<origin xyz="-0.011582 0 0.031309" rpy="1.96708 0 -1.5708"/>
 	</joint>
 	
 	<!-- right_middle_ap -->
@@ -323,6 +355,22 @@
 		<limit lower="-0.2617993877991494" upper="1.8675022996339325" effort="100" velocity="100"/>
 	</joint>
 	
+	<!-- right_middle_tip -->
+	<link name="right_middle_tip"/>
+	<joint type="fixed" name="right_middle_tip_fixed">
+		<parent link="right_middle_dp"/>
+		<child link="right_middle_tip"/>
+		<origin xyz="-0.010181 0 0.043057" rpy="0.62915 0 -1.5708"/>
+	</joint>
+	
+	<!-- right_middle_pad -->
+	<link name="right_middle_pad"/>
+	<joint type="fixed" name="right_middle_pad_fixed">
+		<parent link="right_middle_dp"/>
+		<child link="right_middle_pad"/>
+		<origin xyz="-0.011588 0 0.031322" rpy="1.96648 0 -1.5708"/>
+	</joint>
+	
 	<!-- right_index_ap -->
 	<link name="right_index_ap">
 		<inertial>
@@ -404,6 +452,22 @@
 		<origin xyz="0.0015000000000000417 -7.819255613844171e-18 0.037000000000000026" rpy="3.3306690738754617e-16 0.0 6.77236045021344e-15"/>
 		<axis xyz="-3.608224830031759e-15 -0.999999999999996 2.7755575615628914e-16"/>
 		<limit lower="-0.2617993877991494" upper="1.8675022996339325" effort="100" velocity="100"/>
+	</joint>
+	
+	<!-- right_index_tip -->
+	<link name="right_index_tip"/>
+	<joint type="fixed" name="right_index_tip_fixed">
+		<parent link="right_index_dp"/>
+		<child link="right_index_tip"/>
+		<origin xyz="-0.010181 0 0.043057" rpy="0.62915 0 -1.5708"/>
+	</joint>
+	
+	<!-- right_index_pad -->
+	<link name="right_index_pad"/>
+	<joint type="fixed" name="right_index_pad_fixed">
+		<parent link="right_index_dp"/>
+		<child link="right_index_pad"/>
+		<origin xyz="-0.011582 0 0.031309" rpy="1.96708 0 -1.5708"/>
 	</joint>
 	
 	<!-- right_thumb_tp -->
@@ -510,5 +574,21 @@
 		<origin xyz="0.0009999999999999985 1.1880660448999647e-16 0.03200000000000021" rpy="0.0 0.0 -3.830269434956779e-15"/>
 		<axis xyz="4.718447854656915e-16 -0.9999999999999946 3.164135620181696e-15"/>
 		<limit lower="-0.2617993877991494" upper="1.8675022996339325" effort="100" velocity="100"/>
+	</joint>
+	
+	<!-- right_thumb_tip -->
+	<link name="right_thumb_tip"/>
+	<joint type="fixed" name="right_thumb_tip_fixed">
+		<parent link="right_thumb_dp"/>
+		<child link="right_thumb_tip"/>
+		<origin xyz="-0.0001 0 0.029954" rpy="0.10385 0 -1.5708"/>
+	</joint>
+	
+	<!-- right_thumb_pad -->
+	<link name="right_thumb_pad"/>
+	<joint type="fixed" name="right_thumb_pad_fixed">
+		<parent link="right_thumb_dp"/>
+		<child link="right_thumb_pad"/>
+		<origin xyz="-0.007461 0 0.01758" rpy="1.64353 0 -1.5708"/>
 	</joint>
 </robot>

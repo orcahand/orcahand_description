@@ -22,6 +22,8 @@ JOINTS = ["wrist", "thumb_cmc", "thumb_abd", "thumb_mcp", "thumb_dip"] + [
 PARTS = ["forearm", "tower", "carpals", "thumb_tp", "thumb_ap", "thumb_pp", "thumb_dp"] + [
     f"{finger}_{part}" for finger in FINGERS for part in ("ap", "pp", "dp")
 ]
+# Fingertip points: URDF links on fixed joints, MJCF sites, both on the last segment.
+POINTS = [f"{digit}_{point}" for digit in ("thumb",) + FINGERS for point in ("tip", "pad")]
 
 # Distance between each AP part's spread axis and its MCP axis, from the v2.1 CAD
 # (orcahand_hardware Orcahand_BaseV2_Right.zip); the v2.0 parts are identical.
@@ -51,15 +53,23 @@ def load_mjcf(side: str):
 def test_names(side: str) -> None:
     urdf = ET.parse(urdf_path(side)).getroot()
     joints = urdf.findall("joint")
-    assert {link.get("name") for link in urdf.findall("link")} == {f"{side}_{p}" for p in PARTS}
+    assert {link.get("name") for link in urdf.findall("link")} == {f"{side}_{p}" for p in PARTS + POINTS}
     assert {j.get("name") for j in joints if j.get("type") == "revolute"} == {f"{side}_{j}" for j in JOINTS}
-    assert {j.get("name") for j in joints if j.get("type") == "fixed"} == {f"{side}_tower_fixed"}
+    assert {j.get("name") for j in joints if j.get("type") == "fixed"} == {
+        f"{side}_{name}_fixed" for name in ["tower"] + POINTS
+    }
 
     model = load_mjcf(side)
     bodies = {model.body(i).name for i in range(model.nbody)}
     assert {f"{side}_{p}" for p in PARTS} | {f"{side}_base"} <= bodies
     assert {model.joint(i).name for i in range(model.njnt)} == {f"{side}_{j}" for j in JOINTS}
     assert {model.actuator(i).name for i in range(model.nu)} == {f"{side}_{j}_actuator" for j in JOINTS}
+    assert {model.site(i).name for i in range(model.nsite)} == {f"{side}_{p}" for p in POINTS}
+    parents = {j.get("name"): j.find("parent").get("link") for j in joints}
+    for point in POINTS:
+        segment = f"{side}_{point.split('_')[0]}_dp"
+        assert parents[f"{side}_{point}_fixed"] == segment
+        assert model.body(model.site(f"{side}_{point}").bodyid[0]).name == segment
 
 
 def test_left_is_mirror_of_right() -> None:
@@ -117,7 +127,7 @@ def test_positive_spread_moves_toward_the_thumb(side: str, loader) -> None:
 
 @pytest.mark.parametrize("side", SIDES)
 def test_urdf_and_mjcf_agree(side: str) -> None:
-    """Both files give the same joints, joint limits, masses, centres of mass and inertias."""
+    """Both files give the same joints, joint limits, masses, centres of mass, inertias and fingertip points."""
     model_u, model_m = load_urdf(side), load_mjcf(side)
     data_u, data_m = mujoco.MjData(model_u), mujoco.MjData(model_m)
     mujoco.mj_forward(model_u, data_u)
@@ -147,6 +157,12 @@ def test_urdf_and_mjcf_agree(side: str) -> None:
         inertia_u = frame_u @ np.diag(model_u.body(name).inertia) @ frame_u.T
         inertia_m = frame_m @ np.diag(model_m.body(name).inertia) @ frame_m.T
         np.testing.assert_allclose(inertia_u, inertia_m, atol=1e-6 * np.abs(inertia_u).max())
+
+    for point in POINTS:
+        name = f"{side}_{point}"
+        link, site = data_u.body(name), data_m.site(name)
+        np.testing.assert_allclose(link.xpos, rot @ site.xpos + shift, atol=1e-6, err_msg=point)
+        np.testing.assert_allclose(link.xmat.reshape(3, 3), rot @ site.xmat.reshape(3, 3), atol=1e-5, err_msg=point)
 
 
 @pytest.mark.parametrize("side", SIDES)
@@ -188,3 +204,20 @@ def test_mjcf_holds_still_under_gravity(side: str) -> None:
         mujoco.mj_step(model, data)
     assert np.all(np.isfinite(data.qpos))
     assert np.max(np.abs(data.qvel)) < 0.05
+
+
+@pytest.mark.parametrize("side", SIDES)
+def test_fingertip_points_sit_on_the_skin(side: str) -> None:
+    """Each tip and pad lies on its last segment's skin, within 0.15 mm along its Z axis, and Z points out of the skin."""
+    model = load_mjcf(side)
+    data = mujoco.MjData(model)
+    mujoco.mj_forward(model, data)
+    for point in POINTS:
+        site = data.site(f"{side}_{point}")
+        body = model.site(f"{side}_{point}").bodyid[0]
+        skin = next(g for g in np.flatnonzero(model.geom_bodyid == body)
+                    if model.geom_type[g] == mujoco.mjtGeom.mjGEOM_MESH and "Skin" in model.mesh(model.geom_dataid[g]).name)
+        z = site.xmat.reshape(3, 3)[:, 2]
+        from_outside = mujoco.mj_rayMesh(model, data, skin, site.xpos + 0.001 * z, -z)
+        assert from_outside == pytest.approx(0.001, abs=0.00015), point
+        assert mujoco.mj_rayMesh(model, data, skin, site.xpos + 0.0002 * z, z) == -1, point   # nothing of the skin outside
