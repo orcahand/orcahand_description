@@ -22,7 +22,6 @@ import re
 from pathlib import Path
 
 import coacd
-import numpy as np
 import trimesh
 
 REPO = Path(__file__).resolve().parents[1]
@@ -66,9 +65,7 @@ def main():
     urdf = re.sub(r"\t\t<collision>\n.*?\t\t</collision>\n", "", urdf, flags=re.S)
     assets = re.sub(r'\t\t<mesh name="right_\w+_collision\w*"[^\n]*\n', "", assets)
     body = re.sub(r'\t*<geom mesh="right_\w+_collision\w*"[^\n]*\n', "", body)
-    for old in ASSETS.glob("*_collision*.stl"):
-        old.unlink()
-    new_assets = ""
+    new_assets, new_pieces = "", []
     for block in re.findall(r'\t<link name="right_\w+">\n.*?\t</link>\n', urdf, re.S):
         link = re.match(r'\t<link name="right_(\w+)">', block).group(1)
         files = re.findall(r'assets/right/([\w.-]+)\.stl', block)
@@ -77,7 +74,7 @@ def main():
         shapes = pieces(mesh, *PIECES.get(link, ONE_PIECE))
         names = [f"{link}_collision" + (f"_{k}" if len(shapes) > 1 else "") for k in range(len(shapes))]
         for shape, name in zip(shapes, names):
-            shape.export(ASSETS / f"{name}.stl")
+            new_pieces.append((name, shape))
             new_assets += f'\t\t<mesh name="right_{name}" file="models/assets/right/{name}.stl" />\n'
         print(f"  {link}: {len(shapes)} piece(s), at most {max(len(s.vertices) for s in shapes)} vertices")
         last_visual = block.rindex("\t\t</visual>\n") + len("\t\t</visual>\n")
@@ -96,6 +93,11 @@ def main():
     contact = "".join(f'\t\t<exclude body1="right_{a}" body2="right_{b}" />\n' for a, b in EXCLUDE)
     assets = re.sub(r"\t<contact>\n.*?\t</contact>\n", lambda _: f"\t<contact>\n{contact}\t</contact>\n" if contact else "",
                     assets, flags=re.S)
+    # the old pieces go only once every new one is made, so a run that fails midway leaves the files as they were
+    for old in ASSETS.glob("*_collision*.stl"):
+        old.unlink()
+    for name, shape in new_pieces:
+        shape.export(ASSETS / f"{name}.stl")
     URDF.write_text(urdf)
     MJCF.write_text(assets)
     BODY.write_text(body)
