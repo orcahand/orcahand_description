@@ -49,6 +49,16 @@ def load_mjcf(side: str):
     return mujoco.MjModel.from_xml_path(str(V2 / f"scene_{side}.xml"))
 
 
+def mesh_vertices(model, mesh: int) -> np.ndarray:
+    """A mesh's vertices, in the frame of the geoms that use it."""
+    return model.mesh_vert[model.mesh_vertadr[mesh]:model.mesh_vertadr[mesh] + model.mesh_vertnum[mesh]]
+
+
+def world_vertices(model, data, geom: int) -> np.ndarray:
+    """A mesh geom's vertices in the world frame."""
+    return data.geom_xpos[geom] + mesh_vertices(model, model.geom_dataid[geom]) @ data.geom_xmat[geom].reshape(3, 3).T
+
+
 def collision_pieces(model, data, side: str) -> dict:
     """Mesh name -> world vertices of every colliding mesh geom of the hand."""
     pieces = {}
@@ -56,9 +66,7 @@ def collision_pieces(model, data, side: str) -> dict:
         if model.geom_type[g] != mujoco.mjtGeom.mjGEOM_MESH or not (model.geom_contype[g] or model.geom_conaffinity[g]):
             continue
         assert model.body(model.geom_bodyid[g]).name.startswith(side)
-        mesh = model.geom_dataid[g]
-        vertices = model.mesh_vert[model.mesh_vertadr[mesh]:model.mesh_vertadr[mesh] + model.mesh_vertnum[mesh]]
-        pieces[model.mesh(mesh).name] = data.geom_xpos[g] + vertices @ data.geom_xmat[g].reshape(3, 3).T
+        pieces[model.mesh(model.geom_dataid[g]).name] = world_vertices(model, data, g)
     return pieces
 
 
@@ -205,12 +213,8 @@ def test_centres_of_mass_lie_in_their_parts(side: str) -> None:
     mujoco.mj_forward(model, data)
     for part in PARTS:
         body = model.body(f"{side}_{part}").id
-        points = []
-        for g in np.flatnonzero((model.geom_bodyid == body) & (model.geom_type == mujoco.mjtGeom.mjGEOM_MESH)):
-            mesh = model.geom_dataid[g]
-            vertices = model.mesh_vert[model.mesh_vertadr[mesh]:model.mesh_vertadr[mesh] + model.mesh_vertnum[mesh]]
-            points.append(data.geom_xpos[g] + vertices @ data.geom_xmat[g].reshape(3, 3).T)
-        points = np.vstack(points)
+        meshes = np.flatnonzero((model.geom_bodyid == body) & (model.geom_type == mujoco.mjtGeom.mjGEOM_MESH))
+        points = np.vstack([world_vertices(model, data, g) for g in meshes])
         assert np.all(points.min(0) < data.xipos[body]) and np.all(data.xipos[body] < points.max(0)), part
 
 
@@ -256,7 +260,7 @@ def test_collision_pieces_are_light_and_clear(side: str) -> None:
         mesh = model.geom_dataid[g]
         name = model.mesh(mesh).name
         assert model.geom_group[g] == 3 and "_collision" in name, name
-        vertices = model.mesh_vert[model.mesh_vertadr[mesh]:model.mesh_vertadr[mesh] + model.mesh_vertnum[mesh]]
+        vertices = mesh_vertices(model, mesh)
         faces = model.mesh_face[model.mesh_faceadr[mesh]:model.mesh_faceadr[mesh] + model.mesh_facenum[mesh]]
         assert len(vertices) <= 64, name
         a, b, c = (vertices[faces[:, k]] for k in range(3))
@@ -282,5 +286,6 @@ def test_one_joint_at_a_limit_touches_only_a_neighbouring_finger(side: str) -> N
             mujoco.mj_forward(model, data)
             for c in data.contact[:data.ncon]:
                 names = [model.body(model.geom_bodyid[g]).name for g in (c.geom1, c.geom2)]
-                digits = sorted(FINGERS.index(n.split("_")[1]) if n.split("_")[1] in FINGERS else -9 for n in names)
+                fingers = [n.partition("_")[2].split("_")[0] for n in names]   # "" for the world body (the floor)
+                digits = sorted(FINGERS.index(f) if f in FINGERS else -9 for f in fingers)
                 assert digits[1] - digits[0] == 1, (model.joint(j).name, np.degrees(limit), names)
