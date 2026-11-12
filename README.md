@@ -19,7 +19,7 @@ The `extended` version contains additional bodies (incl. inertial properties) su
 
 The v2 names changed in November 2026 ([#20](https://github.com/orcahand/orcahand_description/pull/20)). If your code uses the old names, see [Renaming your files](#renaming-your-files).
 
-Every v2 name starts with the side, `right_` or `left_`. **Joints** are `{side}_{joint}`, using orca_core's 17 joint ids: `wrist`; `thumb_cmc`, `thumb_abd`, `thumb_mcp`, `thumb_dip`; and `{finger}_abd`, `{finger}_mcp`, `{finger}_pip` for `index`, `middle`, `ring`, `pinky` (e.g. `right_index_mcp`). Positive finger spread (`{finger}_abd`) moves the finger toward the thumb. MJCF motors are `{side}_{joint}_actuator`.
+Every v2 name starts with the side, `right_` or `left_`. **Joints** are `{side}_{joint}`, using orca_core's 17 joint ids: `wrist`; `thumb_cmc`, `thumb_abd`, `thumb_mcp`, `thumb_dip`; and `{finger}_abd`, `{finger}_mcp`, `{finger}_pip` for `index`, `middle`, `ring`, `pinky` (e.g. `right_index_mcp`). The URDF also has the fixed joint `{side}_tower_fixed`, from the forearm to the tower. Positive finger spread (`{finger}_abd`) moves the finger toward the thumb. MJCF motors are `{side}_{joint}_actuator`.
 
 **Parts** (URDF links and MJCF bodies), from the arm outwards:
 
@@ -36,7 +36,7 @@ Every v2 name starts with the side, `right_` or `left_`. **Joints** are `{side}_
 | `{side}_thumb_pp` | first thumb segment | `thumb_mcp` |
 | `{side}_thumb_dp` | last thumb segment | `thumb_dip` |
 
-In the URDF, each part's frame sits on the joint it moves at. In the MJCF, the hand hangs from a `{side}_base` body, and each body frame sits at its part's mesh origin.
+In the URDF, each part's frame sits on the joint it moves at, so the last finger segment's origin is its PIP joint (thumb: DIP joint). In the MJCF, the hand hangs from a `{side}_base` body, and each body frame sits at its part's mesh origin.
 
 **Fingertip points:** each digit's last segment has two frames on its skin, `{side}_{digit}_tip` at the end of the fingertip and `{side}_{digit}_pad` in the middle of the pad, where pinches touch (`digit` is `thumb`, `index`, `middle`, `ring` or `pinky`). In the URDF they are links on the fixed joints `{side}_{digit}_tip_fixed` and `{side}_{digit}_pad_fixed`; in the MJCF they are sites. Z points out of the skin, X along the segment's joint axis, and Y = Z × X. They were placed by hand on the right hand's skin; the left hand's are their mirror.
 
@@ -58,7 +58,7 @@ For names from the `fb/split-mjcf-scene-positioning` branch, use `--source fb-sp
 
 **Masses** were weighed on a v2.1.1 right hand with Dynamixel motors. **Centres of mass and inertias** come from the CAD, with each part at its weighed mass. The URDF and the MJCF have the same masses, centres of mass and inertias.
 
-**Joint damping, friction and armature** are estimates and only in the MJCF. The URDF has none: URDF can't express armature, and damping without armature makes simulators that apply damping explicitly unstable.
+**Joint damping, friction and armature** are estimates and only in the MJCF: damping 0.1 N·m·s/rad, friction loss 0.001 N·m, armature 0.001 kg·m². The URDF has none: URDF can't express armature, and damping without armature makes simulators that apply damping explicitly unstable.
 
 ## Example Usage
 1. Clone the repository:
