@@ -91,16 +91,18 @@ def main():
     last_mesh = assets.index("\n", last_mesh) + 1
     assets = assets[:last_mesh] + new_assets + assets[last_mesh:]
     contact = "".join(f'\t\t<exclude body1="right_{a}" body2="right_{b}" />\n' for a, b in EXCLUDE)
-    assets = re.sub(r"\t<contact>\n.*?\t</contact>\n", lambda _: f"\t<contact>\n{contact}\t</contact>\n" if contact else "",
-                    assets, flags=re.S)
-    # the old pieces go only once every new one is made, so a run that fails midway leaves the files as they were
-    for old in ASSETS.glob("*_collision*.stl"):
-        old.unlink()
+    assets, found = re.subn(r"\t<contact>\n.*?\t</contact>\n", lambda _: f"\t<contact>\n{contact}\t</contact>\n",
+                            assets, flags=re.S)
+    if found != 1:
+        raise ValueError(f"{MJCF.name} needs one <contact> block for the excludes, found {found}")
+    # the files that no model references any more go last, so a run that stops midway never leaves a missing mesh
     for name, shape in new_pieces:
         shape.export(ASSETS / f"{name}.stl")
     URDF.write_text(urdf)
     MJCF.write_text(assets)
     BODY.write_text(body)
+    for old in set(ASSETS.glob("*_collision*.stl")) - {ASSETS / f"{name}.stl" for name, _ in new_pieces}:
+        old.unlink()
     print("done: now run python utils/mirror_left_from_right.py")
 
 
