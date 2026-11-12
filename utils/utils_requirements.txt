@@ -2,3 +2,5 @@ trimesh
 fast_simplification
 tabulate
 termcolor
+scipy
+coacd==1.0.14  # the collision pieces depend on the CoACD version, not only on the seed

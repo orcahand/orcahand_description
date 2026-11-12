@@ -14,6 +14,7 @@
 		<mesh name="right_I-AP-R" file="models/assets/right/I-AP-R.stl" />
 		<mesh name="right_T-TP-R" file="models/assets/right/T-TP-R.stl" />
 		<mesh name="right_R-Carpals" file="models/assets/right/R-Carpals.stl" />
+		<mesh name="right_R-Carpals_Skin" file="models/assets/right/R-Carpals_Skin.stl" />
 		<mesh name="right_M-AP" file="models/assets/right/M-AP.stl" />
 		<mesh name="right_ForeArmStructure-Model_Logo" file="models/assets/right/ForeArmStructure-Model_Logo.stl" />
 		<mesh name="right_T-PP_Skin" file="models/assets/right/T-PP_Skin.stl" />
@@ -32,6 +33,52 @@
 		<mesh name="right_I-PP_Skin" file="models/assets/right/I-PP_Skin.stl" />
 		<mesh name="right_M-IP_IP" file="models/assets/right/M-IP_IP.stl" />
 		<mesh name="right_M-FingerTipAssembly_M-DP-Skin" file="models/assets/right/M-FingerTipAssembly_M-DP-Skin.stl" />
+		<mesh name="right_forearm_collision" file="models/assets/right/forearm_collision.stl" />
+		<mesh name="right_tower_collision_0" file="models/assets/right/tower_collision_0.stl" />
+		<mesh name="right_tower_collision_1" file="models/assets/right/tower_collision_1.stl" />
+		<mesh name="right_tower_collision_2" file="models/assets/right/tower_collision_2.stl" />
+		<mesh name="right_tower_collision_3" file="models/assets/right/tower_collision_3.stl" />
+		<mesh name="right_tower_collision_4" file="models/assets/right/tower_collision_4.stl" />
+		<mesh name="right_tower_collision_5" file="models/assets/right/tower_collision_5.stl" />
+		<mesh name="right_carpals_collision_0" file="models/assets/right/carpals_collision_0.stl" />
+		<mesh name="right_carpals_collision_1" file="models/assets/right/carpals_collision_1.stl" />
+		<mesh name="right_carpals_collision_2" file="models/assets/right/carpals_collision_2.stl" />
+		<mesh name="right_carpals_collision_3" file="models/assets/right/carpals_collision_3.stl" />
+		<mesh name="right_carpals_collision_4" file="models/assets/right/carpals_collision_4.stl" />
+		<mesh name="right_carpals_collision_5" file="models/assets/right/carpals_collision_5.stl" />
+		<mesh name="right_carpals_collision_6" file="models/assets/right/carpals_collision_6.stl" />
+		<mesh name="right_carpals_collision_7" file="models/assets/right/carpals_collision_7.stl" />
+		<mesh name="right_pinky_ap_collision" file="models/assets/right/pinky_ap_collision.stl" />
+		<mesh name="right_pinky_pp_collision" file="models/assets/right/pinky_pp_collision.stl" />
+		<mesh name="right_pinky_dp_collision_0" file="models/assets/right/pinky_dp_collision_0.stl" />
+		<mesh name="right_pinky_dp_collision_1" file="models/assets/right/pinky_dp_collision_1.stl" />
+		<mesh name="right_pinky_dp_collision_2" file="models/assets/right/pinky_dp_collision_2.stl" />
+		<mesh name="right_pinky_dp_collision_3" file="models/assets/right/pinky_dp_collision_3.stl" />
+		<mesh name="right_ring_ap_collision" file="models/assets/right/ring_ap_collision.stl" />
+		<mesh name="right_ring_pp_collision" file="models/assets/right/ring_pp_collision.stl" />
+		<mesh name="right_ring_dp_collision_0" file="models/assets/right/ring_dp_collision_0.stl" />
+		<mesh name="right_ring_dp_collision_1" file="models/assets/right/ring_dp_collision_1.stl" />
+		<mesh name="right_ring_dp_collision_2" file="models/assets/right/ring_dp_collision_2.stl" />
+		<mesh name="right_ring_dp_collision_3" file="models/assets/right/ring_dp_collision_3.stl" />
+		<mesh name="right_middle_ap_collision" file="models/assets/right/middle_ap_collision.stl" />
+		<mesh name="right_middle_pp_collision" file="models/assets/right/middle_pp_collision.stl" />
+		<mesh name="right_middle_dp_collision_0" file="models/assets/right/middle_dp_collision_0.stl" />
+		<mesh name="right_middle_dp_collision_1" file="models/assets/right/middle_dp_collision_1.stl" />
+		<mesh name="right_middle_dp_collision_2" file="models/assets/right/middle_dp_collision_2.stl" />
+		<mesh name="right_middle_dp_collision_3" file="models/assets/right/middle_dp_collision_3.stl" />
+		<mesh name="right_index_ap_collision" file="models/assets/right/index_ap_collision.stl" />
+		<mesh name="right_index_pp_collision" file="models/assets/right/index_pp_collision.stl" />
+		<mesh name="right_index_dp_collision_0" file="models/assets/right/index_dp_collision_0.stl" />
+		<mesh name="right_index_dp_collision_1" file="models/assets/right/index_dp_collision_1.stl" />
+		<mesh name="right_index_dp_collision_2" file="models/assets/right/index_dp_collision_2.stl" />
+		<mesh name="right_index_dp_collision_3" file="models/assets/right/index_dp_collision_3.stl" />
+		<mesh name="right_thumb_tp_collision" file="models/assets/right/thumb_tp_collision.stl" />
+		<mesh name="right_thumb_ap_collision" file="models/assets/right/thumb_ap_collision.stl" />
+		<mesh name="right_thumb_pp_collision" file="models/assets/right/thumb_pp_collision.stl" />
+		<mesh name="right_thumb_dp_collision_0" file="models/assets/right/thumb_dp_collision_0.stl" />
+		<mesh name="right_thumb_dp_collision_1" file="models/assets/right/thumb_dp_collision_1.stl" />
+		<mesh name="right_thumb_dp_collision_2" file="models/assets/right/thumb_dp_collision_2.stl" />
+		<mesh name="right_thumb_dp_collision_3" file="models/assets/right/thumb_dp_collision_3.stl" />
 	</asset>
 	<actuator>
 		<position name="right_wrist_actuator" joint="right_wrist" ctrlrange="-1.1344640137963142 0.6108652381980153" />
@@ -53,74 +100,11 @@
 		<position name="right_thumb_dip_actuator" joint="right_thumb_dip" ctrlrange="-0.2617993877991494 1.8675022996339325" />
 	</actuator>
 	<contact>
-		<exclude body1="right_forearm" body2="right_tower" />
-		<exclude body1="right_forearm" body2="right_carpals" />
 		<exclude body1="right_tower" body2="right_carpals" />
-		<exclude body1="right_forearm" body2="right_pinky_ap" />
-		<exclude body1="right_tower" body2="right_pinky_ap" />
-		<exclude body1="right_carpals" body2="right_pinky_ap" />
-		<exclude body1="right_forearm" body2="right_pinky_pp" />
-		<exclude body1="right_tower" body2="right_pinky_pp" />
-		<exclude body1="right_carpals" body2="right_pinky_pp" />
-		<exclude body1="right_pinky_ap" body2="right_pinky_pp" />
-		<exclude body1="right_forearm" body2="right_pinky_dp" />
-		<exclude body1="right_tower" body2="right_pinky_dp" />
-		<exclude body1="right_carpals" body2="right_pinky_dp" />
-		<exclude body1="right_pinky_ap" body2="right_pinky_dp" />
-		<exclude body1="right_pinky_pp" body2="right_pinky_dp" />
-		<exclude body1="right_forearm" body2="right_ring_ap" />
-		<exclude body1="right_tower" body2="right_ring_ap" />
-		<exclude body1="right_carpals" body2="right_ring_ap" />
-		<exclude body1="right_forearm" body2="right_ring_pp" />
-		<exclude body1="right_tower" body2="right_ring_pp" />
-		<exclude body1="right_carpals" body2="right_ring_pp" />
-		<exclude body1="right_ring_ap" body2="right_ring_pp" />
-		<exclude body1="right_forearm" body2="right_ring_dp" />
-		<exclude body1="right_tower" body2="right_ring_dp" />
-		<exclude body1="right_carpals" body2="right_ring_dp" />
-		<exclude body1="right_ring_ap" body2="right_ring_dp" />
-		<exclude body1="right_ring_pp" body2="right_ring_dp" />
-		<exclude body1="right_forearm" body2="right_middle_ap" />
-		<exclude body1="right_tower" body2="right_middle_ap" />
-		<exclude body1="right_carpals" body2="right_middle_ap" />
-		<exclude body1="right_forearm" body2="right_middle_pp" />
-		<exclude body1="right_tower" body2="right_middle_pp" />
-		<exclude body1="right_carpals" body2="right_middle_pp" />
-		<exclude body1="right_middle_ap" body2="right_middle_pp" />
-		<exclude body1="right_forearm" body2="right_middle_dp" />
-		<exclude body1="right_tower" body2="right_middle_dp" />
-		<exclude body1="right_carpals" body2="right_middle_dp" />
-		<exclude body1="right_middle_ap" body2="right_middle_dp" />
-		<exclude body1="right_middle_pp" body2="right_middle_dp" />
-		<exclude body1="right_forearm" body2="right_index_ap" />
-		<exclude body1="right_tower" body2="right_index_ap" />
-		<exclude body1="right_carpals" body2="right_index_ap" />
-		<exclude body1="right_forearm" body2="right_index_pp" />
-		<exclude body1="right_tower" body2="right_index_pp" />
 		<exclude body1="right_carpals" body2="right_index_pp" />
-		<exclude body1="right_index_ap" body2="right_index_pp" />
-		<exclude body1="right_forearm" body2="right_index_dp" />
-		<exclude body1="right_tower" body2="right_index_dp" />
-		<exclude body1="right_carpals" body2="right_index_dp" />
-		<exclude body1="right_index_ap" body2="right_index_dp" />
-		<exclude body1="right_index_pp" body2="right_index_dp" />
-		<exclude body1="right_forearm" body2="right_thumb_tp" />
-		<exclude body1="right_tower" body2="right_thumb_tp" />
-		<exclude body1="right_carpals" body2="right_thumb_tp" />
-		<exclude body1="right_forearm" body2="right_thumb_ap" />
-		<exclude body1="right_tower" body2="right_thumb_ap" />
+		<exclude body1="right_carpals" body2="right_middle_pp" />
+		<exclude body1="right_carpals" body2="right_ring_pp" />
+		<exclude body1="right_carpals" body2="right_pinky_pp" />
 		<exclude body1="right_carpals" body2="right_thumb_ap" />
-		<exclude body1="right_thumb_tp" body2="right_thumb_ap" />
-		<exclude body1="right_forearm" body2="right_thumb_pp" />
-		<exclude body1="right_tower" body2="right_thumb_pp" />
-		<exclude body1="right_carpals" body2="right_thumb_pp" />
-		<exclude body1="right_thumb_tp" body2="right_thumb_pp" />
-		<exclude body1="right_thumb_ap" body2="right_thumb_pp" />
-		<exclude body1="right_forearm" body2="right_thumb_dp" />
-		<exclude body1="right_tower" body2="right_thumb_dp" />
-		<exclude body1="right_carpals" body2="right_thumb_dp" />
-		<exclude body1="right_thumb_tp" body2="right_thumb_dp" />
-		<exclude body1="right_thumb_ap" body2="right_thumb_dp" />
-		<exclude body1="right_thumb_pp" body2="right_thumb_dp" />
 	</contact>
 </mujoco>

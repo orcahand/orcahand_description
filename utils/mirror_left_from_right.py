@@ -16,7 +16,7 @@ left == mirror(right) holds exactly:
   - v2/models/urdf/orcahand_left.urdf      from v2/models/urdf/orcahand_right.urdf
   - v2/models/mjcf/orcahand_left_body.xml  from v2/models/mjcf/orcahand_right_body.xml
   - v2/models/mjcf/orcahand_left.mjcf      from v2/models/mjcf/orcahand_right.mjcf
-  - v2/models/assets/left/*.stl            from v2/models/assets/right/*.stl
+  - v2/models/assets/left/*.stl            from v2/models/assets/right/*.stl (a left mesh without one is removed)
 
 Reflection across the x=0 plane with M = diag(-1, 1, 1). Because URDF rpy is
 extrinsic XYZ (R = Rz(y) @ Ry(p) @ Rx(r)) and M @ Rx(r) @ M = Rx(r),
@@ -145,7 +145,13 @@ def _mirror_urdf_numbers(text: str) -> str:
     return "\n".join(out)
 
 
+UNMIRRORED = ("fromto", "euler", "xyaxes", "zaxis", "axisangle", "dir")   # MJCF attributes the rules above don't cover
+
+
 def _mirror_body_numbers(text: str) -> str:
+    unknown = [attr for attr in UNMIRRORED if re.search(rf'\s{attr}\s*=', text)]
+    if unknown:
+        raise ValueError(f"cannot mirror {unknown}: write positions as pos and orientations as quat")
     out = []
     for line in text.split("\n"):
         for attr, idx in BODY_RULES:
@@ -218,8 +224,9 @@ def main(argv=None) -> int:
     self_test()
     files = generate()
 
+    extra = sorted(set(MESH_LEFT_DIR.glob("*.stl")) - set(files))   # left meshes whose right one is gone
     stale = [str(p.relative_to(REPO_ROOT)) for p, data in files.items()
-             if not p.exists() or p.read_bytes() != data]
+             if not p.exists() or p.read_bytes() != data] + [str(p.relative_to(REPO_ROOT)) for p in extra]
     if args.check:
         if stale:
             print("STALE (left != mirror(right)):")
@@ -231,8 +238,11 @@ def main(argv=None) -> int:
 
     for path, data in files.items():
         path.write_bytes(data)
+    for path in extra:
+        print(f"removed {path.relative_to(REPO_ROOT)}: no right mesh mirrors to it")
+        path.unlink()
     print(f"Wrote {len(files)} left files mirrored from right "
-          f"({len(stale)} changed).")
+          f"({len(stale) - len(extra)} changed, {len(extra)} removed).")
     return 0
 
 
