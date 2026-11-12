@@ -145,11 +145,11 @@ def _mirror_urdf_numbers(text: str) -> str:
     return "\n".join(out)
 
 
-UNMIRRORED = ("fromto", "euler", "xyaxes", "zaxis", "axisangle")   # MJCF attributes the rules above don't cover
+UNMIRRORED = ("fromto", "euler", "xyaxes", "zaxis", "axisangle", "dir")   # MJCF attributes the rules above don't cover
 
 
 def _mirror_body_numbers(text: str) -> str:
-    unknown = [attr for attr in UNMIRRORED if f' {attr}="' in text]
+    unknown = [attr for attr in UNMIRRORED if re.search(rf'\s{attr}\s*=', text)]
     if unknown:
         raise ValueError(f"cannot mirror {unknown}: write positions as pos and orientations as quat")
     out = []
@@ -239,6 +239,7 @@ def main(argv=None) -> int:
     for path, data in files.items():
         path.write_bytes(data)
     for path in extra:
+        print(f"removed {path.relative_to(REPO_ROOT)}: no right mesh mirrors to it")
         path.unlink()
     print(f"Wrote {len(files)} left files mirrored from right "
           f"({len(stale) - len(extra)} changed, {len(extra)} removed).")
